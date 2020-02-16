@@ -104,7 +104,7 @@ namespace GameBLL.BLL_Classess
         /// <summary>
         /// פעולה לקבלת כל המפות שבסיס הנתונים
         /// </summary>
-        /// <returns></returns>
+        /// <returns>שרשרת המכילה את כל המפות שבסיס הנתונים. חשוב לציין כי אותן מפות לא יתחילו להם את </returns>
         public List<MapBL> GetAllMapsInfo()
         {
             List<MapBL> mapBLs = new List<MapBL>();
@@ -117,8 +117,7 @@ namespace GameBLL.BLL_Classess
             for (int i = 0; i < dataTableMap.Rows.Count; i++)
             {
                 mapBLs.Add(new MapBL((int)dataTableMap.Rows[i][0]));
-                mapBLs[i].InitializeMapRoad();
-                mapBLs[i].InitializePointsArray();
+                
             }
             return mapBLs;
         }

@@ -50,17 +50,11 @@ namespace GameBLL
             Console.WriteLine(DataTablePrint.BuildTable(
                WaveArchives.GetWaveArchivesWithWaveProperties(1, 1), 27));
 
-            Console.WriteLine(DataTablePrint.BuildTable(
-                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(1), 15));
 
             Console.WriteLine(DataTablePrint.BuildTable(
-                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(2), 15));
+                Maps.GetMapRoad(3), 15));
 
-            Console.WriteLine(DataTablePrint.BuildTable(
-               GameDAL.DAL_Classess.Game.GetHighestBossByBossHealth(), 27));
-
-            Console.WriteLine(DataTablePrint.BuildTable(
-                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(3), 15));
+            
 
            
 
