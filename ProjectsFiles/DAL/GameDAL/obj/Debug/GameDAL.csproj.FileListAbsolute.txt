@@ -1,0 +1,78 @@
+C:\Users\User\source\repos\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\User\source\repos\DAL\GameDAL\bin\Debug\GameDAL.exe.config
+C:\Users\User\source\repos\DAL\GameDAL\bin\Debug\GameDAL.exe
+C:\Users\User\source\repos\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\User\source\repos\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\User\source\repos\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\DAL\GameDAL\obj\Debug\GameDAL.exe
+C:\Users\User\source\repos\DAL\GameDAL\obj\Debug\GameDAL.pdb
+C:\Users\User\Desktop\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\User\Desktop\DAL\GameDAL\bin\Debug\GameDAL.exe.config
+C:\Users\User\Desktop\DAL\GameDAL\bin\Debug\GameDAL.exe
+C:\Users\User\Desktop\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\User\Desktop\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\User\Desktop\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DAL\GameDAL\obj\Debug\GameDAL.exe
+C:\Users\User\Desktop\DAL\GameDAL\obj\Debug\GameDAL.pdb
+F:\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+F:\DAL\GameDAL\bin\Debug\GameDAL.pdb
+F:\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+F:\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+F:\DAL\GameDAL\obj\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\bin\Debug\GameDAL.exe.config
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\bin\Debug\GameDAL.exe
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\obj\Debug\GameDAL.exe
+C:\Users\assaf\OneDrive\שולחן העבודה\DAL\GameDAL\obj\Debug\GameDAL.pdb
+E:\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+E:\DAL\GameDAL\bin\Debug\GameDAL.exe.config
+E:\DAL\GameDAL\bin\Debug\GameDAL.exe
+E:\DAL\GameDAL\bin\Debug\GameDAL.pdb
+E:\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+E:\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+E:\DAL\GameDAL\obj\Debug\GameDAL.exe
+E:\DAL\GameDAL\obj\Debug\GameDAL.pdb
+F:\DAL\GameDAL\bin\Debug\GameDAL.exe.config
+F:\DAL\GameDAL\bin\Debug\GameDAL.exe
+F:\DAL\GameDAL\obj\Debug\GameDAL.exe
+D:\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+D:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+D:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+D:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
+D:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+D:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+D:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+D:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+F:\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+F:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+F:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+F:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
+F:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+F:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+F:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+F:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+E:\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+E:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+E:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+E:\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+E:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+E:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
+E:\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csproj.CoreCompileInputs.cache
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+C:\Users\assaf\OneDrive\מסמכים\GitHub\Business-Logic-Layer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
