@@ -22,6 +22,7 @@ namespace GameBLL
             UserBL userBL = new UserBL("assafShabili@gmail.com", "0524598498");
             Console.WriteLine(userBL);
 
+            
 
             //MapBL mapBL = new MapBL(1);
             //mapBL.InitializeMapRoad();
@@ -45,7 +46,23 @@ namespace GameBLL
             Console.WriteLine(DataTablePrint.BuildTable(
                 GameDAL.DAL_Classess.Game.GetHighestBossByBossHealth(),27));
 
-            
+
+            Console.WriteLine(DataTablePrint.BuildTable(
+               WaveArchives.GetWaveArchivesWithWaveProperties(1, 1), 27));
+
+            Console.WriteLine(DataTablePrint.BuildTable(
+                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(1), 15));
+
+            Console.WriteLine(DataTablePrint.BuildTable(
+                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(2), 15));
+
+            Console.WriteLine(DataTablePrint.BuildTable(
+               GameDAL.DAL_Classess.Game.GetHighestBossByBossHealth(), 27));
+
+            Console.WriteLine(DataTablePrint.BuildTable(
+                GameDAL.DAL_Classess.Maps.GetMapInfoWithRoad(3), 15));
+
+           
 
 
             Console.ReadKey();

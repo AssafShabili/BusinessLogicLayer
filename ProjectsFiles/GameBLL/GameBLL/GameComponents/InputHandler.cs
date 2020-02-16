@@ -11,6 +11,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace GameBLL.GameComponents
 {
+
+    // המחלקת הזאת חסרת תועלת אפשר להסיר אותה!
+
+
     /// <summary>
     /// מחלקת שירות לניהול הקלט מהמשתמש
     /// </summary>
@@ -39,17 +43,7 @@ namespace GameBLL.GameComponents
             }
         }
 
-        public void DrawTower()
-        {
-            //בודקים אם אפשר
-            if (SelectedObject is MapTile)
-            {
-                if (!((MapTile)SelectedObject).GetIsRoad())
-                {
-
-                }
-            }
-        }
+       
 
         /// <summary>
         /// פעולה לבדיקה אם מיקום הבחירה היא הבתוך שדה המשחק!

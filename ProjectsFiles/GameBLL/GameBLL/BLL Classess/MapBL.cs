@@ -194,7 +194,10 @@ namespace GameBLL.BLL_Classess
 
 
         
-
+        /// <summary>
+        /// פעולה להדפסת 
+        /// </summary>
+        /// <returns>סטרינג </returns>
         public override string ToString()
         {
             return $" NAME - {this.name} " +

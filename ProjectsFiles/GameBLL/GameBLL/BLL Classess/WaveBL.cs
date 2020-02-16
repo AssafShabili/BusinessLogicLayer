@@ -235,8 +235,9 @@ namespace GameBLL.BLL_Classess
                          (this.Enemylst[i].GetHp() / 2));
                 }
             }
+            
             // אם אחוז הניצחון של המשתמש גבוהה מאוד 
-            else if(game.CalculateWinStreak() >= 80 )
+            if(game.CalculateWinStreak() >= 80 )
             {
                 List<Tuple<TowerType, int>> towerList = game.GetMostCommonTower();
                 Tuple<TowerType, int> maxTowerTuple = new Tuple<TowerType, int>(TowerType.defaultType,-1);
@@ -275,7 +276,7 @@ namespace GameBLL.BLL_Classess
                 }
                 this.AddBossToWave((maxTowerTuple.Item1), true);
             }
-
+            
         }
 
         

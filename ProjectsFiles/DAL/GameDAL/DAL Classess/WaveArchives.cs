@@ -122,7 +122,7 @@ namespace GameDAL.DAL_Classess
             return DBHelper.GetDataTable(0,
             " SELECT WaveArchives.Wave_ID, WaveArchives.Game_ID, WaveArchives.Map_ID, WaveArchives.Easy_mode, WaveArchives.IsWon, Properties.numbers_of_wins, Properties.numbers_of_losess, Properties.numbers_of_water_towers, Properties.numbers_of_fire_towers, Properties.numbers_of_earth_towers, Properties.numbers_of_air_towers " +
             " FROM(Wave INNER JOIN WaveArchives ON Wave.[Wave_id] = WaveArchives.[Wave_ID]) INNER JOIN Properties ON Wave.[Wave_id] = Properties.[Wave_ID] " +
-           $" WHERE WaveArchives.Wave_ID = {waveID} WaveArchives.Map_ID = {mapID} ;");
+           $" WHERE WaveArchives.Wave_ID = {waveID} AND WaveArchives.Map_ID = {mapID} ;");
 
         }
 
