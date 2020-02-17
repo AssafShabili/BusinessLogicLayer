@@ -16,9 +16,6 @@ namespace GameBLL.BLL_Classess
 
         //TODO add GameSave
         // ==========  השמירות של המשתמש =======
-        //private GameBL gameSave1;
-        //private GameBL gameSave2;
-        //private GameBL gameSave3;
         private List<GameBL> gameSaves;
         // =======  סיום השמירות של המשתמש =======
 
@@ -166,7 +163,31 @@ namespace GameBLL.BLL_Classess
             return false;
 
         }
-              
+        
+        /// <summary>
+        /// פעולה לקבלת המפות מכל השמירות של המשתמש
+        /// </summary>
+        /// <returns>אם למשתמש יש שמירות אז הפעולה תחזיר רשימה של כל המפות של כל המשחקים של המשתמש אחרת 
+        /// אם למשתמש יש אפס שמירות קיימות הפעולה תחזיר שרשרת ריקה</returns>
+        public List<MapBL> GetUserGamesMaps()
+        {
+            if(this.gameSaves.Count > 0)
+            {
+                List<MapBL> mapBLLists = new List<MapBL>();
+                foreach (GameBL game in this.gameSaves)
+                {
+                    mapBLLists.Add(game.GetMap());
+                }
+                return mapBLLists;
+            }
+            return new List<MapBL>();
+
+        }
+
+        /// <summary>
+        /// פעולה להחזרת המחלקה בתור סטרינג
+        /// </summary>
+        /// <returns>סטרינג שמייצג את המחלקה</returns>
         public override string ToString()
         {
             return $"User [{this.userID}] \n" +
