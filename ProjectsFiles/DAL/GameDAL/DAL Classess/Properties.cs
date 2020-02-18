@@ -10,6 +10,8 @@ namespace GameDAL.DAL_Classess
     public static class Properties
     {
 
+       
+
         /// <summary>
         ///  לפי המפתח של הסיבוב שהפעולה מקבלת הפעולה מחזירה 
         ///  את הנתונים 
@@ -23,6 +25,8 @@ namespace GameDAL.DAL_Classess
                 " FROM Properties " +
                $" WHERE Properties.[Wave_ID] = {waveID}");
         }
+
+        
 
         /// <summary>
         /// פעולה שמחזירה את כל הנתונים של כל הסיבובים שנמצאים בתוך טבלת ה'מאפיינים' המבנה נתונים
@@ -134,6 +138,43 @@ namespace GameDAL.DAL_Classess
             return (wins / lose) * 100;
         }//TODO maybe change it a little bit and switch Properties.[Property_ID] for Properties.[Wave_ID]
 
+
+
+        /// <summary>
+        /// פעולה לעדכון הנתונים שבסיס הנתונים 
+        /// </summary>
+        /// <param name="waveID">יד של סיבוב</param>
+        /// <param name="won">אם השמתמש ניצח או הפסיד</param>
+        /// <param name="numbersWater">מספר של המגדלים של מים שהוא בנה</param>
+        /// <param name="numbersFire">מספר של המגדלים של אש שהוא בנה</param>
+        /// <param name="numbersAir">מספר של מגדלים של אוויר שהוא בנה</param>
+        /// <param name="numbersEarth">מספר של מגדלי אדמה שהוא בנה</param>
+        public static void UpdateWaveProperties(int waveID,bool won,int numbersWater, int numbersFire, int numbersAir,int numbersEarth)
+        {
+            if(won)
+            {
+               DBHelper.UpdateQuery("" +
+                   " UPDATE Properties " +
+                   " SET numbers_of_wins = numbers_of_wins + 1," +
+                  $" numbers_of_water_towers = numbers_of_water_towers + {numbersWater}," +
+                  $" numbers_of_fire_towers = numbers_of_fire_towers + {numbersFire}, " +
+                  $" numbers_of_earth_towers = numbers_of_earth_towers + {numbersEarth}, " +
+                  $" numbers_of_air_towers = numbers_of_air_towers + {numbersAir} " +
+                  $" WHERE Properties.[Wave_ID] = {waveID}");
+            }
+            else
+            {
+                DBHelper.UpdateQuery("" +
+                   " UPDATE Properties " +
+                   " SET numbers_of_losess = numbers_of_losess + 1," +
+                  $" numbers_of_water_towers = numbers_of_water_towers + {numbersWater}," +
+                  $" numbers_of_fire_towers = numbers_of_fire_towers + {numbersFire}, " +
+                  $" numbers_of_earth_towers = numbers_of_earth_towers + {numbersEarth}, " +
+                  $" numbers_of_air_towers = numbers_of_air_towers + {numbersAir} " +
+                  $" WHERE Properties.[Wave_ID] = {waveID}");
+            }
+
+        }//עדיין לא בדקתי
 
 
         /// <summary>

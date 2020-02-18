@@ -101,13 +101,9 @@ C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\GameBLL\GameBL
 C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe.config
 C:\Users\user\Documents\GitHub\Business-Logic-Layer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.csprojAssemblyReference.cache
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe.config
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\Interop.MSXML2.dll
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.csproj.ResolveComReference.cache
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.pdb
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe.config
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.pdb
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameDAL.dll
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\MonoGame.Framework.dll
@@ -127,3 +123,7 @@ C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.csproj.CopyComplete
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe.config
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe.config
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe
