@@ -60,6 +60,7 @@
     <Compile Include="BLL Classess\WaveBL.cs" />
     <Compile Include="GameComponents\Circle.cs" />
     <Compile Include="GameComponents\Enemy.cs" />
+    <Compile Include="GameComponents\GameEngine.cs" />
     <Compile Include="GameComponents\InputHandler.cs" />
     <Compile Include="GameComponents\MapTile.cs" />
     <Compile Include="GameComponents\TowerProjectile.cs" />
