@@ -185,6 +185,9 @@ namespace GameBLL.BLL_Classess
 
         }
 
+        
+           
+
 
         /// <summary>
         /// פעולה לחישוב אם המשתמש צריך הקלות
@@ -384,8 +387,12 @@ namespace GameBLL.BLL_Classess
         {
             return this.waveID;
         }
+        public List<Enemy> GetEnemies()
+        {
+            return this.Enemylst;
+        }
         // ================= סיום פעולות איחזור של הנתונים של הסיבוב ========
 
-        
+
     }
 }

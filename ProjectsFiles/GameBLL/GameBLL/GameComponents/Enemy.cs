@@ -92,7 +92,7 @@ namespace GameBLL.GameComponents
                 color.R -= 15;
                 color.G -= 15;
                 color.B -= 15;
-                
+                return color == Color.Black;
             }
 
             if (this.location != this.GetNextLocation())
