@@ -10,7 +10,7 @@ namespace GameDAL.DAL_Classess
     public static class Properties
     {
 
-       
+
 
         /// <summary>
         ///  לפי המפתח של הסיבוב שהפעולה מקבלת הפעולה מחזירה 
@@ -26,7 +26,7 @@ namespace GameDAL.DAL_Classess
                $" WHERE Properties.[Wave_ID] = {waveID}");
         }
 
-        
+
 
         /// <summary>
         /// פעולה שמחזירה את כל הנתונים של כל הסיבובים שנמצאים בתוך טבלת ה'מאפיינים' המבנה נתונים
@@ -93,7 +93,7 @@ namespace GameDAL.DAL_Classess
         /// <returns></returns>
         public static int GetNumberOfAllTowerTypeBuilt(int waveID)
         {
-            DataTable dataTable =  DBHelper.GetDataTable(0,
+            DataTable dataTable = DBHelper.GetDataTable(0,
                        $" SELECT numbers_of_water_towers,numbers_of_fire_towers,numbers_of_earth_towers,numbers_of_air_towers " +
                         " FROM Properties " +
                        $" WHERE Properties.[Wave_ID] = {waveID}");
@@ -102,24 +102,7 @@ namespace GameDAL.DAL_Classess
                    (int)(dataTable.Rows[0]["numbers_of_fire_towers"]) +
                    (int)(dataTable.Rows[0]["numbers_of_earth_towers"]) +
                    (int)(dataTable.Rows[0]["numbers_of_air_towers"]);
-            
-        }/// <summary>
-        /// פעולה לקבלת מספר הפעמים שנבנה בניין מכל הסוגים 
-        /// </summary>
-        /// <param name="waveID">מפתח של הסיבוב</param>
-        /// <returns></returns>
-        public static int GetNumberOfAllTowerTypeBuilt(int waveID)
-        {
-            DataTable dataTable =  DBHelper.GetDataTable(0,
-                       $" SELECT numbers_of_water_towers,numbers_of_fire_towers,numbers_of_earth_towers,numbers_of_air_towers " +
-                        " FROM Properties " +
-                       $" WHERE Properties.[Wave_ID] = {waveID}");
 
-            return (int)(dataTable.Rows[0]["numbers_of_water_towers"]) +
-                   (int)(dataTable.Rows[0]["numbers_of_fire_towers"]) +
-                   (int)(dataTable.Rows[0]["numbers_of_earth_towers"]) +
-                   (int)(dataTable.Rows[0]["numbers_of_air_towers"]);
-            
         }
 
         //public int GetTheHighestTypeOfTowerBuilt(int waveID)
@@ -130,12 +113,13 @@ namespace GameDAL.DAL_Classess
         //               $" WHERE Properties.[Wave_ID] = {waveID}");
 
         //    int water = (int)(dataTable.Rows[0]["numbers_of_water_towers"]);
-            
-
-            
-            
-
         //}
+
+
+
+
+
+
 
         /// <summary>
         /// פעולה לקבלת המפתח אחוז הניצחות של סיבוב מסויים
@@ -166,18 +150,18 @@ namespace GameDAL.DAL_Classess
         /// <param name="numbersFire">מספר של המגדלים של אש שהוא בנה</param>
         /// <param name="numbersAir">מספר של מגדלים של אוויר שהוא בנה</param>
         /// <param name="numbersEarth">מספר של מגדלי אדמה שהוא בנה</param>
-        public static void UpdateWaveProperties(int waveID,bool won,int numbersWater, int numbersFire, int numbersAir,int numbersEarth)
+        public static void UpdateWaveProperties(int waveID, bool won, int numbersWater, int numbersFire, int numbersAir, int numbersEarth)
         {
-            if(won)
+            if (won)
             {
-               DBHelper.UpdateQuery("" +
-                   " UPDATE Properties " +
-                   " SET numbers_of_wins = numbers_of_wins + 1," +
-                  $" numbers_of_water_towers = numbers_of_water_towers + {numbersWater}," +
-                  $" numbers_of_fire_towers = numbers_of_fire_towers + {numbersFire}, " +
-                  $" numbers_of_earth_towers = numbers_of_earth_towers + {numbersEarth}, " +
-                  $" numbers_of_air_towers = numbers_of_air_towers + {numbersAir} " +
-                  $" WHERE Properties.[Wave_ID] = {waveID}");
+                DBHelper.UpdateQuery("" +
+                    " UPDATE Properties " +
+                    " SET numbers_of_wins = numbers_of_wins + 1," +
+                   $" numbers_of_water_towers = numbers_of_water_towers + {numbersWater}," +
+                   $" numbers_of_fire_towers = numbers_of_fire_towers + {numbersFire}, " +
+                   $" numbers_of_earth_towers = numbers_of_earth_towers + {numbersEarth}, " +
+                   $" numbers_of_air_towers = numbers_of_air_towers + {numbersAir} " +
+                   $" WHERE Properties.[Wave_ID] = {waveID}");
             }
             else
             {
@@ -193,6 +177,8 @@ namespace GameDAL.DAL_Classess
 
         }//עדיין לא בדקתי
 
+
+        
 
         /// <summary>
         /// פעולה לקבלת המפתח אחוז הניצחות של סיבוב מסויים
@@ -214,5 +200,5 @@ namespace GameDAL.DAL_Classess
 
 
 
-        }
+    }
 }

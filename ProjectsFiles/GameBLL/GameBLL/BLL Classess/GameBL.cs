@@ -485,6 +485,10 @@ namespace GameBLL.BLL_Classess
         {
             return this.gameID;
         }
+        public List<TowerBL> GetTowersList()
+        {
+            return this.towersList;
+        }
         // ======= סיום פעולות איחזור ============
     }
 }
