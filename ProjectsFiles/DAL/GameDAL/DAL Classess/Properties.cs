@@ -103,6 +103,23 @@ namespace GameDAL.DAL_Classess
                    (int)(dataTable.Rows[0]["numbers_of_earth_towers"]) +
                    (int)(dataTable.Rows[0]["numbers_of_air_towers"]);
             
+        }/// <summary>
+        /// פעולה לקבלת מספר הפעמים שנבנה בניין מכל הסוגים 
+        /// </summary>
+        /// <param name="waveID">מפתח של הסיבוב</param>
+        /// <returns></returns>
+        public static int GetNumberOfAllTowerTypeBuilt(int waveID)
+        {
+            DataTable dataTable =  DBHelper.GetDataTable(0,
+                       $" SELECT numbers_of_water_towers,numbers_of_fire_towers,numbers_of_earth_towers,numbers_of_air_towers " +
+                        " FROM Properties " +
+                       $" WHERE Properties.[Wave_ID] = {waveID}");
+
+            return (int)(dataTable.Rows[0]["numbers_of_water_towers"]) +
+                   (int)(dataTable.Rows[0]["numbers_of_fire_towers"]) +
+                   (int)(dataTable.Rows[0]["numbers_of_earth_towers"]) +
+                   (int)(dataTable.Rows[0]["numbers_of_air_towers"]);
+            
         }
 
         //public int GetTheHighestTypeOfTowerBuilt(int waveID)
