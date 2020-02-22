@@ -83,3 +83,10 @@ C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\bin\
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\bin\Debug\DataBase\DataBaseGameAssafShabili.accdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll.config
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.dll
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\bin\Debug\GameDAL.pdb
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.csprojAssemblyReference.cache
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.dll
+C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\obj\Debug\GameDAL.pdb

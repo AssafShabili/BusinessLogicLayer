@@ -8,6 +8,8 @@ using System.Data;
 using GameDAL.DAL_Classess;
 using System.IO;
 using Microsoft.Xna.Framework;
+using GameBLL.GameComponents;
+
 
 namespace GameBLL
 {
@@ -22,41 +24,50 @@ namespace GameBLL
             UserBL userBL = new UserBL("assafShabili@gmail.com", "0524598498");
             Console.WriteLine(userBL);
 
-            
+
 
             //MapBL mapBL = new MapBL(1);
             //mapBL.InitializeMapRoad();
 
 
 
-            GameBL game = userBL.GetGameSave(0);
+            //GameBL game = userBL.GetGameSave(0);
 
 
-            List<Tuple<TowerType, int>> lst = game.GetMostCommonTower();
+            //List<Tuple<TowerType, int>> lst = game.GetMostCommonTower();
 
-            foreach (Tuple<TowerType, int> item in lst)
-            {
-                Console.WriteLine($"{item.Item1} - {item.Item2}");
-            }
+            //foreach (Tuple<TowerType, int> item in lst)
+            //{
+            //    Console.WriteLine($"{item.Item1} - {item.Item2}");
+            //}
 
-            TowerType towerType = TowerType.Fire;
+            //TowerType towerType = TowerType.Fire;
 
-            Console.WriteLine(towerType);
+            //Console.WriteLine(towerType);
 
-            Console.WriteLine(DataTablePrint.BuildTable(
-                GameDAL.DAL_Classess.Game.GetHighestBossByBossHealth(),27));
-
-
-            Console.WriteLine(DataTablePrint.BuildTable(
-               WaveArchives.GetWaveArchivesWithWaveProperties(1, 1), 27));
+            //Console.WriteLine(DataTablePrint.BuildTable(
+            //    GameDAL.DAL_Classess.Game.GetHighestBossByBossHealth(),27));
 
 
-            Console.WriteLine(DataTablePrint.BuildTable(
-                Maps.GetMapRoad(3), 15));
+            //Console.WriteLine(DataTablePrint.BuildTable(
+            //   WaveArchives.GetWaveArchivesWithWaveProperties(1, 1), 27));
 
-            
 
-           
+            //Console.WriteLine(DataTablePrint.BuildTable(
+            //    Maps.GetMapRoad(3), 15));
+
+
+            //Console.WriteLine(DataTablePrint.BuildTable(
+            //    Users.GetAdminPercentage(), 15));
+            Enemy enemy = new Enemy(100, null, TowerType.Fire, 50, 50);
+            enemy.Hit(28, TowerType.Earth);
+            Console.WriteLine(enemy.GetHp());
+
+            Users.UpdateAdminPercentageLowestWinrate(23.3);
+
+            Users.UpdateAdminPercentageHighestCurrentWinrate(36.5);
+            Users.UpdateAdminPercentageHighestWinrate(50.5);
+            Users.UpdateAdminPercentageLowestCurrentWinrate(80.5);
 
 
             Console.ReadKey();

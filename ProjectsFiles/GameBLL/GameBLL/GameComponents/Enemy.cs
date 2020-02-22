@@ -12,7 +12,7 @@ using GameDAL.DAL_Classess;
 
 namespace GameBLL.GameComponents
 {
-    //TODO more reasech on the  
+  
     public class Enemy
     {
         private int HP;
@@ -108,21 +108,37 @@ namespace GameBLL.GameComponents
 
         /// <summary>
         /// פעולה לחישוב כמות הנזק 
-        /// צריך לתקן את צורת החישוב + איך ששני סוגים נפגשים
         /// </summary>
         /// <param name="dmg">נזק הנעשה לאויב</param>
         /// <param name="towerType">סוג המגדל התוקף</param>
         public void Hit(int dmg,TowerType towerType)
         {
-            if (this.type == towerType)
+            if(this.type == TowerType.defaultType && towerType == TowerType.defaultType)
             {
-                this.HP = (int)(dmg * (0.5));
+                Hit(dmg);
             }
-            else if (this.type == TowerType.Air && this.type == TowerType.Water)
+            else if (this.type == TowerType.defaultType && towerType != TowerType.defaultType)
             {
-                
+                Hit(dmg + (int)Math.Round(dmg * 1.5));
             }
-            
+            else if (this.type == towerType)
+            {
+                Hit(dmg);
+            }
+            else
+            {
+                /*
+                 * fire -> air = 0 - 2 = -2
+                 *  water -> earth = 1 - 3 = -2
+                 *  earth -> fire = 3 - 0 = 3
+                 *  Air -> water = 2 - 1 = 1
+                 */
+                int modifier = towerType - this.type;
+                if(modifier == 1 || modifier == 3 || modifier == -2)
+                {
+                    Hit(dmg + (int)Math.Round(dmg * 0.5));
+                }
+            }
         }
 
         public int GetHp()
