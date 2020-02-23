@@ -1,0 +1,27 @@
+﻿<Window x:Class="GameClient_12._01._2020.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameClient_12._01._2020"        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="412" Width="704" WindowStyle="None">
+    <Grid>
+        <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" BorderThickness="0,0,0,1" BorderBrush="Blue" Height="23" Margin="42,165,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="250" GotFocus="Email_TextBox_GotFocus" LostFocus="Email_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto"/>
+        <PasswordBox  Name="Password_TextBox" Height="23" Width="250"  Margin="42,205,0,0" BorderBrush="Blue" HorizontalAlignment="Left" BorderThickness="0,0,0,1" VerticalAlignment="Top" Background="Transparent" Foreground="Black" MaxLength="25" PasswordChar="*" GotFocus="Password_TextBox_GotFocus" LostFocus="Password_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" 
+         />
+        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top" FontSize="12" MouseLeftButtonDown="Password_Label_MouseLeftButtonDown" FontFamily="Roboto"/>
+        <Rectangle x:Name="TopPanel" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="696" MouseDown="TopPanel_MouseDown"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="660,10,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click"/>
+        <Button Content="?" HorizontalAlignment="Left" Margin="625,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="585,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
+        <Button Content="SIGN IN" HorizontalAlignment="Left" Margin="80,260,0,0" VerticalAlignment="Top" Width="150" Height="25" BorderBrush="White" Foreground="#FF404040" Background="#FFF0F0F0" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" Click="Button_Click_2" />
+        <Label x:Name="createAccountLbl" Content="Create account" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.577" Width="92" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" Foreground="#FF1D64FD" MouseEnter="CreateAccountLbl_MouseEnter" MouseRightButtonDown="CreateAccountLbl_MouseRightButtonDown" MouseLeave="CreateAccountLbl_MouseLeave"/>
+        <Label x:Name="CantSignInlbl" Content="Can't sign in?" HorizontalAlignment="Left" Margin="10,333,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.577" Width="92" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" Foreground="#FF1D64FD" MouseEnter="CantSignInlbl_MouseEnter" MouseLeave="CantSignInlbl_MouseLeave"/>
+        <Label Content="    SIGN IN" HorizontalAlignment="Left" Margin="80,110,0,0" VerticalAlignment="Top" Width="170" Foreground="#FF3E3E3E" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Height="44"/>
+        <Image HorizontalAlignment="Left" Height="240" Margin="325,88,0,0" VerticalAlignment="Top" Width="270" Source="Img/MONSTERS.jpg" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="195" Margin="450,55,-14,0" VerticalAlignment="Top" Width="260" Source="Img/MAGES.jpg"/>
+        <TextBlock HorizontalAlignment="Left" Margin="511,225,0,0" TextWrapping="Wrap" Text="ELEMENTAL TOWER DEFENSE" VerticalAlignment="Top" Height="103" Width="114" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24"/>
+        <Label x:Name="InputErrorLabel" Content="" HorizontalAlignment="Left" Margin="315,120,0,0" VerticalAlignment="Top" Height="90" Width="130" Background="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FFE24040" FontSize="14"/>
+    </Grid>
+</Window>

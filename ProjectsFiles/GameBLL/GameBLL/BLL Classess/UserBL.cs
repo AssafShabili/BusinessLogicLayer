@@ -62,6 +62,17 @@ namespace GameBLL.BLL_Classess
             this.password = password;
         }
 
+        /// <summary>
+        /// פעולה לבדיקה אם המשתמש קיים בסיס הנתונים
+        /// </summary>
+        /// <param name="email">אימייל של המשתמש</param>
+        /// <param name="password">סיסמא של המשתמש</param>
+        /// <returns>אמת אם המשתמש קיים במערכת ושקר אחרת</returns>
+        public bool LogIn(string email, string password)
+        {
+            return Users.LoginIn(email, password);
+        }
+
         
         /// <summary>
         /// פעולה בונה של משתמש

@@ -123,10 +123,6 @@ C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.csproj.CopyComplete
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe.config
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe.config
-C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe.config
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.exe
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.pdb
@@ -154,3 +150,6 @@ C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\Gam
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.csproj.CopyComplete
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.exe
 C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.pdb
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.dll.config
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\bin\Debug\GameBLL.dll
+C:\Users\user\Documents\GitHub\BusinessLogicLayer\ProjectsFiles\GameBLL\GameBLL\obj\Debug\GameBLL.dll
