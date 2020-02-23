@@ -64,6 +64,7 @@ namespace GameDAL
             DataSet ds = new DataSet();
 
             da.Fill(ds);
+            con.Close();
             return ds;
         }
 
@@ -108,6 +109,7 @@ namespace GameDAL
             {
 
                 DataSet ds = GetDataSet(sqlstring);
+                g.Close();
                 return ds.Tables[indexOfQuery];
             }
             return null;

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL Classess\AdminUserBL.cs" />
     <Compile Include="BLL Classess\GameBL.cs" />
     <Compile Include="BLL Classess\MapBL.cs" />
     <Compile Include="BLL Classess\TowerBL.cs" />
@@ -70,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BLClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MSXML2">
@@ -82,9 +84,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

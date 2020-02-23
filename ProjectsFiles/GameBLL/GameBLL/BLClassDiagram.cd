@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameBLL.BLL_Classess.GameBL">
+    <Position X="6.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AFgCkBJwCgAAAgAAAAAIYEIBAAAQBACRAAkAgAJAGgg=</HashCode>
+      <FileName>BLL Classess\GameBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.UserBL">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACIAAAAgAkCAAAAAAAAAQCAABAIAAAAgAAgAA=</HashCode>
+      <FileName>BLL Classess\UserBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
