@@ -102,5 +102,15 @@ namespace GameBLL.BLL_Classess
             Users.UpdateAdminPercentageLowestCurrentWinrate(percentage);
         }
 
+
+        /// <summary>
+        /// פעולה המחזירה את כמות המשתמשים שיש בסיס הנתונים שלי
+        /// </summary>
+        /// <returns></returns>
+        public int NumberOfUsers()
+        {
+            return Users.GetAllUserID();
+        }
+
     }
 }

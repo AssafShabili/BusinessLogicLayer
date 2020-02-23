@@ -200,6 +200,20 @@ namespace GameDAL.DAL_Classess
 
         #endregion
 
+        /// <summary>
+        /// פעולה לקבלת מספר כל המפתחות של המשתמשים במחלקה
+        /// </summary>
+        /// <returns> הפעולה מחזירה את כל את מספר המפתחות שיש בבסיס הנתונים</returns>
+        public static int GetAllUserID()
+        {
+            DataTable dataTable = DBHelper.GetDataTable(0,
+                " SELECT User_ID " +
+                " FROM Users ");
+            return dataTable.Rows.Count;
+        }
+
+        //TODO תוספת 
+        //נתונים extra לפי הטופס של מנהל המערכת
 
 
     }
