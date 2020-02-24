@@ -61,7 +61,9 @@ namespace GameBLL.BLL_Classess
         }
 
        
-
+        /// <summary>
+        /// פעולה לעדכון המגדלים של המשתמש לתוך השרשרת של המגדלים
+        /// </summary>
         private void InitializeTowers()
         {
             DataTable dataTable = GameDAL.DAL_Classess.Game.GetGameTowers(this.gameID);
