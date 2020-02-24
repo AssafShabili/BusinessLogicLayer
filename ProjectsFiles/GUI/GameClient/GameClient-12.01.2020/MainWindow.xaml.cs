@@ -139,6 +139,7 @@ namespace GameClient_12._01._2020
                 this.Hide();
                 gameLobby.Show();
                 this.Close();
+               
             }
             else
             {
