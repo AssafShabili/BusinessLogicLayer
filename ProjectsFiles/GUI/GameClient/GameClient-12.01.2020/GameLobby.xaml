@@ -26,7 +26,7 @@
                 <DropShadowBitmapEffect Color="#FF3C3838" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.4" />
             </Button.BitmapEffect>
         </Button>
-        <Label Content="Hi,User name place holder" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="225" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
+        <Label x:Name="NameLbl" Content="Hi,User name place holder" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="225" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
         <Label Content="game 1" HorizontalAlignment="Left" Margin="185,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
         <Label Content="game 2" HorizontalAlignment="Left" Margin="380,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
         <Label Content="game 3" HorizontalAlignment="Left" Margin="570,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>

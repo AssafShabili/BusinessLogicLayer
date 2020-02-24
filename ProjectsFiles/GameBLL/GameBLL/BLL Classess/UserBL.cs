@@ -206,5 +206,14 @@ namespace GameBLL.BLL_Classess
                    $"Password - {this.password} ";
         }
 
+        /// <summary>
+        /// פעולה לקבלת השם של המשתמש לפי האימייל שלו
+        /// </summary>
+        /// <returns>סטרינ שמכיל את השם של המשתמש לפי האימייל שלו</returns>
+        public string GetNameByEmail()
+        {
+            return this.email.Split('@')[0];
+        }
+
     }
 }

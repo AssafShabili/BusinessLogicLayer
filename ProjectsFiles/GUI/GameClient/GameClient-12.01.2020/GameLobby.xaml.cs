@@ -25,6 +25,7 @@ namespace GameClient_12._01._2020
         {
             this.user = user;
             InitializeComponent();
+            NameLbl.Content = "Hi, " + user.GetNameByEmail();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

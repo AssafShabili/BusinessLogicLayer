@@ -146,9 +146,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\youtube_profile_image.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Img\logo_transparent.png" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +170,10 @@
     <Resource Include="Img\email.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DAL\GameDAL\GameDAL.csproj">
+      <Project>{c9ff38e7-a48b-43b9-8841-5f9d5823df92}</Project>
+      <Name>GameDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\GameBLL\GameBLL\GameBLL.csproj">
       <Project>{b5c1d05a-0e11-41ad-8d5d-fdddc1bdd809}</Project>
       <Name>GameBLL</Name>

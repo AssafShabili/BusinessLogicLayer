@@ -131,11 +131,11 @@ namespace GameClient_12._01._2020
         { 
             if(Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success
                && Password_TextBox.Password.Length > 8 
-               && this.currnetUser.LogIn(Email_TextBox.Text, Password_TextBox.Password))
+               && !this.currnetUser.LogIn(Email_TextBox.Text, Password_TextBox.Password))
             {
                 currnetUser = new UserBL(Email_TextBox.Text, Password_TextBox.Password);
                 
-                GameLobby gameLobby = new GameLobby();
+                GameLobby gameLobby = new GameLobby(currnetUser);
                 this.Hide();
                 gameLobby.Show();
                 this.Close();
