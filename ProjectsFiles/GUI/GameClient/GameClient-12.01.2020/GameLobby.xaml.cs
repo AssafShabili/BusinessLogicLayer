@@ -50,10 +50,17 @@ namespace GameClient_12._01._2020
 
 
 
+
+
+        #region פעולות מוכנות על ידי
+
+        /// <summary>
+        /// פעולה לטיפול השמת התמונות של המפות לתוך הפקדים המתאימים
+        /// </summary>
+        /// <param name="userMaps">שרשרת של המפות של כל המשחקים של המשתמש</param>
         private void AddMapsPictureToImageControl(List<MapBL> userMaps)
         {
-            LabelNoGame.Content = "IT SEEMS LIKE YOU DONT HAVE ANY SAVE... \n" +
-                        " MAYBE IT'S TIME TO MAKE SOME!";
+           
 
             switch (userMaps.Count)
             {
@@ -74,13 +81,17 @@ namespace GameClient_12._01._2020
                         " MAYBE IT'S TIME TO MAKE SOME!";
                     break;
 
-
-
             }
 
            
         }
 
+        /// <summary>
+        /// פעולה שמקבלת את השם של המפה  
+        /// ומחזירה את המפה כ - bitmapImage
+        /// </summary>
+        /// <param name="mapName">שם של המפה של המשחק</param>
+        /// <returns>הפעולה תחזיר את התמונה  שכדאי שנוכל להכניס אותה לתוך הפקד של התמונה</returns>
         public BitmapImage GetBitmapImage(string mapName)
         {           
             BitmapImage bitMap = new BitmapImage();
@@ -89,6 +100,6 @@ namespace GameClient_12._01._2020
             bitMap.EndInit();
             return bitMap;
         }
-
+        #endregion
     }
 }

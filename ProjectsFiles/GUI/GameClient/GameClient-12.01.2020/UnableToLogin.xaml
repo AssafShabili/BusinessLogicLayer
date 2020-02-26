@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:GameClient_12._01._2020"
         mc:Ignorable="d"
         Title="..." Height="450" Width="530" WindowStyle="None">
-    <Grid Margin="0,0,473,0">
+    <Grid>
         <Rectangle x:Name="TopPanel" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="490" MouseDown="TopPanel_MouseDown" Margin="0,0,-472,0"/>
         <Button Content="X" HorizontalAlignment="Left" Margin="445,10,-459,0" VerticalAlignment="Top" Width="32" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click" RenderTransformOrigin="2.062,0.5"/>
         <Button Content="?" HorizontalAlignment="Left" Margin="408,10,-422,0" VerticalAlignment="Top" Width="32" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="366,10,-380,0" VerticalAlignment="Top" Width="32" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
-        <Button x:Name="ChangeButton" HorizontalAlignment="Left" Margin="280,155,-421,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
+        <Button x:Name="ChangePasswordButton" HorizontalAlignment="Left" Margin="280,85,-421,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" Click="ChangePasswordButton_Click">
             <!--Content="Change your Password"-->
             <!--Content="Change your Password"-->
             <Button.BitmapEffect>
@@ -19,12 +19,10 @@
             </Button.BitmapEffect>
 
         </Button>
-        <Label HorizontalAlignment="Left" Margin="270,98,-438,0" VerticalAlignment="Top" Width="217" Foreground="#FF938C8C" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="18">
-            <Label Content="Change your password" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
-        </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="280,259,-418,0" TextWrapping="Wrap" Text="if you want to change your Password." VerticalAlignment="Top" Width="187" Height="61" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
-        <Label Content="password" HorizontalAlignment="Left" Margin="295,188,-388,0" VerticalAlignment="Top" Width="142" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Foreground="#FFDC3B3B"/>
-        <Button x:Name="ChangeButton_Copy" HorizontalAlignment="Left" Margin="50,155,-191,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
+        <Label HorizontalAlignment="Left" Margin="270,98,-438,0" VerticalAlignment="Top" Width="217" Foreground="#FF938C8C" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="280,189,-418,0" TextWrapping="Wrap" Text="if you want to change your Password." VerticalAlignment="Top" Width="187" Height="61" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
+        <Label Content="password" HorizontalAlignment="Left" Margin="295,118,-388,0" VerticalAlignment="Top" Width="142" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Foreground="#FFDC3B3B"/>
+        <Button x:Name="ChangeEmailButton" HorizontalAlignment="Left" Margin="50,85,-191,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
             <!--Content="Change your Password"-->
             <!--Content="Change your Password"-->
             <Button.BitmapEffect>
@@ -32,8 +30,20 @@
             </Button.BitmapEffect>
 
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="50,259,-188,0" TextWrapping="Wrap" Text="if you want to change your Email address" VerticalAlignment="Top" Width="187" Height="61" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
-        <Label Content="E-mail" HorizontalAlignment="Left" Margin="65,188,-158,0" VerticalAlignment="Top" Width="142" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Foreground="#FFDC3B3B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,189,-188,0" TextWrapping="Wrap" Text="if you want to change your Email address" VerticalAlignment="Top" Width="187" Height="61" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" Margin="65,118,-158,0" VerticalAlignment="Top" Width="142" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Foreground="#FFDC3B3B"/>
+        <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" BorderThickness="0,0,0,1" BorderBrush="Blue" Height="23" Margin="52,320,-253,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="250" GotFocus="Email_TextBox_GotFocus" LostFocus="Email_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto"/>
+        <PasswordBox  x:Name="Password_TextBox" Height="23" Width="250"  Margin="50,349,-251,0" BorderBrush="Blue" HorizontalAlignment="Left" BorderThickness="0,0,0,1" VerticalAlignment="Top" Background="Transparent" Foreground="Black" MaxLength="25" PasswordChar="*" GotFocus="Password_TextBox_GotFocus" LostFocus="Password_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" 
+         />
+        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="50,348,-61,0" VerticalAlignment="Top" FontSize="12" MouseLeftButtonDown="Password_Label_MouseLeftButtonDown" FontFamily="Roboto"/>
+        <Label x:Name="InputErrorLabel" Content="" HorizontalAlignment="Left" Margin="337,300,0,0" VerticalAlignment="Top" Height="90" Width="130" Background="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FFE24040" FontSize="14"/>
+        <Button Content="🡪" HorizontalAlignment="Left" Margin="75,396,0,0" VerticalAlignment="Top" Width="35" Height="36" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
     </Grid>
 </Window>

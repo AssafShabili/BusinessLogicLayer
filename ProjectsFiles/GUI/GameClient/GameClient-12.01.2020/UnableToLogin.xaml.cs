@@ -38,5 +38,50 @@ namespace GameClient_12._01._2020
         {
 
         }
+        private void Email_TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputErrorLabel.Content = "";
+            if (Email_TextBox.Text == "Email")
+            {
+                Email_TextBox.Text = "";
+            }
+        }
+
+        private void Email_TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Email_TextBox.Text == "")
+            {
+                Email_TextBox.Text = "Email";
+            }
+
+        }
+
+        private void Password_TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Password_Label.Visibility = Visibility.Hidden;
+        }
+
+        private void Password_TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            if (Password_TextBox.Password.ToString() == "")
+            {
+                Password_Label.Visibility = Visibility.Visible;
+            }
+
+        }
+
+        private void Password_Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            InputErrorLabel.Content = "";
+            Password_Label.Visibility = Visibility.Hidden;
+            Password_TextBox.Focus();
+        }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Height += 120;
+            
+        }
     }
 }
