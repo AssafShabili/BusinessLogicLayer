@@ -152,5 +152,14 @@ namespace GameClient_12._01._2020
         {
 
         }
+
+        private void CantSignInlbl_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UnableToLogin unableToLogin = new UnableToLogin();
+            this.Hide();
+            unableToLogin.ShowDialog();
+            this.Show();
+            
+        }
     }
 }

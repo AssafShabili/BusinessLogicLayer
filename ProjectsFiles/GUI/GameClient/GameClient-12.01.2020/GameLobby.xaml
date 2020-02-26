@@ -7,24 +7,27 @@
         mc:Ignorable="d"
         Title="GameLobby" Height="500" Width="800" WindowStyle="None" ShowInTaskbar="False">
 
-    <Grid>
+    <Grid x:Name="grid">
         <Image HorizontalAlignment="Left" Height="377" Margin="10,105,0,0" VerticalAlignment="Top" Width="420" Source="Img/MONSTERS.jpg"/>
 
         <Button HorizontalAlignment="Left" Margin="570,180,0,0" VerticalAlignment="Top" Width="150" Height="150" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF3C3838" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.4" />
             </Button.BitmapEffect>
+            <Image x:Name="ImgGame3" Height="100" Width="145" Stretch="Fill"/>
         </Button>
         <Image HorizontalAlignment="Left" Height="240" Margin="0,-65,0,0" VerticalAlignment="Top" Width="260" Source="Img/pinterest_profile_image.png"/>
         <Button HorizontalAlignment="Left" Margin="380,180,0,0" VerticalAlignment="Top" Width="150" Height="150" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF3C3838" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.4" />
             </Button.BitmapEffect>
+            <Image x:Name="ImgGame2" Height="100" Width="145" Stretch="Fill"/>
         </Button>
         <Button HorizontalAlignment="Left" Margin="185,180,0,0" VerticalAlignment="Top" Width="150" Height="150" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF3C3838" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.4" />
             </Button.BitmapEffect>
+            <Image x:Name="ImgGame1" Height="100" Width="145" Stretch="Fill"/>
         </Button>
         <Label x:Name="NameLbl" Content="Hi,User name place holder" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="225" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
         <Label Content="game 1" HorizontalAlignment="Left" Margin="185,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
@@ -41,6 +44,7 @@
         <Button Content="X" HorizontalAlignment="Left" Margin="750,12,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click" RenderTransformOrigin="0.441,0.433"/>
         <Button Content="?" HorizontalAlignment="Left" Margin="710,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="665,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
+        <Label x:Name="LabelNoGame" Content="" HorizontalAlignment="Left" Margin="570,387,0,0" VerticalAlignment="Top" Width="195" Height="73" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
 
     </Grid>
 </Window>

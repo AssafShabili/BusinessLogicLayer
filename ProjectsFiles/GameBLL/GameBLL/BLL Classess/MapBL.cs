@@ -188,6 +188,14 @@ namespace GameBLL.BLL_Classess
         }
 
 
+        /// <summary>
+        /// פעולה להחזרת השם של המפה
+        /// </summary>
+        /// <returns>הפועלה מחזירה סטריג שמייצג את השם של המפה</returns>
+        public string GetMapName()
+        {
+            return this.name;
+        }
         
 
 

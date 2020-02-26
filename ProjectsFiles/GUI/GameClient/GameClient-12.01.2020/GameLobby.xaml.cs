@@ -26,6 +26,8 @@ namespace GameClient_12._01._2020
             this.user = user;
             InitializeComponent();
             NameLbl.Content = "Hi, " + user.GetNameByEmail();
+            AddMapsPictureToImageControl(user.GetUserGamesMaps());
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,6 +46,48 @@ namespace GameClient_12._01._2020
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
 
+        }
+
+
+
+        private void AddMapsPictureToImageControl(List<MapBL> userMaps)
+        {
+            LabelNoGame.Content = "IT SEEMS LIKE YOU DONT HAVE ANY SAVE... \n" +
+                        " MAYBE IT'S TIME TO MAKE SOME!";
+
+            switch (userMaps.Count)
+            {
+                case 3:
+                    ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
+                    ImgGame3.Source = GetBitmapImage(userMaps[2].GetMapName());
+                    break;
+                case 2:
+                    ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
+                    break;
+                case 1:
+                    ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    break;
+                default:
+                    LabelNoGame.Content = "IT SEEMS LIKE YOU DONT HAVE ANY SAVE... \n" +
+                        " MAYBE IT'S TIME TO MAKE SOME!";
+                    break;
+
+
+
+            }
+
+           
+        }
+
+        public BitmapImage GetBitmapImage(string mapName)
+        {           
+            BitmapImage bitMap = new BitmapImage();
+            bitMap.BeginInit();
+            bitMap.UriSource = new Uri($@"\MapImg\{mapName}.png", UriKind.Relative);
+            bitMap.EndInit();
+            return bitMap;
         }
 
     }

@@ -84,6 +84,8 @@ namespace GameBLL.BLL_Classess
             this.password = "defultValue";
         }
 
+       
+
         /// <summary>
         /// פעולה לשינוי סיסמא המשתמש
         /// </summary>
@@ -95,6 +97,7 @@ namespace GameBLL.BLL_Classess
                 Users.UpdatePassword(this.email, this.password, newPassoword);
                 this.password = newPassoword;
             }
+            
         }
 
         /// <summary>
@@ -195,6 +198,14 @@ namespace GameBLL.BLL_Classess
             }
             return new List<MapBL>();
 
+        }
+        /// <summary>
+        /// פעולה לחזרת השמירות של המשתמש שלי
+        /// </summary>
+        /// <returns>הפעולה מחזירה את השרשרת של השמירות של המשתמש</returns>
+        public List<GameBL> GetUsersGameSaves()
+        {
+            return this.gameSaves;
         }
 
         /// <summary>
