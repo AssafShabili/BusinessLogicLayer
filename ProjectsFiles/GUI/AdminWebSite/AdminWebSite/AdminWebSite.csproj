@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameBLL">
+      <HintPath>..\..\..\GameBLL\GameBLL\bin\Debug\GameBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="GameDAL">
+      <HintPath>..\..\..\DAL\GameDAL\bin\Debug\GameDAL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -304,6 +310,7 @@
     <Content Include="assets\pages\widget\widget-advanced.min.js" />
     <Content Include="assets\scss\partials\menu\pccoded-horizontal-menu.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="DashBoardPage.aspx" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="AdminForm.aspx" />
@@ -313,8 +320,12 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="DashBoardPage.aspx.cs">
+      <DependentUpon>DashBoardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoardPage.aspx.designer.cs">
+      <DependentUpon>DashBoardPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdminForm.aspx.cs">
