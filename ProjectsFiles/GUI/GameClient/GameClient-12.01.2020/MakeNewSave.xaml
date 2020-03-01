@@ -35,6 +35,14 @@
             </Button.RenderTransform>
         </Button>
         <Label Content="Next" HorizontalAlignment="Left" Margin="679,178,0,0" Foreground="#FFD13639" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="22"/>
+        <Button Content="I CHOOSE THIS MAP! 🡪" HorizontalAlignment="Left" Margin="250,416,0,0" VerticalAlignment="Top" Width="285" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+            
+        </Button>
 
     </Grid>
 </Window>
