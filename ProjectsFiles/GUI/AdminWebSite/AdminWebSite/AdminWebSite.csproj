@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GameBLL">
-      <HintPath>..\..\..\GameBLL\GameBLL\bin\Debug\GameBLL.dll</HintPath>
-    </Reference>
     <Reference Include="GameDAL">
       <HintPath>..\..\..\DAL\GameDAL\bin\Debug\GameDAL.dll</HintPath>
     </Reference>
@@ -452,6 +449,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GameBLL\GameBLL\GameBLL.csproj">
+      <Project>{b5c1d05a-0e11-41ad-8d5d-fdddc1bdd809}</Project>
+      <Name>GameBLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

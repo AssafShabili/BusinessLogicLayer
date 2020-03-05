@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 
 namespace GameBLL.GameComponents
@@ -12,8 +14,8 @@ namespace GameBLL.GameComponents
     public class TowerProjectile
     {
         private Enemy target;//אויב שהנמצא של המפה
-        private Point position;// מיקום שמימנו נורה הקליע
-        private Texture2D texture2D;// איך נראה הקליע
+        private Microsoft.Xna.Framework.Point position;// מיקום שמימנו נורה הקליע
+        private Image texture2D;// איך נראה הקליע
         private int damage;// כמות הנזק של אותו קליע
         private int speed = 10;// מהירות הקליע
 
@@ -24,7 +26,7 @@ namespace GameBLL.GameComponents
         /// <param name="point">מיקום שמימנו נורה הקליע</param>
         /// <param name="texture2D">איך שנראה הקליע</param>
         /// <param name="dmg">כמות שנזק של אותו קליע</param>
-        public TowerProjectile(Enemy enemy, Point point, Texture2D texture2D,int dmg)
+        public TowerProjectile(Enemy enemy, Point point, Image texture2D,int dmg)
         {
             this.target = enemy;
             this.position = point;

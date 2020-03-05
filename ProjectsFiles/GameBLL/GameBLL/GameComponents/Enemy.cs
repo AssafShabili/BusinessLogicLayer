@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework;
 using System.Data;
 using GameBLL.BLL_Classess;
 using GameDAL.DAL_Classess;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace GameBLL.GameComponents
 {
@@ -16,64 +19,67 @@ namespace GameBLL.GameComponents
     public class Enemy
     {
         private int HP;
-        private Color color;
-        private Point location;
+        private string name;
+        private Microsoft.Xna.Framework.Point location;
         private TowerType type;
-        
-        private List<Point> road;
+        private Image EnemyImage;
+        private List<Microsoft.Xna.Framework.Point> road;
         private int indexInRoad = 0;
 
-        private Texture2D Tex;
-        private int spriteHeight;
-        private int spriteWidth;
+       
 
         private int currentFrame = 0;
-        private int frameCount = 0;
-        private int frameTotalDuration = 200;
-        private int frameDuration = 0;
+        private int frameCount = 4;
+
+        
 
 
-        public Enemy(int HP, Texture2D tex,TowerType type,int spriteHeight, int spriteWidth)
+        public Enemy(int HP,string name, TowerType type)
         {
+            this.name = name;
             this.HP = HP;
-            this.Tex = tex;
-            this.type = type;
-            this.color = Color.White;
-            this.spriteHeight = spriteWidth;
-            this.spriteWidth = spriteWidth;
+            EnemyImage.Source = new BitmapImage(new Uri($@"\MapImg\{this.name}_{this.type}_{this.currentFrame}.png"));
+            this.type = type;     
         }
 
-        public Enemy(int HP, Texture2D tex, TowerType type, int spriteHeight, int spriteWidth,Color color)
+        
+       
+
+
+        public void Draw()
         {
-            this.HP = HP;
-            this.Tex = tex;
-            this.type = type;
-            this.color = Color.White;
-            this.spriteHeight = spriteWidth;
-            this.spriteWidth = spriteWidth;
-            this.color = color;
-        }
-
-
-        public void Draw(SpriteBatch batch)
-        {            
-            batch.Draw(Tex, this.location.ToVector2(), new Rectangle(new Point(currentFrame * this.spriteWidth, 1 * this.spriteHeight), new Point(this.spriteWidth, this.spriteHeight)), Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 0);
-        }
-
-        public void Move()
-        {
-            if((this.indexInRoad + 1) < this.road.Count())
-            {
-                this.indexInRoad++;
-                this.location = this.road[this.indexInRoad];
+            if(currentFrame < frameCount)
+            { 
+               
+                this.currentFrame++;
             }
             else
             {
-                // he reached the end what to do now ?
+                this.currentFrame = 0;
             }
+
         }
 
-        public Point GetNextLocation()
+       
+        /// <summary>
+        /// פעולת התזוזה של האויב אם האויב יכול להתקדם הוא יתקדם
+        /// </summary>
+        /// <returns> הפעולה תחזיר אמת אם האויב יכול להתקדם וההתקדמות שלו היא לא סוף המסלול
+        /// אחרת אם כן הגיע לסוף המסלול הפעולה תחזיר שקר</returns>
+        public bool Move()
+        {
+            if((this.indexInRoad + 1) < this.road.Count())
+            {
+                Canvas.SetLeft(this.EnemyImage, this.location.X);
+                Canvas.SetTop(this.EnemyImage, this.location.Y);
+                this.indexInRoad++;
+                this.location = this.road[this.indexInRoad];
+                return true;
+            }
+            return false;
+        }
+
+        public Microsoft.Xna.Framework.Point GetNextLocation()
         {
             if ((this.indexInRoad + 1) < this.road.Count())
             {                
@@ -81,24 +87,17 @@ namespace GameBLL.GameComponents
             }
             else
             {
-                return Point.Zero;
+                return Microsoft.Xna.Framework.Point.Zero;
             }
         }
 
-        public void Update(GameTime gameTime)
+        public void Update()
         {
-            if (HP <= 0)
-            {
-                color.R -= 15;
-                color.G -= 15;
-                color.B -= 15;
-                
+            if(this.HP == 0)
+            {   /*האויב שלי מת!*/
+                this.EnemyImage.Source = null;
             }
-
-            if (this.location != this.GetNextLocation())
-            {
-                Move();
-            }                       
+                                 
         }
 
         public void Hit(int dmg)
@@ -151,7 +150,7 @@ namespace GameBLL.GameComponents
         /// פעולה לקבלת המיקום של האויב
         /// </summary>
         /// <returns>נקודה שמייצג את מיקום האויב</returns>
-        public Point GetLocation()
+        public Microsoft.Xna.Framework.Point GetLocation()
         {
             return this.location;
         }

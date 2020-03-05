@@ -9,6 +9,8 @@ using System.Data;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace GameBLL.BLL_Classess
 {
@@ -67,12 +69,14 @@ namespace GameBLL.BLL_Classess
         /// </summary>
         /// <param name="type">שם </param>
         /// <returns>מחזיר את טֶקְסְטוּרָה לפי הסטריג שנקלט </returns>
-        private Texture2D GetBossTexture2D(string type)
+        private Image GetBossTexture2D(string type)
         {
+            Image image = new Image();
             switch (type.ToLower())
             {
                 case "fire":
-                    return GameConstants.fireBoss;
+                    
+                    return image;
                 case "water":
                     return GameConstants.waterBoss;
                 case "air":
@@ -97,10 +101,10 @@ namespace GameBLL.BLL_Classess
             if(dataTable != null)
             {
                 string bossType = (dataTable.Rows[0]["Boss_Type"]).ToString();
-                Enemy boss = new Enemy(
+                Enemy boss = new Enemy(                    
                     (int)(dataTable.Rows[0]["Boss_health"]),
-                    this.GetBossTexture2D(bossType),
-                    this.GetTowerTypeFromString(bossType), 40, 36);
+                   $"{bossType}Boss",
+                    this.GetTowerTypeFromString(bossType));
 
                 this.Enemylst.Add(boss);
             }
@@ -154,8 +158,8 @@ namespace GameBLL.BLL_Classess
                 string bossType = (dataTable.Rows[0]["Boss_Type"]).ToString();
                 Enemy boss = new Enemy(
                     (int)(dataTable.Rows[0]["Boss_health"]),
-                    this.GetBossTexture2D(bossType),
-                    this.GetTowerTypeFromString(bossType), 40, 36);
+                    $"{bossType}Boss",
+                    this.GetTowerTypeFromString(bossType));
 
                 this.Enemylst.Add(boss);
             }
@@ -333,41 +337,43 @@ namespace GameBLL.BLL_Classess
                 {
                     //I should add BLL and
                     this.Enemylst.Add(new Enemy(
-                        (this.waveID * 10) / 2, this.GetEnemyTextureFromString(databaseFields), this.waveType, 20, 18));
+                        (this.waveID * 10) / 2, $"{this.waveType}Unit", this.waveType));
                     //                      ^ needs to be removed ASAP
                 }
             }
 
         }
 
-        /// <summary>
-        /// פעולת עזר לשינוי משם השדה לאילך שהוא אמור להראות
-        /// </summary>
-        /// <param name="field">שם של השדה</param>
-        /// <returns>איך שאותו אויב אמור להיראות</returns>
-        private Texture2D GetEnemyTextureFromString(string field)
-        {
-            switch (field)
-            {
-                case "Wave_Normal_Unit":
-                    return GameConstants.Wave_Normal_Unit;
-                case "Wave_Normal_Range":
-                    return GameConstants.Wave_Normal_Range;
-                case "Wave_Adv_Unit":
-                    return GameConstants.Wave_Adv_Unit;
-                case "Wave_Adv_Range":
-                    return GameConstants.Wave_Adv_Range;
-                case "Wave_Ultra_Unit":
-                    return GameConstants.Wave_Adv_Unit;
-                case "Wave_Ultra_Range":
-                    return GameConstants.Wave_Adv_Range;
-                default:
-                    return null;
-            }
-        }
+        #region oldCodeShouldBeRemoveOrReWorked
+        ///// <summary>
+        ///// פעולת עזר לשינוי משם השדה לאילך שהוא אמור להראות
+        ///// </summary>
+        ///// <param name="field">שם של השדה</param>
+        ///// <returns>איך שאותו אויב אמור להיראות</returns>
+        //private Texture2D GetEnemyTextureFromString(string field)
+        //{
+        //    switch (field)
+        //    {
+        //        case "Wave_Normal_Unit":
+        //            return GameConstants.Wave_Normal_Unit;
+        //        case "Wave_Normal_Range":
+        //            return GameConstants.Wave_Normal_Range;
+        //        case "Wave_Adv_Unit":
+        //            return GameConstants.Wave_Adv_Unit;
+        //        case "Wave_Adv_Range":
+        //            return GameConstants.Wave_Adv_Range;
+        //        case "Wave_Ultra_Unit":
+        //            return GameConstants.Wave_Adv_Unit;
+        //        case "Wave_Ultra_Range":
+        //            return GameConstants.Wave_Adv_Range;
+        //        default:
+        //            return null;
+        //    }
+        //}
+        #endregion
 
-        
-        
+
+
 
 
         // ================= פעולות איחזור של הנתונים של הסיבוב ========

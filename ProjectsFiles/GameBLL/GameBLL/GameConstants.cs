@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 
 namespace GameBLL
@@ -26,21 +27,22 @@ namespace GameBLL
         public const int TileHeight = 50;
         public const int MapWidth = 16;
         public const int MapHeight = 21;
-        public const Texture2D projectileTexture = null;//need to change it! ASAP!
+        public const Image projectileTexture = null;//need to change it! ASAP!
 
-        public const Texture2D Wave_Normal_Unit = null;
-        public const Texture2D Wave_Normal_Range = null;
-        public const Texture2D Wave_Adv_Unit = null;
-        public const Texture2D Wave_Adv_Range = null;
-        public const Texture2D Wave_Ultra_Unit = null;
-        public const Texture2D Wave_Ultra_Range = null;
+        public const Image Wave_Normal_Unit = null;
+        public const Image Wave_Normal_Range = null;
+        public const Image Wave_Adv_Unit = null;
+        public const Image Wave_Adv_Range = null;
+        public const Image Wave_Ultra_Unit = null;
+        public const Image Wave_Ultra_Range = null;
 
 
-        public const Texture2D fireBoss = null;
-        public const Texture2D waterBoss = null;
-        public const Texture2D airBoss = null;
-        public const Texture2D earthBoss = null;
+        public const Image fireBoss = null;
+        public const Image waterBoss = null;
+        public const Image airBoss = null;
+        public const Image earthBoss = null;
 
+        
 
 
 

@@ -59,9 +59,9 @@ namespace GameBLL
 
             //Console.WriteLine(DataTablePrint.BuildTable(
             //    Users.GetAdminPercentage(), 15));
-            Enemy enemy = new Enemy(100, null, TowerType.Fire, 50, 50);
-            enemy.Hit(28, TowerType.Earth);
-            Console.WriteLine(enemy.GetHp());
+           // Enemy enemy = new Enemy(100, null, TowerType.Fire, 50, 50);
+            //enemy.Hit(28, TowerType.Earth);
+            //Console.WriteLine(enemy.GetHp());
 
             Users.UpdateAdminPercentageLowestWinrate(23.3);
 
