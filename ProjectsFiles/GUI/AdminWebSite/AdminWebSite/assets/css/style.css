@@ -4876,6 +4876,10 @@ a[data-toggle="lightbox"] .img-fluid {
 .text-muted {
   color: #919aa3 !important; }
 
+.text-error {
+    color: #FF1100 !important;
+}
+
 /*======= Text css ends ===========*/
 /*======= Label-color css starts  ======= */
 .label {

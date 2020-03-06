@@ -11,14 +11,45 @@ namespace AdminWebSite
 {
     public partial class DashBoardPage : System.Web.UI.Page
     {
-        
+        AdminUserBL adminUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            AdminUserBL userBL = new AdminUserBL();
-            DataTable dataTable = userBL.GetAdminPercentageTable();
+             adminUser = (AdminUserBL)Session["AdminUser"];
+             DataTable dataTable = adminUser.GetAdminPercentageTable();
 
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            InitializeTextBoxs(dataTable);
+        }
+
+        /// <summary>
+        /// פעולה להכנסת הנתונים שמובאים מבסיס הנתונים לתוך השדות המתאימים
+        /// </summary>
+        /// <param name="dataTable">טבלת הנתונים </param>
+        public void InitializeTextBoxs(DataTable dataTable)
+        {
+            if(dataTable != null)
+            {
+                TextBoxLowestWinrate.Text = dataTable.Rows[0]["AdminPercentage_Lowest_winrate"].ToString();
+                TextBoxHighestWinrate.Text = dataTable.Rows[0]["AdminPercentage_Highest_winrate"].ToString();
+                TextBoxLowestCurrentWinrate.Text = dataTable.Rows[0]["AdminPercentage_Lowest_Current_Winrate"].ToString();
+                TextBoxHighestCurrentWinrate.Text = dataTable.Rows[0]["AdminPercentage_Highest_Current_Winrate"].ToString();
+            }
+        }
+
+      
+        protected void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            adminUser.SetAdminPercentageHighestCurrentWinrate(
+                double.Parse(TextBoxHighestCurrentWinrate.Text));
+
+            adminUser.SetAdminPercentageLowestCurrentWinrate(
+               double.Parse(TextBoxLowestCurrentWinrate.Text));
+
+            adminUser.SetAdminPercentageLowestWinrate(
+              double.Parse(TextBoxLowestWinrate.Text));
+
+            adminUser.SetUpdateAdminPercentageHighestWinrate(
+              double.Parse(TextBoxHighestWinrate.Text));
         }
     }
 }

@@ -49,18 +49,18 @@
                                 </div>
                                 <hr/>
                                 <div class="input-group">
-                                    <asp:TextBox ID="TextBox1" type="email" class="form-control" placeholder="Your Email Address" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxName" type="" CssClass="form-control" placeholder="Your User-Name" runat="server"></asp:TextBox>
                                    
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group" >
-                                    <asp:TextBox ID="TextBox2" type="password" class="form-control" placeholder="Password" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxPassword" type="password" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
                                     <span class="md-line"></span>
                                 </div>
                                 
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <br />
+                                       <br />
                                         <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" Text="Sign In" OnClick="Button1_Click" > </asp:Button >                                 
 
                                     </div>
@@ -68,8 +68,9 @@
                                 <hr/>
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
-                                        <p class="text-inverse text-left"><b>Your Authentication Team</b></p>
+                                        <asp:Label ID="LabelError" runat="server" CssClass="text-inverse text-left m-b-0" Text=""></asp:Label>
+                                        <br />
+                                        
                                     </div>
                                    
                                 </div>

@@ -112,5 +112,22 @@ namespace GameBLL.BLL_Classess
             return Users.GetAllUserID();
         }
 
+        /// <summary>
+        /// פעולה להחזרת השם משתמש של מנהל המערכת
+        /// </summary>
+        /// <returns>שם המשתמש של מנהל המערכת</returns>
+        public string GetUserName()
+        {
+            return this.userName;
+        }
+        /// <summary>
+        /// פעולה להחזרת הסיסמא של מנהל המערכת
+        /// </summary>
+        /// <returns>סיסמת מנהל המערכת</returns>
+        public string GetPassword()
+        {
+            return this.password;
+        }
+
     }
 }

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DashBoardPage.aspx.cs" Inherits="AdminWebSite.DashBoardPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DashBoardPage.aspx.cs" Inherits="AdminWebSite.DashBoardPage" Theme="" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>Gradient Able bootstrap admin template by codedthemes </title>
+   <title>Gradient Able bootstrap admin template by codedthemes</title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,6 +34,30 @@
       <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css"/>
 </head>
 <body>
+    <script>
+        // פעולה לבדיקת הנתונים של השדות של האחוזים בצד המשתמש
+        function checkInput() {
+            var textBoxList = [];
+            textBoxList.push((document.querySelector("#TextBoxLowestWinrate").value));
+            textBoxList.push((document.querySelector("#TextBoxHighestCurrentWinrate").value));
+            textBoxList.push((document.querySelector("#TextBoxHighestWinrate").value));
+            textBoxList.push((document.querySelector("#TextBoxLowestCurrentWinrate").value));
+
+           /*
+            * ביטוי regex
+            * שמבטא אם הסטריג מייצג מספר ממשים חיובים
+            */ 
+            var regex = "^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$";
+
+            for (var i = 0; i < textBoxList.length; i++) {
+                if (!textBoxList[i].match(regex)) {
+                    alert("Inputs must be positive numbers ")
+                    return false;
+                }
+            }
+            return true;   
+        }
+    </script>
     <form id="form1" runat="server">
          <div class="theme-loader">
         <div class="loader-track">
@@ -63,7 +87,7 @@
                                             <div class="col-md-6 col-xl-3">
                                                 <div class="card bg-c-blue order-card">
                                                     <div class="card-block">
-                                                        <h6 class="m-b-20">כמות המשתמשים</h6>
+                                                        <h6 class="m-b-20">Number Of Users</h6>
                                                         <h2 class="text-right"><i class="ti-shopping-cart f-left"></i><span>486</span></h2>
                                                         
                                                     </div>
@@ -72,7 +96,7 @@
                                             <div class="col-md-6 col-xl-3">
                                                 <div class="card bg-c-green order-card">
                                                     <div class="card-block">
-                                                        <h6 class="m-b-20">סיבובים שניצחו בהם</h6>
+                                                        <h6 class="m-b-20">Number Of Waves That Users Won At</h6>
                                                         <h2 class="text-right"><i class="ti-tag f-left"></i><span>1641</span></h2>
                                                         
                                                     </div>
@@ -81,7 +105,7 @@
                                             <div class="col-md-6 col-xl-3">
                                                 <div class="card bg-c-yellow order-card">
                                                     <div class="card-block">
-                                                        <h6 class="m-b-20">סיבובים שהפסידו בהם</h6>
+                                                        <h6 class="m-b-20">Number Of Waves That Users Lost At  </h6>
                                                         <h2 class="text-right"><i class="ti-reload f-left"></i><span>42,562</span></h2>
                                                         
                                                     </div>
@@ -90,9 +114,8 @@
                                             <div class="col-md-6 col-xl-3">
                                                 <div class="card bg-c-pink order-card">
                                                     <div class="card-block">
-                                                        <h6 class="m-b-20">כמות המשחקים שנוצרו עד כו</h6>
-                                                        <h2 class="text-right"><i class="ti-wallet f-left"></i><span>9,562</span></h2>
-                                                        
+                                                        <h6 class="m-b-20">Number of Towers built</h6>
+                                                        <h2 class="text-right"><i class="ti-wallet f-left"></i><span>9,562</span></h2>                
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,7 +153,13 @@
                                                     <div class="card-block">
                                                         <span class="d-block text-c-blue f-24 f-w-600 text-center">365247</span>
                                                         <canvas id="feedback-chart" height="100"></canvas>
+                                                        <br />
+                                                        <br />
                                                         <div class="row justify-content-center m-t-15">
+                                                            <br />
+                                                            <br />
+                                                            <br />
+                                                            <br />
                                                             <div class="col-auto b-r-default m-t-5 m-b-5">
                                                                 <h4>83%</h4>
                                                                 <p class="text-success m-b-0"><i class="ti-hand-point-up m-r-5"></i>Positive</p>
@@ -154,46 +183,35 @@
                                                             <div class="tab-pane active" id="home3" role="tabpanel">
 
                                                                 <div class="table-responsive">
-<%--                                                                    <table class="table">
+                                                                    <table class="table">
                                                                         <tr>
-                                                                            <th>Image</th>
-                                                                            <th>Product Code</th>
-                                                                            <th>Customer</th>
-                                                                            <th>Purchased On</th>
-                                                                            <th>Status</th>
-                                                                            <th>Transaction ID</th>
+                                                                            <th>AdminPercentage_Lowest_winrate</th>
+                                                                            <th>AdminPercentage_Highest_winrate</th>
+                                                                            <th>AdminPercentage_Lowest_Current_Winrate</th>
+                                                                            <th>AdminPercentage_Highest_Current_Winrate</th>          
                                                                         </tr>
                                                                         <tr>
-                                                                            <td><img src="assets/images/product/prod2.jpg" alt="prod img" class="img-fluid"></td>
-                                                                            <td>PNG002344</td>
-                                                                            <td>John Deo</td>
-                                                                            <td>05-01-2017</td>
-                                                                            <td><span class="label label-danger">Faild</span></td>
-                                                                            <td>#7234486</td>
+                                                                            <td>
+                                                                                <asp:TextBox  CssClass="form-control" ID="TextBoxLowestWinrate" runat="server"></asp:TextBox>
+                                                                            </td>
+                                                                             <td>
+                                                                                <asp:TextBox  CssClass="form-control" ID="TextBoxHighestCurrentWinrate" runat="server"></asp:TextBox>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox  CssClass="form-control"  ID="TextBoxHighestWinrate" runat="server"></asp:TextBox>
+                                                                            </td>
+                                                                             <td>
+                                                                                <asp:TextBox  CssClass="form-control" ID="TextBoxLowestCurrentWinrate" runat="server"></asp:TextBox>
+                                                                            </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td><img src="assets/images/product/prod3.jpg" alt="prod img" class="img-fluid"></td>
-                                                                            <td>PNG002653</td>
-                                                                            <td>Eugine Turner</td>
-                                                                            <td>04-01-2017</td>
-                                                                            <td><span class="label label-success">Delivered</span></td>
-                                                                            <td>#7234417</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td><img src="assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
-                                                                            <td>PNG002156</td>
-                                                                            <td>Jacqueline Howell</td>
-                                                                            <td>03-01-2017</td>
-                                                                            <td><span class="label label-warning">Pending</span></td>
-                                                                            <td>#7234454</td>
-                                                                        </tr>
-                                                                    </table>--%>
-                                                                     <asp:GridView ID="GridView1" CssClass="table" runat="server" BorderStyle="None"></asp:GridView>
+                                                                       
+                                                                    </table>
+                                                                    <%-- <asp:GridView ID="GridView1" CssClass="table" runat="server" BorderStyle="None"></asp:GridView>--%>
                                                                 </div>
                                                                
-                                                            </div>
-                                                           
-                                                            </div>
+                                                            <div class="text-center">
+                                                                <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update" ="checkInput()" OnClick="ButtonUpdate_Click" />                                                  
+                                                           </div>
                                                         </div>
                                                     </div>
                                                 </div>
