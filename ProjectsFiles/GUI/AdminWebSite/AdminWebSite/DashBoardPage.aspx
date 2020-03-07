@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DashBoardPage.aspx.cs" Inherits="AdminWebSite.DashBoardPage" Theme="" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +36,7 @@
       <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css"/>
 </head>
 <body>
-    <script>
+    <script onclientclick="checkInput()">
         // פעולה לבדיקת הנתונים של השדות של האחוזים בצד המשתמש
         function checkInput() {
             var textBoxList = [];
@@ -153,6 +155,20 @@
                                                     <div class="card-block">
                                                         <span class="d-block text-c-blue f-24 f-w-600 text-center">365247</span>
                                                         <canvas id="feedback-chart" height="100"></canvas>
+                                                        <asp:Chart ID="Chart1" runat="server">
+                                                            <Series>
+                                                                <asp:Series Name="Series1" ChartType="Doughnut"></asp:Series>
+                                                            </Series>
+                                                            <ChartAreas>
+                                                                <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                                                            </ChartAreas>
+                                                            <Titles>
+                                                                <asp:Title ForeColor="BlanchedAlmond" Name="Title1" Text="bad">
+                                                                </asp:Title>
+                                                                <asp:Title Name="Title2" Text="good">
+                                                                </asp:Title>
+                                                            </Titles>
+                                                        </asp:Chart>
                                                         <br />
                                                         <br />
                                                         <div class="row justify-content-center m-t-15">
@@ -210,7 +226,7 @@
                                                                 </div>
                                                                
                                                             <div class="text-center">
-                                                                <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update" ="checkInput()" OnClick="ButtonUpdate_Click" />                                                  
+                                                                <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update"  OnClick="ButtonUpdate_Click" />                                                  
                                                            </div>
                                                         </div>
                                                     </div>

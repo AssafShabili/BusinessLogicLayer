@@ -15,7 +15,15 @@ namespace AdminWebSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             adminUser = (AdminUserBL)Session["AdminUser"];
+            try
+            {
+                adminUser = (AdminUserBL)Session["AdminUser"];
+            }
+            catch (Exception)
+            {
+                // קרתה טעות 
+                adminUser = new AdminUserBL();
+            }             
              DataTable dataTable = adminUser.GetAdminPercentageTable();
 
             InitializeTextBoxs(dataTable);
