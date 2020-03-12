@@ -29,6 +29,7 @@ namespace GameBLL.BLL_Classess
         private int winStreak;
         private int lossStreak;
 
+        //פעולה בונה  של מחלקת משחק
         public GameBL(int gameID)
         {
             DataTable dataTable = GameDAL.DAL_Classess.Game.GetGameInfo(gameID);
