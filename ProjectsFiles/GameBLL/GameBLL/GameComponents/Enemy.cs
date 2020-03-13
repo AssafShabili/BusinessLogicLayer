@@ -38,7 +38,7 @@ namespace GameBLL.GameComponents
         {
             this.name = name;
             this.HP = HP;
-            EnemyImage.Source = new BitmapImage(new Uri($@"\MapImg\{this.name}_{this.type}_{this.currentFrame}.png"));
+            //EnemyImage.Source = null /*new BitmapImage(new Uri($@"\MapImg\{this.name}_{this.type}_{this.currentFrame}.png"))*/;
             this.type = type;     
         }
 

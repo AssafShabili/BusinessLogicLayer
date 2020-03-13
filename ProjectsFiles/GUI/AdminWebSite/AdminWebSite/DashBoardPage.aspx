@@ -36,7 +36,7 @@
       <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css"/>
 </head>
 <body>
-    <script onclientclick="checkInput()">
+    <script>
         // פעולה לבדיקת הנתונים של השדות של האחוזים בצד המשתמש
         function checkInput() {
             var textBoxList = [];
@@ -53,13 +53,14 @@
 
             for (var i = 0; i < textBoxList.length; i++) {
                 if (!textBoxList[i].match(regex)) {
-                    alert("Inputs must be positive numbers ")
+                    alert("Inputs must be positive numbers ");
                     return false;
                 }
             }
             return true;   
         }
     </script>
+
     <form id="form1" runat="server">
          <div class="theme-loader">
         <div class="loader-track">
@@ -226,7 +227,10 @@
                                                                 </div>
                                                                
                                                             <div class="text-center">
-                                                                <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update"  OnClick="ButtonUpdate_Click" />                                                  
+                                                                <p id="inputP" class="text-inverse text-left m-b-0">testing error par
+
+                                                                </p>
+                                                                <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update"  OnClick="ButtonUpdate_Click" OnClientClick="checkInput()" />                                                  
                                                            </div>
                                                         </div>
                                                     </div>

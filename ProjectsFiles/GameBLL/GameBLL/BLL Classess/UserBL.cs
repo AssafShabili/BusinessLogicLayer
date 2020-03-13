@@ -70,7 +70,7 @@ namespace GameBLL.BLL_Classess
         /// <returns>אמת אם המשתמש קיים במערכת ושקר אחרת</returns>
         public bool LogIn(string email, string password)
         {
-            return Users.LoginIn(email, password);
+            return !Users.LoginIn(email, password);
         }
 
         
