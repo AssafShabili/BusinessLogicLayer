@@ -148,7 +148,8 @@ namespace GameDAL.DAL_Classess
         {
             DBHelper.UpdateQuery($"DELETE FROM UsersSavesGames WHERE User_ID = {userID} AND Game_ID = {gameID}; ");
         }
-        #region AdminPercentage-Function-zone
+
+        #region Admin-Function-zone
 
         /// <summary>
         /// פעולה לקבלת האחוזים של ההקלות שהאדמין (=מנהל המערכת) החליט שהיו
@@ -196,6 +197,26 @@ namespace GameDAL.DAL_Classess
         {
             DBHelper.UpdateQuery(
                $"UPDATE AdminPercentage SET AdminPercentage.AdminPercentage_Highest_Current_Winrate = {highestCurrentWinrate};");
+        }
+
+        /// <summary>
+        /// פעולה המחזירה את כמות המשתמשים שיש
+        /// </summary>
+        /// <returns>כמות המשתמשים</returns>
+        public static int GetNumberOfUsers()
+        {
+            return DBHelper.GetDataTable(
+                0, " SELECT Users.[User_ID] FROM Users;").Rows.Count;
+        }
+
+        /// <summary>
+        /// פעולה לקבלת מספר המגדלים שעד עתה נבנו
+        /// </summary>
+        /// <returns>מספר המגדלים שעד עתה נבנו</returns>
+        public static int GetNumberOfTowers()
+        {
+            return DBHelper.GetDataTable(
+                0, " SELECT Towers.[Tower_ID] FROM Towers;").Rows.Count;
         }
 
         #endregion

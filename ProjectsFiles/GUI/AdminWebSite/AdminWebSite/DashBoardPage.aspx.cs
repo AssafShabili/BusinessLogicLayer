@@ -23,8 +23,15 @@ namespace AdminWebSite
             {
                 // קרתה טעות 
                 adminUser = new AdminUserBL();
-            }             
-             DataTable dataTable = adminUser.GetAdminPercentageTable();
+            }
+            LabelNUmberOfUsers.Text = adminUser.GetNumberOfUsers().ToString();
+            LabelNumberOfTowers.Text = adminUser.GetNumberOfTowers().ToString();
+            DataTable dataTable = adminUser.GetAdminPercentageTable();
+
+            
+
+            GridViewProperties.DataSource = adminUser.GetWaveProperties();
+            GridViewProperties.DataBind();
 
             InitializeTextBoxs(dataTable);
         }
@@ -35,7 +42,7 @@ namespace AdminWebSite
         /// <param name="dataTable">טבלת הנתונים </param>
         public void InitializeTextBoxs(DataTable dataTable)
         {
-            if(dataTable != null)
+            if (dataTable != null)
             {
                 TextBoxLowestWinrate.Text = dataTable.Rows[0]["AdminPercentage_Lowest_winrate"].ToString();
                 TextBoxHighestWinrate.Text = dataTable.Rows[0]["AdminPercentage_Highest_winrate"].ToString();
@@ -44,7 +51,7 @@ namespace AdminWebSite
             }
         }
 
-      
+
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
             adminUser.SetAdminPercentageHighestCurrentWinrate(

@@ -42,6 +42,7 @@ namespace GameBLL.BLL_Classess
 
 
 
+
         /*
          * בחלק הזה אני מעדכן את האחוזים ש"מחליטים " אם המשתמש צריך לקבלת את ההקלות
          *   לפי האחוז של הניצחון שבאותו סיבוב של המשחק
@@ -127,6 +128,33 @@ namespace GameBLL.BLL_Classess
         public string GetPassword()
         {
             return this.password;
+        }
+
+        /// <summary>
+        /// פעולה לקבלת מספר המשתמשים שנוצרו 
+        /// </summary>
+        /// <returns>מספר המשתמשים שנוצרו</returns>
+        public int GetNumberOfUsers()
+        {
+            return Users.GetNumberOfUsers();
+        }
+
+        /// <summary>
+        /// פעולה לקבלת מספר המגדלים הנוצרו
+        /// </summary>
+        /// <returns>מספר המגדלים הנוצרו</returns>
+        public int GetNumberOfTowers()
+        {
+            return Users.GetNumberOfTowers();
+        }
+
+        /// <summary>
+        /// פעולה לחזרת המידע על כל הסיבובים 
+        /// </summary>
+        /// <returns>טבלת נתונים שמחזירה את כל הנתונים שלי </returns>
+        public DataTable GetWaveProperties()
+        {
+            return Properties.GeAllWaveProperties();
         }
 
     }
