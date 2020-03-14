@@ -33,7 +33,7 @@
         <Label Content="game 1" HorizontalAlignment="Left" Margin="185,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
         <Label Content="game 2" HorizontalAlignment="Left" Margin="380,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
         <Label Content="game 3" HorizontalAlignment="Left" Margin="570,155,0,0" VerticalAlignment="Top" Width="100" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20"/>
-        <Button x:Name="NewGameButton" Content="MAKE A NEW SAVE" HorizontalAlignment="Left" Margin="355,375,0,0" VerticalAlignment="Top" Width="175" Height="30" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20">
+        <Button x:Name="NewGameButton" Content="MAKE A NEW SAVE" HorizontalAlignment="Left" Margin="355,375,0,0" VerticalAlignment="Top" Width="175" Height="30" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" Click="NewGameButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>

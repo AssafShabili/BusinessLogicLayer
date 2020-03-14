@@ -52,6 +52,14 @@ namespace GameBLL.BLL_Classess
         }
 
         /// <summary>
+        /// פעולה בונה ריקה
+        /// </summary>
+        public MapBL()
+        {
+
+        }
+
+        /// <summary>
         ///  פעולה בונה של מחלקת מפה מקבלת טבלת נתונים שאותה היא 
         ///  מוציאה את הנתונים של המפה
         /// </summary>

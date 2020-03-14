@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameBLL.BLL_Classess;
+using System.Data;
 
 namespace GameClient_12._01._2020
 {
@@ -19,6 +21,10 @@ namespace GameClient_12._01._2020
     /// </summary>
     public partial class MakeNewSave : Window
     {
+        //שומר את כל המידע שקשור למפות
+        List<MapBL> MapsList;
+        int currentIndex = 0;// המיקום של המשתמש בשרשרת של המפה
+
         public MakeNewSave()
         {
             InitializeComponent();
@@ -40,6 +46,73 @@ namespace GameClient_12._01._2020
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
 
+        }
+
+        #region פעולות מוכנות על ידי
+
+        /// <summary>
+        /// פעולה לטיפול השמת התמונות של המפות לתוך הפקדים המתאימים
+        /// </summary>
+        /// <param name="userMaps">שרשרת של המפות של כל המשחקים של המשתמש</param>
+        private void CycleToTheNextMap()
+        {
+            ++currentIndex;
+            if (MapsList.Count > currentIndex)
+            {
+                MapImage.Source = GetBitmapImage(MapsList[currentIndex].GetMapName());
+               
+
+            }
+           
+        }
+
+        /// <summary>
+        /// פעולה לטיפול השמת התמונות של המפות לתוך הפקדים המתאימים
+        /// </summary>
+        /// <param name="userMaps">שרשרת של המפות של כל המשחקים של המשתמש</param>
+        private void CycleToThePreviousMap()
+        {
+            --currentIndex;
+            if (MapsList.Count > currentIndex && currentIndex >= 0)
+            {
+                MapImage.Source = GetBitmapImage(MapsList[currentIndex].GetMapName());
+               
+            }
+
+        }
+
+
+        /// <summary>
+        /// פעולה שמקבלת את השם של המפה  
+        /// ומחזירה את המפה כ - bitmapImage
+        /// </summary>
+        /// <param name="mapName">שם של המפה של המשחק</param>
+        /// <returns>הפעולה תחזיר את התמונה  שכדאי שנוכל להכניס אותה לתוך הפקד של התמונה</returns>
+        public BitmapImage GetBitmapImage(string mapName)
+        {
+            BitmapImage bitMap = new BitmapImage();
+            bitMap.BeginInit();
+            bitMap.UriSource = new Uri($@"\MapImg\{mapName}.png", UriKind.Relative);
+            bitMap.EndInit();
+            return bitMap;
+        }
+        #endregion
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            MapBL mapBL = new MapBL();
+            MapsList = mapBL.GetAllMapsInfo();
+            MapImage.Source = GetBitmapImage(MapsList[0].GetMapName());
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            CycleToTheNextMap();
+        }
+
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            CycleToThePreviousMap();
         }
     }
 }

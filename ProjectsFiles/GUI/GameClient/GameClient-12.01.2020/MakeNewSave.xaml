@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient_12._01._2020"
         mc:Ignorable="d"
-         Title="Make a new Save!" Height="500" Width="800" WindowStyle="None" ShowInTaskbar="False">
+         Title="Make a new Save!" Height="500" Width="800" WindowStyle="None" ShowInTaskbar="False" Initialized="Window_Initialized">
     <Grid>
         <Rectangle x:Name="TopPanel1" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="791" MouseDown="TopPanel_MouseDown" Margin="0,2,0,0" Opacity="0"/>
         <Button Content="X" HorizontalAlignment="Left" Margin="750,12,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click" RenderTransformOrigin="0.441,0.433"/>
         <Button Content="?" HorizontalAlignment="Left" Margin="710,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="665,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
-        <Image HorizontalAlignment="Left" Height="325" Margin="160,80,0,0" VerticalAlignment="Top" Width="485" Source="MapImg/sand.png" Stretch="Fill"/>
-        <Button Content="🡪" HorizontalAlignment="Left" Margin="679,215,0,0" VerticalAlignment="Top" Width="65" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White">
+        <Image x:Name="MapImage" HorizontalAlignment="Left" Height="325" Margin="160,80,0,0" VerticalAlignment="Top" Width="485" Source="MapImg/sand.png" Stretch="Fill"/>
+        <Button x:Name="NextButton" Content="🡪" HorizontalAlignment="Left" Margin="679,215,0,0" VerticalAlignment="Top" Width="65" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" Click="NextButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="🡪" HorizontalAlignment="Left" Margin="55,210,0,0" VerticalAlignment="Top" Width="65" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="PreviousButton" Content="🡪" HorizontalAlignment="Left" Margin="55,210,0,0" VerticalAlignment="Top" Width="65" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" RenderTransformOrigin="0.5,0.5" Click="PreviousButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

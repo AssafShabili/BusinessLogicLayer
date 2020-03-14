@@ -101,5 +101,12 @@ namespace GameClient_12._01._2020
             return bitMap;
         }
         #endregion
+
+        private void NewGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            MakeNewSave makeNewSave = new MakeNewSave();
+            this.Hide();
+            makeNewSave.Show();
+        }
     }
 }
