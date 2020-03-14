@@ -84,7 +84,7 @@ namespace GameDAL
         {
             OleDbConnection con = GetConnection();
             if (con == null)
-                return false;//if we dont have a connection we cant updata
+                return false;//if we dont have a connection we cant update
                              //con.Open();
             OleDbCommand cmd = new OleDbCommand(SqlString, con);
 
