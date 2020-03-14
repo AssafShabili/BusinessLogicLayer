@@ -57,7 +57,7 @@ namespace GameDAL.DAL_Classess
         {
             return (DBHelper.GetDataTable(0, "SELECT Users.User_email, Users.User_password " +
                                    " FROM Users " +
-                    $" WHERE (((Users.User_email) = '{email}') AND ((Users.User_password) = '{password}')); ")) == null;
+                    $" WHERE (((Users.User_email) = '{email}') AND ((Users.User_password) = '{password}')); ")).Rows.Count == 0;
         }
 
         /// <summary>

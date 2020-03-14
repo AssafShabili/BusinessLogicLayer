@@ -128,10 +128,13 @@ namespace GameClient_12._01._2020
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
-        { 
+        {
+            
+            
+
             if(Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success
                && Password_TextBox.Password.Length > 8 
-               && this.currnetUser.LogIn(Email_TextBox.Text, Password_TextBox.Password))
+               && this.currnetUser.LogIn(Email_TextBox.Text, Password_TextBox.Password) == true)
             {
                 currnetUser = new UserBL(Email_TextBox.Text, Password_TextBox.Password);
                 
