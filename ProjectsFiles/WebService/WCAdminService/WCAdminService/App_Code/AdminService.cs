@@ -5,10 +5,24 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data;
+using GameBLL.BLL_Classess;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class Service : IService
+public class AdminService : IAdminService
 {
+    private AdminUserBL AdminUserBL = new AdminUserBL();
+
+    /// <summary>
+    /// פעולה לקבלת כל נתונים של האחוזים מבסיס הנתונים
+    /// </summary>
+    /// <returns>טבלת נתונים שהיא מכילה את הנתונים של האחוזים</returns>
+    public DataTable GetAdminPercentageTable()
+    {
+
+        return this.AdminUserBL.GetAdminPercentageTable();
+    }
+
     /// <summary>
     /// פעולה לעדכון אחוז הכי נמוך 
     /// לפי הנתונים של משתמשים אחרים
@@ -17,7 +31,8 @@ public class Service : IService
     /// <param name="percentage">אחוז חדש</param>
     public void SetAdminPercentageLowestWinrate(double percentage)
     {
-        Users.UpdateAdminPercentageLowestWinrate(percentage);
+
+        this.AdminUserBL.SetAdminPercentageLowestWinrate(percentage);
     }
     /// <summary>
     /// פעולה לעדכון האחוז הכי גבוהה 
@@ -27,8 +42,7 @@ public class Service : IService
     /// <param name="percentage">אחוז חדש</param>
     public void SetUpdateAdminPercentageHighestWinrate(double percentage)
     {
-        Users.UpdateAdminPercentageHighestWinrate(percentage);
-
+        this.AdminUserBL.SetUpdateAdminPercentageHighestWinrate(percentage);
     }
 
 
@@ -50,7 +64,8 @@ public class Service : IService
     /// <param name="percentage">אחוז חדש</param>
     public void SetAdminPercentageHighestCurrentWinrate(double percentage)
     {
-        Users.UpdateAdminPercentageHighestCurrentWinrate(percentage);
+
+        this.AdminUserBL.SetAdminPercentageHighestCurrentWinrate(percentage);
     }
     /// <summary>
     /// פעולה לעדכון אחוז הכי נמוך 
@@ -60,17 +75,11 @@ public class Service : IService
     /// <param name="percentage">אחוז חדש</param>
     public void SetAdminPercentageLowestCurrentWinrate(double percentage)
     {
-        Users.UpdateAdminPercentageLowestCurrentWinrate(percentage);
+
+        this.AdminUserBL.SetAdminPercentageLowestCurrentWinrate(percentage);
     }
 
 
-    /// <summary>
-    /// פעולה המחזירה את כמות המשתמשים שיש בסיס הנתונים שלי
-    /// </summary>
-    /// <returns></returns>
-    public int NumberOfUsers()
-    {
-        return Users.GetAllUserID();
-    }
+
 
 }
