@@ -40,6 +40,10 @@ namespace GameBLL.BLL_Classess
             return Users.GetAdminPercentage();
         }
 
+        /// <summary>
+        /// פעולה להסמת הנתונים שהתקבלו מהשירותי השרת שלנו לתוך בסיס הנתונים שלי
+        /// </summary>
+        /// <param name="propertiesDataTable">טבלת נתונים שלי</param>
         public void UpDatePropertiesByDataTable(DataTable propertiesDataTable)
         {
             for (int i = 0; i < propertiesDataTable.Rows.Count; i++)
