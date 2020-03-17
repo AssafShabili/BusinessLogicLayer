@@ -23,6 +23,7 @@ namespace GameClient_12._01._2020
     public partial class MainWindow : Window
     {
         private UserBL currnetUser;
+       
 
         public MainWindow()
         {

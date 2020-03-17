@@ -21,6 +21,10 @@ namespace GameClient_12._01._2020
     public partial class GameLobby : Window
     {
         private UserBL user;
+
+        //private int GameID;
+        //private int countGamesSaves;
+
         public GameLobby(UserBL user)
         {
             this.user = user;
@@ -60,23 +64,28 @@ namespace GameClient_12._01._2020
         /// <param name="userMaps">שרשרת של המפות של כל המשחקים של המשתמש</param>
         private void AddMapsPictureToImageControl(List<MapBL> userMaps)
         {
-           
-
             switch (userMaps.Count)
             {
                 case 3:
+                   
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
                     ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
                     ImgGame3.Source = GetBitmapImage(userMaps[2].GetMapName());
                     break;
                 case 2:
+                    ButtonGame3.IsEnabled = false;
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
                     ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
                     break;
                 case 1:
+                    ButtonGame3.IsEnabled = false;
+                    ButtonGame2.IsEnabled = false;
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
                     break;
                 default:
+                    ButtonGame3.IsEnabled = false;
+                    ButtonGame2.IsEnabled = false;
+                    ButtonGame1.IsEnabled = false;
                     LabelNoGame.Content = "IT SEEMS LIKE YOU DONT HAVE ANY SAVE... \n" +
                         " MAYBE IT'S TIME TO MAKE SOME!";
                     break;
@@ -107,6 +116,21 @@ namespace GameClient_12._01._2020
             MakeNewSave makeNewSave = new MakeNewSave();
             this.Hide();
             makeNewSave.Show();
+        }
+
+        private void ButtonGame3_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void ButtonGame2_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void ButtonGame1_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
