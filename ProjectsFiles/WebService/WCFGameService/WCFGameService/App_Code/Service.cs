@@ -45,5 +45,12 @@ public class Service : IService
 		Properties.UpdateWaveProperties(waveID, won, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
 	}
 
-	
+
+	[WebMethod]
+	public void SendPropertiesInfoByFullInfo(int PropertiesID, int waveID, int numWin, int numLost, int numbersOfWaterTowers, int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
+	{
+		Properties.UpdateProperties(PropertiesID, waveID, numWin, numLost, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
+	}
+
+
 }
