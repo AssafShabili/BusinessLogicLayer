@@ -40,6 +40,11 @@ namespace GameBLL.BLL_Classess
             return Users.GetAdminPercentage();
         }
 
+        public DataTable GetAllInfoForm()
+        {
+
+        }
+
 
 
 

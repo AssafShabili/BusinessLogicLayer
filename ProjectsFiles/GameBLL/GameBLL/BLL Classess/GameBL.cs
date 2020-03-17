@@ -61,6 +61,10 @@ namespace GameBLL.BLL_Classess
             }
         }
 
+        public GameBL()
+        {
+
+        }
        
         /// <summary>
         /// פעולה לעדכון המגדלים של המשתמש לתוך השרשרת של המגדלים
