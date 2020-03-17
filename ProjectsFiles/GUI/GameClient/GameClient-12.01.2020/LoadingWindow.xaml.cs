@@ -19,6 +19,7 @@ namespace GameClient_12._01._2020
     /// </summary>
     public partial class LoadingWindow : Window
     {
+        
         public LoadingWindow()
         {
             InitializeComponent();
