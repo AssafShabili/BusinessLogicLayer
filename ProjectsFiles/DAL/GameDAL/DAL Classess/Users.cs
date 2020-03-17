@@ -254,6 +254,18 @@ namespace GameDAL.DAL_Classess
             return dataTable.Rows.Count;
         }
 
+
+        /// <summary>
+        /// פעולה להחזרת הכל המידע שבטבלת Properties
+        /// </summary>
+        /// <returns>טבלת מידע שמכילה את כל המידע שבטבלת Properties</returns>
+        public static DataTable GetAllPropertiesData()
+        {
+            return DBHelper.GetDataTable(0,
+                " SELECT * " +
+                " FROM Properties");
+        }
+
         //TODO תוספת 
         //נתונים extra לפי הטופס של מנהל המערכת
 

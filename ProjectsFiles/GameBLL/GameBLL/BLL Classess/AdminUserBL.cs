@@ -40,9 +40,14 @@ namespace GameBLL.BLL_Classess
             return Users.GetAdminPercentage();
         }
 
-        public DataTable GetAllInfoForm()
+        /// <summary>
+        /// פעולה לקבלת המידע שבטבלת 
+        /// Properties
+        /// </summary>
+        /// <returns> טבלת נתונים שמכילה </returns>
+        public DataTable GetAllDataProperties()
         {
-
+            return Users.GetAdminPercentage();
         }
 
 

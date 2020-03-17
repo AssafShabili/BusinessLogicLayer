@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Services;
-using GameBLL.BLL_Classess;
+using GameDAL.DAL_Classess;
 
 
 
@@ -18,37 +18,46 @@ using GameBLL.BLL_Classess;
 
 public class Service : IService
 {
+	
+
 	[WebMethod]
 	public DataTable GetOtherUsersGameInfo()
 	{
-		return GameDAL.DAL_Classess.Properties.GetWaveProperties(1);
+		return Properties.GeAllWaveProperties();
 	}
 
 	[WebMethod]
-	public DataTable GetOtherUsersGameInfoByWaveID(int waveID)
+	public void SendPropertiesInfo(int waveID,bool won,
+		int numbersOfWaterTowers, int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
 	{
-		throw new NotImplementedException();
+		Properties.UpdateWaveProperties(waveID, won, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
 	}
 
-	[WebMethod]
-	public DataTable GetOtherUsersGameInfoByWaveIDAndMapID(int waveID, int mapID)
-	{
-		throw new NotImplementedException();
-	}
+	//[WebMethod]
+	//public DataTable GetOtherUsersGameInfoByWaveID(int waveID)
+	//{
 
-	[WebMethod]
-	public void SendUserGameInfoWithWinCondition(GameBL userGame,bool esayMode,bool isWon)
-	{
-		GameDAL.DAL_Classess.WaveArchives.
-			InsertWaveToWaveArchives(userGame.GetWave().GetWaveID(),
-									 userGame.GetGameBLID(),
-									 userGame.GetMap().GetMapID(),
-									 esayMode, isWon);
-	}
+	//}
 
-	[WebMethod]
-	public void SendUserGameInfo(GameBL userGame, bool easyMode)
-	{
-		throw new NotImplementedException();
-	}
+	//[WebMethod]
+	//public DataTable GetOtherUsersGameInfoByWaveIDAndMapID(int waveID, int mapID)
+	//{
+	//	throw new NotImplementedException();
+	//}
+
+	//[WebMethod]
+	//public void SendUserGameInfoWithWinCondition(GameBL userGame,bool esayMode,bool isWon)
+	//{
+	//	GameDAL.DAL_Classess.WaveArchives.
+	//		InsertWaveToWaveArchives(userGame.GetWave().GetWaveID(),
+	//								 userGame.GetGameBLID(),
+	//								 userGame.GetMap().GetMapID(),
+	//								 esayMode, isWon);
+	//}
+
+	//[WebMethod]
+	//public void SendUserGameInfo(GameBL userGame, bool easyMode)
+	//{
+	//	throw new NotImplementedException();
+	//}
 }
