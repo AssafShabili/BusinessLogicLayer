@@ -11,10 +11,19 @@ using System.Data;
 [ServiceContract]
 public interface IAdminService
 {
+    [OperationContract]
     DataTable GetAdminPercentageTable();
+
+    [OperationContract]
     void SetAdminPercentageLowestWinrate(double percentage);
+
+    [OperationContract]
     void SetUpdateAdminPercentageHighestWinrate(double percentage);
+
+    [OperationContract]
     void SetAdminPercentageHighestCurrentWinrate(double percentage);
+
+    [OperationContract]
     void SetAdminPercentageLowestCurrentWinrate(double percentage);
 }
 

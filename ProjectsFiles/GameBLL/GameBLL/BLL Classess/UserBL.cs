@@ -29,17 +29,18 @@ namespace GameBLL.BLL_Classess
             //בדיקה האם המשתמש קיים
             if(!Users.LoginIn(email,password))
             {
-                DataTable userDataTable = Users.GetUserInfo(email, password);
-                //  Console.WriteLine(DataTablePrint.BuildTable(userDataTable,20));
+                DataTable userDataTable = Users.GetUserInfoWithOutGameInfo(email, password);
+                  //Console.WriteLine(DataTablePrint.BuildTable(userDataTable,20));
 
                 this.userID = Convert.ToInt32(userDataTable.Rows[0][0]);//ID
                 this.email = userDataTable.Rows[0][1].ToString();//E-mail
                 this.password = userDataTable.Rows[0][2].ToString();//Password
 
-                this.gameSaves = new List<GameBL>();
-                for (int i = 0; i < userDataTable.Rows.Count; i++)
-                {                
-                    gameSaves.Add(new GameBL((int)(userDataTable.Rows[i]["Game_ID"])));
+                List<int> gamesaveIDList = Users.UserGetGamesSavesID(email, password);
+                this.gameSaves = new List<GameBL>();                
+                for (int i = 0; i < gamesaveIDList.Count; i++)
+                {
+                    gameSaves.Add(new GameBL(gamesaveIDList[i]));
                 }
             }
             else
@@ -49,6 +50,8 @@ namespace GameBLL.BLL_Classess
                 this.password = "defultValue";
             }
         }
+
+       
 
         /// <summary>
         /// פעולה לרישום המשתמש
@@ -111,6 +114,16 @@ namespace GameBLL.BLL_Classess
                 Users.UpdateEmail(this.email, newEmail,this.password);
                 this.email = newEmail;
             }
+        }
+
+        /// <summary>
+        /// פעולה לבדיהק אם הכתובת אימייל שהתקבלה נמצאת בתוך בסיס הנתונים שלי
+        /// </summary>
+        /// <param name="email">כתובת האימייל </param>
+        /// <returns>אמת אם הכתובת קיימת ושקר אחרת </returns>
+        public bool DoesEmailExist(string email)
+        {
+            return Users.DoesEmailExist(email);
         }
 
 

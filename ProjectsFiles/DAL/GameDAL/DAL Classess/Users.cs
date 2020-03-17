@@ -34,26 +34,47 @@ namespace GameDAL.DAL_Classess
             DataTable dt = DBHelper.GetDataTable(0,
                 " SELECT Users.[User_email] " +
                 " FROM Users " +
-               $" WHERE Users.[User_email] = '{email}' AND User_Deleted = FALSE ");
+               $" WHERE Users.[User_email] = '{email}'  ");
 
             return (dt.Rows.Count != 0);
         }
-
+        /// <summary>
+        /// פעולה לקבלת המידע על המשתמש 
+        /// </summary>
+        /// <param name="email">אימייל של המשתמש </param>
+        /// <param name="password">סיסמא של המשתמש</param>
+        /// <returns>טבלת נתונים המכילה את כל המידע של המשתמש</returns>
         public static DataTable GetUserInfo(string email, string password)
         {
             return DBHelper.GetDataTable(0,
                 " SELECT Users.[User_ID], Users.[User_email], Users.[User_password],Game.[Game_ID] " +
                 " FROM Game INNER JOIN (Users INNER JOIN UsersSavesGames ON Users.[User_ID] = UsersSavesGames.[User_ID]) ON Game.[Game_ID] = UsersSavesGames.[Game_ID] " +
-               $" WHERE Users.[User_email] = '{email}' AND Users.[User_password] = '{password}' AND User_Deleted = FALSE  ");
+               $" WHERE Users.[User_email] = '{email}' AND Users.[User_password] = '{password}'   ");
         }
 
         /// <summary>
-        ///  פונקציה לבדיקת התחברות של משתמש 
+        /// פעולה לקבלת המידע על המשתמש 
+        /// שלא כוללת את המידע על המשחקים המשתמשים
+        /// אמורה להיות בשימוש אצל משתמשים חדשים
         /// </summary>
         /// <param name="email">אימייל של המשתמש </param>
         /// <param name="password">סיסמא של המשתמש</param>
-        /// <returns>אם המשתמש נמצא </returns>
-        public static bool LoginIn(string email, string password)
+        /// <returns>טבלת נתונים המכילה את כל המידע של המשתמש</returns>
+        public static DataTable GetUserInfoWithOutGameInfo(string email, string password)
+        {
+            return DBHelper.GetDataTable(0,
+                " SELECT Users.[User_ID], Users.[User_email], Users.[User_password] " +
+                " FROM  Users" +
+               $" WHERE Users.[User_email] = '{email}' AND Users.[User_password] = '{password}'   ");
+        }
+
+    /// <summary>
+    ///  פונקציה לבדיקת התחברות של משתמש 
+    /// </summary>
+    /// <param name="email">אימייל של המשתמש </param>
+    /// <param name="password">סיסמא של המשתמש</param>
+    /// <returns>אם המשתמש נמצא </returns>
+    public static bool LoginIn(string email, string password)
         {
             return (DBHelper.GetDataTable(0, "SELECT Users.User_email, Users.User_password " +
                                    " FROM Users " +
@@ -108,9 +129,9 @@ namespace GameDAL.DAL_Classess
 
             List<int> savesID = new List<int>();
 
-            for (int i = 0; i < dt.Columns.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                savesID.Add((int)(dt.Rows[i][2]));
+                savesID.Add((int)(dt.Rows[i]["Game_ID"]));
             }
 
             return savesID;

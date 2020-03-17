@@ -72,8 +72,7 @@
             <div class="pcoded-overlay-box"></div>
             <div class="pcoded-container navbar-wrapper">
 
-                <nav class="navbar header-navbar pcoded-header">
-                </nav>
+               
 
                 <div class="pcoded-main-container">
                     <div class="pcoded-wrapper">
@@ -96,6 +95,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="col-md-6 col-xl-3">
                                                     <div class="card bg-c-green order-card">
                                                         <div class="card-block">

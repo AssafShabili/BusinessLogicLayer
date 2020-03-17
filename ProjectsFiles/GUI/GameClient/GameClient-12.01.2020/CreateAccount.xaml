@@ -7,20 +7,22 @@
         mc:Ignorable="d"
         Title="CreateAccount" Height="450" Width="500" WindowStyle="None">
     <Grid HorizontalAlignment="Left" Width="319">
+        <Label x:Name="InputErrorLabel" Content="" HorizontalAlignment="Left" Margin="25,340,0,0" VerticalAlignment="Top" Height="90" Width="130" Background="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FFE24040" FontSize="14"/>
+
         <Image HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="268" Margin="97,-53,-46,0" Source="Img/pinterest_profile_image.png" Stretch="Fill" StretchDirection="UpOnly"/>
         <Rectangle x:Name="TopPanel" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="483" MouseDown="TopPanel_MouseDown" Margin="3,5,-167,0"/>
         <Button Content="X" HorizontalAlignment="Left" Margin="438,15,-167,0" VerticalAlignment="Top" Width="48" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click"/>
         <Button Content="?" HorizontalAlignment="Left" Margin="381,15,-111,0" VerticalAlignment="Top" Width="49" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="317,15,-46,0" VerticalAlignment="Top" Width="48" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
-        <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" BorderThickness="0,0,0,1" BorderBrush="Blue" Height="23" Margin="109,236,-36,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="246" GotFocus="Email_TextBox_GotFocus" LostFocus="Email_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Thin"/>
-        <PasswordBox  x:Name="Password_TextBox" Height="23" Width="246"  Margin="109,276,-36,0" BorderBrush="Blue" HorizontalAlignment="Left" BorderThickness="0,0,0,1" VerticalAlignment="Top" Background="Transparent" Foreground="Black" MaxLength="25" PasswordChar="*" GotFocus="Password_TextBox_GotFocus" LostFocus="Password_TextBox_LostFocus" 
+        <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" BorderThickness="0,0,0,1" BorderBrush="Blue" Height="24" Margin="109,236,-46,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="256" GotFocus="Email_TextBox_GotFocus" LostFocus="Email_TextBox_LostFocus" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="14"/>
+        <PasswordBox  x:Name="Password_TextBox" Height="23" Width="258"  Margin="107,300,-46,0" BorderBrush="Blue" HorizontalAlignment="Left" BorderThickness="0,0,0,1" VerticalAlignment="Top" Background="Transparent" Foreground="Black" MaxLength="25" PasswordChar="*" GotFocus="Password_TextBox_GotFocus" LostFocus="Password_TextBox_LostFocus" FontSize="14" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" 
          />
-        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="107,276,0,0" VerticalAlignment="Top" FontSize="12" MouseLeftButtonDown="Password_Label_MouseLeftButtonDown" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Thin" Width="61"/>
+        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="107,296,0,0" VerticalAlignment="Top" FontSize="14" MouseLeftButtonDown="Password_Label_MouseLeftButtonDown" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" Width="78"/>
         <Label Content="    SIGN UP" HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Width="167" Foreground="#FF3E3E3E" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Height="44"/>
 
 
 
-        <Button Content="🡪" HorizontalAlignment="Left" Margin="198,340,0,0" VerticalAlignment="Top" Width="64" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White">
+        <Button x:Name="SignUpButton" Content="🡪" HorizontalAlignment="Left" Margin="198,340,0,0" VerticalAlignment="Top" Width="64" Height="64" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="36" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" Click="SignUpButton_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="8"/>

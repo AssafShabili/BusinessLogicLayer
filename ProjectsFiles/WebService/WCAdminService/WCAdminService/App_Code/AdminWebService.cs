@@ -1,18 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using System.Data;
-using GameBLL.BLL_Classess;
+using System.Web;
 using System.Web.Services;
+using GameBLL.BLL_Classess;
+using System.Data;
 
-// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class AdminService : IAdminService
+/// <summary>
+/// Summary description for AdminWebService
+/// </summary>
+[WebService(Namespace = "http://tempuri.org/")]
+[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+// [System.Web.Script.Services.ScriptService]
+public class AdminWebService : System.Web.Services.WebService
 {
     private AdminUserBL AdminUserBL = new AdminUserBL();
+
+    public AdminWebService()
+    {
+
+        //Uncomment the following line if using designed components 
+        //InitializeComponent(); 
+    }
+
 
     /// <summary>
     /// פעולה לקבלת כל נתונים של האחוזים מבסיס הנתונים
@@ -84,8 +95,5 @@ public class AdminService : IAdminService
 
         this.AdminUserBL.SetAdminPercentageLowestCurrentWinrate(percentage);
     }
-
-
-
 
 }

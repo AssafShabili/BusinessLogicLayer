@@ -18,11 +18,14 @@ namespace GameBLL
         
         public static void Main(string[] args)
         {
-            //DataTable dataTable = GameDAL.DAL_Classess.Properties.GeAllWaveProperties();
+            UserBL userBL = new UserBL("assaf6063@gmail.com", "123456567789890234234"); 
+
+
+                //DataTable dataTable = GameDAL.DAL_Classess.Properties.GeAllWaveProperties();
             //Console.WriteLine(DataTablePrint.BuildTable(dataTable,18));
 
-            UserBL userBL = new UserBL("assafShabili@gmail.com", "0524598498");
-            Console.WriteLine(userBL);
+            //UserBL userBL = new UserBL("assafShabili@gmail.com", "0524598498");
+            //Console.WriteLine(userBL);
 
 
 
@@ -63,14 +66,14 @@ namespace GameBLL
             //enemy.Hit(28, TowerType.Earth);
             //Console.WriteLine(enemy.GetHp());
 
-            Users.UpdateAdminPercentageLowestWinrate(23.3);
+            //Users.UpdateAdminPercentageLowestWinrate(23.3);
 
-            Users.UpdateAdminPercentageHighestCurrentWinrate(36.5);
-            Users.UpdateAdminPercentageHighestWinrate(50.5);
-            Users.UpdateAdminPercentageLowestCurrentWinrate(80.5);
+            //Users.UpdateAdminPercentageHighestCurrentWinrate(36.5);
+            //Users.UpdateAdminPercentageHighestWinrate(50.5);
+            //Users.UpdateAdminPercentageLowestCurrentWinrate(80.5);
 
 
-            Console.ReadKey();
+            //Console.ReadKey();
 
             //Console.WriteLine(Properties.GetNumberOfAllTowerTypeBuilt(1));
 

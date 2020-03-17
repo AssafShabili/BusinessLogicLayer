@@ -7,17 +7,22 @@ using System.Web.UI.WebControls;
 using GameBLL.BLL_Classess;
 using GameDAL;
 using System.Data;
+using AdminWebSite.ServiceReference;
+
 namespace AdminWebSite
 {
     public partial class DashBoardPage : System.Web.UI.Page
     {
         AdminUserBL adminUser;
+        AdminWebServiceSoapClient AdminWebServiceSoapClient = new AdminWebServiceSoapClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 adminUser = (AdminUserBL)Session["AdminUser"];
+                
             }
             catch (Exception)
             {
@@ -26,9 +31,10 @@ namespace AdminWebSite
             }
             LabelNUmberOfUsers.Text = adminUser.GetNumberOfUsers().ToString();
             LabelNumberOfTowers.Text = adminUser.GetNumberOfTowers().ToString();
-            DataTable dataTable = adminUser.GetAdminPercentageTable();
+            DataTable dataTable = /*adminUser.GetAdminPercentageTable();*/ AdminWebServiceSoapClient.GetAdminPercentageTable();
 
-            
+
+
 
             GridViewProperties.DataSource = adminUser.GetWaveProperties();
             GridViewProperties.DataBind();
