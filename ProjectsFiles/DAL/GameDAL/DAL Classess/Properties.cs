@@ -35,7 +35,7 @@ namespace GameDAL.DAL_Classess
         public static DataTable GeAllWaveProperties()
         {
             return DBHelper.GetDataTable(0,
-                " SELECT Properties.[Wave_ID], Properties.[numbers_of_wins], Properties.[numbers_of_losess], Properties.[numbers_of_water_towers], Properties.[numbers_of_fire_towers], Properties.[numbers_of_earth_towers], Properties.[numbers_of_air_towers] " +
+                " SELECT Properties.[Property_ID],Properties.[Wave_ID], Properties.[numbers_of_wins], Properties.[numbers_of_losess], Properties.[numbers_of_water_towers], Properties.[numbers_of_fire_towers], Properties.[numbers_of_earth_towers], Properties.[numbers_of_air_towers] " +
                 " FROM Properties ");
         }
 
@@ -175,7 +175,20 @@ namespace GameDAL.DAL_Classess
                   $" WHERE Properties.[Wave_ID] = {waveID}");
             }
 
-        }//עדיין לא בדקתי
+        }
+
+        public static void UpdateProperties(int PropertiesID,int waveID,int numWin,int numLost, int numbersWater, int numbersFire, int numbersAir, int numbersEarth)
+        {
+            DBHelper.UpdateQuery("" +
+                   " UPDATE Properties " +
+                  $" SET numbers_of_losess = {numLost}, " +
+                  $" numbers_of_wins = {numWin}" +
+                  $" numbers_of_water_towers = {numbersWater}," +
+                  $" numbers_of_fire_towers = {numbersFire}, " +
+                  $" numbers_of_earth_towers =  {numbersEarth}, " +
+                  $" numbers_of_air_towers =  {numbersAir} " +
+                  $" WHERE Properties.[Property_ID] = {PropertiesID}");
+        }
 
 
         

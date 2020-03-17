@@ -40,14 +40,20 @@ namespace GameBLL.BLL_Classess
             return Users.GetAdminPercentage();
         }
 
-        /// <summary>
-        /// פעולה לקבלת המידע שבטבלת 
-        /// Properties
-        /// </summary>
-        /// <returns> טבלת נתונים שמכילה </returns>
-        public DataTable GetAllDataProperties()
+        public void UpDatePropertiesByDataTable(DataTable propertiesDataTable)
         {
-            return Users.GetAdminPercentage();
+            for (int i = 0; i < propertiesDataTable.Rows.Count; i++)
+            {
+                Properties.UpdateProperties(
+                     (int)propertiesDataTable.Rows[i]["Property_ID"],
+                     (int)propertiesDataTable.Rows[i]["Wave_ID"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_wins"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_losess"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_water_towers"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_fire_towers"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_air_towers"],
+                     (int)propertiesDataTable.Rows[i]["numbers_of_earth_towers"]);
+            }
         }
 
 
@@ -58,7 +64,7 @@ namespace GameBLL.BLL_Classess
          *   לפי האחוז של הניצחון שבאותו סיבוב של המשחק
          *  לפי הנתנונים של המשתמשים במשחק
          */
-        
+
         /// <summary>
         /// פעולה לעדכון אחוז הכי נמוך 
         /// לפי הנתונים של משתמשים אחרים

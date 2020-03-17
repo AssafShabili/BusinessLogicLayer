@@ -18,14 +18,26 @@ using GameDAL.DAL_Classess;
 
 public class Service : IService
 {
-	
 
+	/// <summary>
+	/// פעולה לקבלת כל המידע שבטבלת properties
+	/// </summary>
+	/// <returns>טבלת נתונים של כל הנתונים שבטבלת properties</returns>
 	[WebMethod]
 	public DataTable GetOtherUsersGameInfo()
 	{
 		return Properties.GeAllWaveProperties();
 	}
 
+	/// <summary>
+	/// פעולה להחזרת המידע שבטבלת properties
+	/// </summary>
+	/// <param name="waveID"></param>
+	/// <param name="won"></param>
+	/// <param name="numbersOfWaterTowers"></param>
+	/// <param name="numbersOfFireTowers"></param>
+	/// <param name="numbersOfAirTowers"></param>
+	/// <param name="numbersOfEarthTowers"></param>
 	[WebMethod]
 	public void SendPropertiesInfo(int waveID,bool won,
 		int numbersOfWaterTowers, int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
@@ -33,31 +45,5 @@ public class Service : IService
 		Properties.UpdateWaveProperties(waveID, won, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
 	}
 
-	//[WebMethod]
-	//public DataTable GetOtherUsersGameInfoByWaveID(int waveID)
-	//{
-
-	//}
-
-	//[WebMethod]
-	//public DataTable GetOtherUsersGameInfoByWaveIDAndMapID(int waveID, int mapID)
-	//{
-	//	throw new NotImplementedException();
-	//}
-
-	//[WebMethod]
-	//public void SendUserGameInfoWithWinCondition(GameBL userGame,bool esayMode,bool isWon)
-	//{
-	//	GameDAL.DAL_Classess.WaveArchives.
-	//		InsertWaveToWaveArchives(userGame.GetWave().GetWaveID(),
-	//								 userGame.GetGameBLID(),
-	//								 userGame.GetMap().GetMapID(),
-	//								 esayMode, isWon);
-	//}
-
-	//[WebMethod]
-	//public void SendUserGameInfo(GameBL userGame, bool easyMode)
-	//{
-	//	throw new NotImplementedException();
-	//}
+	
 }
