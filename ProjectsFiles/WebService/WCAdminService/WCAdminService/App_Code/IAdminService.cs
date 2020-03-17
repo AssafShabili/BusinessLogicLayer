@@ -25,6 +25,12 @@ public interface IAdminService
 
     [OperationContract]
     void SetAdminPercentageLowestCurrentWinrate(double percentage);
+
+    [OperationContract]
+    int GetNumberOfCurrentUsers();
+
+    [OperationContract]
+    int GetNumberOfCurrentTowers();
 }
 
 

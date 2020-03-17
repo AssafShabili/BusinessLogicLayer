@@ -85,6 +85,19 @@ public class AdminService : IAdminService
         this.AdminUserBL.SetAdminPercentageLowestCurrentWinrate(percentage);
     }
 
+    [WebMethod]
+    public int GetNumberOfCurrentUsers()
+    {
+        return this.AdminUserBL.GetNumberOfUsers();
+    }
+
+    [WebMethod]
+    public int GetNumberOfCurrentTowers()
+    {
+        return this.AdminUserBL.GetNumberOfTowers();
+    }
+
+
 
 
 
