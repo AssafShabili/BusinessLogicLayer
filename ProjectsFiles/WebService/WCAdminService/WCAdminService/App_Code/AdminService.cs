@@ -85,12 +85,20 @@ public class AdminService : IAdminService
         this.AdminUserBL.SetAdminPercentageLowestCurrentWinrate(percentage);
     }
 
+    /// <summary>
+    /// פעולה לקבלת מספר המשתמשים שנוצרו 
+    /// </summary>
+    /// <returns>מספר המשתמשים שנוצרו</returns>
     [WebMethod]
     public int GetNumberOfCurrentUsers()
     {
         return this.AdminUserBL.GetNumberOfUsers();
     }
 
+    /// <summary>
+    /// פעולה לקבלת מספר המגדלים הנוצרו
+    /// </summary>
+    /// <returns>מספר המגדלים הנוצרו</returns>
     [WebMethod]
     public int GetNumberOfCurrentTowers()
     {
