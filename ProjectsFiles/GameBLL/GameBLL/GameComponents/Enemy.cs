@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework;
 using System.Data;
 using GameBLL.BLL_Classess;
 using GameDAL.DAL_Classess;
@@ -20,10 +17,10 @@ namespace GameBLL.GameComponents
     {
         private int HP;
         private string name;
-        private Microsoft.Xna.Framework.Point location;
+        private Point location;
         private TowerType type;
         private Image EnemyImage;
-        private List<Microsoft.Xna.Framework.Point> road;
+        private List<Point> road;
         private int indexInRoad = 0;
 
        
@@ -79,7 +76,7 @@ namespace GameBLL.GameComponents
             return false;
         }
 
-        public Microsoft.Xna.Framework.Point GetNextLocation()
+        public Point GetNextLocation()
         {
             if ((this.indexInRoad + 1) < this.road.Count())
             {                
@@ -87,7 +84,7 @@ namespace GameBLL.GameComponents
             }
             else
             {
-                return Microsoft.Xna.Framework.Point.Zero;
+                return new Point(0.0,0.0);
             }
         }
 
@@ -150,7 +147,7 @@ namespace GameBLL.GameComponents
         /// פעולה לקבלת המיקום של האויב
         /// </summary>
         /// <returns>נקודה שמייצג את מיקום האויב</returns>
-        public Microsoft.Xna.Framework.Point GetLocation()
+        public Point GetLocation()
         {
             return this.location;
         }
