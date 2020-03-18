@@ -20,39 +20,36 @@ namespace AdminWebSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            try
+            if(!IsPostBack)
             {
-                adminUser = (AdminUserBL)Session["AdminUser"];
-                
-            }
-            catch (Exception)
-            {
-                // קרתה טעות 
-                adminUser = new AdminUserBL();
-            }
-            try
-            {
-                using (AdminServiceClient = new AdminServiceClient())
+                try
                 {
-                    LabelNUmberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
-                    LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
-                    dataTable = AdminServiceClient.GetAdminPercentageTable();
-                }               
-            }
-            catch (Exception)
-            {
-                Response.Redirect("~/ErrorPage.aspx");                
-            }
-          
+                    adminUser = (AdminUserBL)Session["AdminUser"];
 
+                }
+                catch (Exception)
+                {
+                    // קרתה טעות 
+                    adminUser = new AdminUserBL();
+                }
+                try
+                {
+                    using (AdminServiceClient = new AdminServiceClient())
+                    {
+                        LabelNUmberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
+                        LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
+                        dataTable = AdminServiceClient.GetAdminPercentageTable();
+                    }
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("~/ErrorPage.aspx");
+                }
+                GridViewProperties.DataSource = adminUser.GetWaveProperties();
+                GridViewProperties.DataBind();
 
-
-
-            GridViewProperties.DataSource = adminUser.GetWaveProperties();
-            GridViewProperties.DataBind();
-
-            InitializeTextBoxs(dataTable);
+                InitializeTextBoxs(dataTable);
+            }                    
         }
 
         /// <summary>
