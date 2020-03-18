@@ -11,7 +11,7 @@ namespace AdminWebSite
 {
 
 
-    public partial class Dashboard
+    public partial class ErrorPage
     {
     }
 }

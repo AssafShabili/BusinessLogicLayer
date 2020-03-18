@@ -309,17 +309,26 @@
     <Content Include="assets\pages\widget\widget-advanced.js" />
     <Content Include="assets\pages\widget\widget-advanced.min.js" />
     <Content Include="assets\scss\partials\menu\pccoded-horizontal-menu.css" />
-    <None Include="Connected Services\ServiceReference\AdminWebService.disco" />
-    <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference\Reference.svcmap">
+    <None Include="Connected Services\AdminServiceReference\Service.disco" />
+    <None Include="Connected Services\AdminServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\AdminServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\AdminServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Dashboard.aspx" />
     <Content Include="DashBoardPage.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="index.html" />
-    <None Include="Connected Services\ServiceReference\AdminWebService.wsdl" />
+    <None Include="Connected Services\AdminServiceReference\AdminService.wsdl" />
+    <None Include="Connected Services\AdminServiceReference\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AdminServiceReference\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AdminServiceReference\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -328,14 +337,10 @@
     <Content Include="AdminForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ServiceReference\Reference.cs">
+    <Compile Include="Connected Services\AdminServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DashBoardPage.aspx.cs">
       <DependentUpon>DashBoardPage.aspx</DependentUpon>
@@ -343,6 +348,13 @@
     </Compile>
     <Compile Include="DashBoardPage.aspx.designer.cs">
       <DependentUpon>DashBoardPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdminForm.aspx.cs">
@@ -486,7 +498,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\AdminServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

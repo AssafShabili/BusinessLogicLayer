@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using GameBLL.BLL_Classess;
 using GameDAL;
 using System.Data;
+using AdminWebSite.AdminServiceReference;
 
 
 namespace AdminWebSite
@@ -14,7 +15,8 @@ namespace AdminWebSite
     public partial class DashBoardPage : System.Web.UI.Page
     {
         AdminUserBL adminUser;
-       
+        AdminServiceClient AdminServiceClient;
+        DataTable dataTable = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,9 +31,20 @@ namespace AdminWebSite
                 // קרתה טעות 
                 adminUser = new AdminUserBL();
             }
-            LabelNUmberOfUsers.Text = adminUser.GetNumberOfUsers().ToString();
-            LabelNumberOfTowers.Text = adminUser.GetNumberOfTowers().ToString();
-            DataTable dataTable = /*adminUser.GetAdminPercentageTable();*/ AdminWebServiceSoapClient.GetAdminPercentageTable();
+            try
+            {
+                using (AdminServiceClient = new AdminServiceClient())
+                {
+                    LabelNUmberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
+                    LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
+                    dataTable = AdminServiceClient.GetAdminPercentageTable();
+                }               
+            }
+            catch (Exception)
+            {
+                Response.Redirect("~/ErrorPage.aspx");                
+            }
+          
 
 
 
@@ -60,17 +73,25 @@ namespace AdminWebSite
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            adminUser.SetAdminPercentageHighestCurrentWinrate(
-                double.Parse(TextBoxHighestCurrentWinrate.Text));
-
-            adminUser.SetAdminPercentageLowestCurrentWinrate(
-               double.Parse(TextBoxLowestCurrentWinrate.Text));
-
-            adminUser.SetAdminPercentageLowestWinrate(
-              double.Parse(TextBoxLowestWinrate.Text));
-
-            adminUser.SetUpdateAdminPercentageHighestWinrate(
-              double.Parse(TextBoxHighestWinrate.Text));
+            try
+            {
+                using (AdminServiceClient = new AdminServiceClient())
+                {
+                    AdminServiceClient.SetAdminPercentageHighestCurrentWinrate(
+                        double.Parse(TextBoxHighestCurrentWinrate.Text));
+                    AdminServiceClient.SetAdminPercentageLowestCurrentWinrate(
+                       double.Parse(TextBoxLowestCurrentWinrate.Text));
+                    AdminServiceClient.SetAdminPercentageLowestWinrate(
+                      double.Parse(TextBoxLowestWinrate.Text));
+                    AdminServiceClient.SetUpdateAdminPercentageHighestWinrate(
+                      double.Parse(TextBoxHighestWinrate.Text));
+                }
+            }
+            catch
+            {
+                LabelError.Text = "[ERROR] - cant establish connect with the server please try again";
+            }
+           
         }
     }
 }

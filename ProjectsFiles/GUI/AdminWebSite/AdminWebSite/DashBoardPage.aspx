@@ -45,15 +45,17 @@
             textBoxList.push((document.querySelector("#TextBoxHighestWinrate").value));
             textBoxList.push((document.querySelector("#TextBoxLowestCurrentWinrate").value));
 
-            /*
-             * ביטוי regex
-             * שמבטא אם הסטריג מייצג מספר ממשים חיובים
-             */
-            var regex = "^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$";
+          
 
             for (var i = 0; i < textBoxList.length; i++) {
-                if (!textBoxList[i].match(regex)) {
-                    alert("Inputs must be positive numbers ");
+                if (Number(textBoxList[i]) != NaN) {
+                    if (Number(textBoxList[i]) <= 0) {
+                        alert("Inputs must be positive numbers ");
+                        return false;
+                    }
+                }
+                else {
+                    alert("Inputs must be numbers no characters allow! ");
                     return false;
                 }
             }
@@ -80,10 +82,8 @@
                             <div class="pcoded-inner-content">
                                 <div class="main-body">
                                     <div class="page-wrapper">
-
                                         <div class="page-body">
                                             <div class="row">
-
                                                 <!-- order-card start -->
                                                 <div class="col-md-6 col-xl-3">
                                                     <div class="card bg-c-blue order-card">
@@ -149,45 +149,7 @@
                                                 <div>
                                                 </div>
                                                 <div class="col-md-12 col-lg-4">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h5>Customer Feedback</h5>
-                                                        </div>
-                                                        <div class="card-block">
-                                                            <span class="d-block text-c-blue f-24 f-w-600 text-center">365247</span>
-                                                            <canvas id="feedback-chart" height="100"></canvas>
-                                                            <asp:Chart ID="Chart1" runat="server">
-                                                                <Series>
-                                                                    <asp:Series Name="Series1" ChartType="Doughnut"></asp:Series>
-                                                                </Series>
-                                                                <ChartAreas>
-                                                                    <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-                                                                </ChartAreas>
-                                                                <Titles>
-                                                                    <asp:Title ForeColor="BlanchedAlmond" Name="Title1" Text="bad">
-                                                                    </asp:Title>
-                                                                    <asp:Title Name="Title2" Text="good">
-                                                                    </asp:Title>
-                                                                </Titles>
-                                                            </asp:Chart>
-                                                            <br />
-                                                            <br />
-                                                            <div class="row justify-content-center m-t-15">
-                                                                <br />
-                                                                <br />
-                                                                <br />
-                                                                <br />
-                                                                <div class="col-auto b-r-default m-t-5 m-b-5">
-                                                                    <h4>83%</h4>
-                                                                    <p class="text-success m-b-0"><i class="ti-hand-point-up m-r-5"></i>Positive</p>
-                                                                </div>
-                                                                <div class="col-auto m-t-5 m-b-5">
-                                                                    <h4>17%</h4>
-                                                                    <p class="text-danger m-b-0"><i class="ti-hand-point-down m-r-5"></i>Negative</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                 
                                                 </div>
                                                 <!-- statustic and process end -->
                                                 <!-- tabs card start -->
@@ -227,10 +189,9 @@
                                                                     </div>
 
                                                                     <div class="text-center">
-                                                                        <p id="inputP" class="text-inverse text-left m-b-0">
-                                                                            testing error par
-
+                                                                        <p id="inputP" class="text-inverse text-left m-b-0">                                           
                                                                         </p>
+                                                                        <asp:Label ID="LabelError" CssClass="text-inverse text-left m-b-0" runat="server" Text=""></asp:Label>                                          
                                                                         <asp:Button ID="ButtonUpdate" CssClass="btn btn-outline-primary btn-round btn-sm" runat="server" Text="Update" OnClick="ButtonUpdate_Click" OnClientClick="checkInput()" />
                                                                     </div>
                                                                 </div>
