@@ -192,16 +192,16 @@ namespace GameBLL.BLL_Classess
             
         //}
 
-        /// <summary>
-        /// פעולה ליצירת ה'תמונה' במשחק
-        /// </summary>
-        /// <param name="content">מנהל התוכן של monoGame </param>
-        public void InitializeTextures()
-        {
-            this.Tex = content.Load<Texture2D>(this.TowerImgName);
-            this.spriteHeight = this.Tex.Height;
-            this.spriteWidth = this.Tex.Width;
-        }
+        ///// <summary>
+        ///// פעולה ליצירת ה'תמונה' במשחק
+        ///// </summary>
+        ///// <param name="content">מנהל התוכן של monoGame </param>
+        //public void InitializeTextures()
+        //{
+        //    this.Tex = content.Load<Texture2D>(this.TowerImgName);
+        //    this.spriteHeight = this.Tex.Height;
+        //    this.spriteWidth = this.Tex.Width;
+        //}
 
         ///// <summary>
         ///// פעולה החזרה המלבן שמייצג את המגדל במסך

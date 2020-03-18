@@ -54,7 +54,7 @@ namespace WpfAppGameTesing
         private void timer_Tick(object sender, EventArgs e)
         {
             //Fires every second!
-            Point point = new Point();
+            
         }
 
         private void gameCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
