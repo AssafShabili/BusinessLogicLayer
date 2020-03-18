@@ -1,13 +1,14 @@
 ﻿using GameBLL.GameComponents;
 using GameDAL.DAL_Classess;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
+using System.Windows;
+using System.Windows.Controls;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-
+using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace GameBLL.BLL_Classess
 {
@@ -39,7 +40,7 @@ namespace GameBLL.BLL_Classess
         private TowerType towerType = TowerType.defaultType;// סוג המגדל
         private string TowerImgName;//שם של קובץ המגדל
 
-        private Texture2D Tex;//ה'תמונה' המגדל
+        private Button towerButton;//ה'תמונה' המגדל
 
         private int spriteHeight;//גובה של המגדל
         private int spriteWidth;//אורך של מגדל
@@ -182,35 +183,35 @@ namespace GameBLL.BLL_Classess
         }
 
 
-        /// <summary>
-        /// פעולה לציור המגדל על מסך
-        /// </summary>
-        /// <param name="batch"> מחלקת עזר שעוזר לנו לצייר דברים על מסך</param>
-        public void DrawTower(SpriteBatch batch)
-        {
-            batch.Draw(this.Tex, this.location.ToVector2(), null, Color.White);
-        }
+        ///// <summary>
+        ///// פעולה לציור המגדל על מסך
+        ///// </summary>
+        ///// <param name="batch"> מחלקת עזר שעוזר לנו לצייר דברים על מסך</param>
+        //public void DrawTower()
+        //{
+            
+        //}
 
         /// <summary>
         /// פעולה ליצירת ה'תמונה' במשחק
         /// </summary>
         /// <param name="content">מנהל התוכן של monoGame </param>
-        public void InitializeTextures(ContentManager content)
+        public void InitializeTextures()
         {
             this.Tex = content.Load<Texture2D>(this.TowerImgName);
             this.spriteHeight = this.Tex.Height;
             this.spriteWidth = this.Tex.Width;
         }
 
-        /// <summary>
-        /// פעולה החזרה המלבן שמייצג את המגדל במסך
-        /// </summary>
-        /// <returns></returns>
-        public Rectangle GetBoundingBoxTower()
-        {
-            //Assumes the texture isn't scaled
-            return new Rectangle(this.location, new Point(Tex.Width, Tex.Height));
-        }
+        ///// <summary>
+        ///// פעולה החזרה המלבן שמייצג את המגדל במסך
+        ///// </summary>
+        ///// <returns></returns>
+        //public Rectangle GetBoundingBoxTower()
+        //{
+        //    //Assumes the texture isn't scaled
+        //    return new Rectangle();
+        //}
 
 
         /// <summary>
@@ -218,9 +219,8 @@ namespace GameBLL.BLL_Classess
         /// </summary>
         /// <returns>מחזיר עיגול שמייצג את המרחק שבו המגדל יכול לירות על אויבים</returns>
         public Circle GetTowerAttackRange()
-        {
-            return new Circle(this.location.X, this.location.Y, this.range);
-
+        {            
+            return new Circle(this.location.X,this.location.Y, this.range);
         }
 
         /// <summary>

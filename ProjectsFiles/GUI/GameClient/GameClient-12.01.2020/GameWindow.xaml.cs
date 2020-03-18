@@ -29,7 +29,7 @@ namespace WpfAppGameTesing
     public partial class MainWindow : Window
     {
         public TowerSelection selection = TowerSelection.None;
-        int a = 9;
+       
 
         public MainWindow()
         {
@@ -43,11 +43,7 @@ namespace WpfAppGameTesing
                 Point point = Mouse.GetPosition(gameCanvas);
                 Button button = new Button();
                 button.Content = "PogU";
-                button.Width = 50;
-                if(a != 5)
-                {
-
-                }
+                button.Width = 50;               
                 button.Height = 50;
                 gameCanvas.Children.Add(button);
 
@@ -59,7 +55,21 @@ namespace WpfAppGameTesing
 
         }
 
-        private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TowerButton_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+
+
+
+            private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Button button = new Button();
             button.Content = "PogU";

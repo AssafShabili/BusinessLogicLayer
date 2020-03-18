@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameBLL.GameComponents;
+using GameBLL.BLL_Classess;
+using System.Windows.Threading;
 
 namespace WpfAppGameTesing
 {
@@ -29,11 +32,29 @@ namespace WpfAppGameTesing
     public partial class MainWindow : Window
     {
         public TowerSelection selection = TowerSelection.None;
-        int a = 9;
+
+        private GameBL game;
+        private GameEngine gameEngine;
+        DispatcherTimer gameTimer;
+        
 
         public MainWindow()
         {
+            //TODO: add to ctor the game object form the gameLobby
             InitializeComponent();
+            gameTimer = new DispatcherTimer();
+            gameTimer.Interval = TimeSpan.FromSeconds(1);
+            gameTimer.Tick += timer_Tick;
+            gameTimer.Start();
+            game = new GameBL(1);
+            gameEngine = new GameEngine(game);
+        }
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            //Fires every second!
+            Point point = new Point();
         }
 
         private void gameCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -44,10 +65,6 @@ namespace WpfAppGameTesing
                 Button button = new Button();
                 button.Content = "PogU";
                 button.Width = 50;
-                if(a != 5)
-                {
-
-                }
                 button.Height = 50;
                 gameCanvas.Children.Add(button);
 
@@ -58,6 +75,17 @@ namespace WpfAppGameTesing
             }
 
         }
+
+
+
+
+        private void TowerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.selection = TowerSelection.TowerFire;
+        }
+
+
+
 
         private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

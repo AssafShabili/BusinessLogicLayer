@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameBLL">
+      <HintPath>..\..\..\GameBLL\GameBLL\bin\Debug\GameBLL.dll</HintPath>
+    </Reference>
+    <Reference Include="GameDAL">
+      <HintPath>..\..\..\GameBLL\GameBLL\bin\Debug\GameDAL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

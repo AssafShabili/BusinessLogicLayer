@@ -27,7 +27,7 @@ namespace GameBLL
         public const int TileHeight = 50;
         public const int MapWidth = 16;
         public const int MapHeight = 21;
-        public const Image projectileTexture = null;//need to change it! ASAP!
+        public const Image projectileTexture = null;
 
         public const Image Wave_Normal_Unit = null;
         public const Image Wave_Normal_Range = null;
