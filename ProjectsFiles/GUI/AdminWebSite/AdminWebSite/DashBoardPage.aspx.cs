@@ -7,14 +7,14 @@ using System.Web.UI.WebControls;
 using GameBLL.BLL_Classess;
 using GameDAL;
 using System.Data;
-using AdminWebSite.ServiceReference;
+
 
 namespace AdminWebSite
 {
     public partial class DashBoardPage : System.Web.UI.Page
     {
         AdminUserBL adminUser;
-        AdminWebServiceSoapClient AdminWebServiceSoapClient = new AdminWebServiceSoapClient();
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {

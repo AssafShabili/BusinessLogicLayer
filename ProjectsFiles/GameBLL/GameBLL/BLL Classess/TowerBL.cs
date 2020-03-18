@@ -249,9 +249,9 @@ namespace GameBLL.BLL_Classess
                     // the total time of the game - the last time the tower shot  > the amount the tower shoots
                     (elapsedTime - this.coolDown) > this.attackSpeed)
                 {
-                    projectilelist.Add(new TowerProjectile(enemy, this.location,GameConstants.projectileTexture
-                        , this.damage));
-                    coolDown = elapsedTime;
+                    //projectilelist.Add(new TowerProjectile(enemy, this.location,GameConstants.projectileTexture
+                    //    , this.damage));
+                    //coolDown = elapsedTime;
                 }
             }
             return projectilelist;

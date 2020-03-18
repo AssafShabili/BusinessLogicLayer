@@ -40,22 +40,23 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לפגוע (ואם כן אז הפעולה מורידה חיים לאותו אויב) ושקר אם לא אפשר לפגוע בקליע</returns>
         public bool Move()
         {
-            Vector2 direction = (position - target.GetLocation()).ToVector2();
-            if (direction != Vector2.Zero)
-            {
-                direction.Normalize();
-            }
-            position -= (direction * speed).ToPoint();
+            return true;
+            //Vector2 direction = (position - target.GetLocation()).ToVector2();
+            //if (direction != Vector2.Zero)
+            //{
+            //    direction.Normalize();
+            //}
+            //position -= (direction * speed).ToPoint();
 
-            if (Vector2.Distance(position.ToVector2(), target.GetLocation().ToVector2()) < 15)
-            {
-                DamageTarget();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //if (Vector2.Distance(position.ToVector2(), target.GetLocation().ToVector2()) < 15)
+            //{
+            //    DamageTarget();
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         /// <summary>
