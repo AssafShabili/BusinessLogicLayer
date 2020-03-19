@@ -28,6 +28,7 @@ namespace GameBLL.GameComponents
         }
 
 
+
         public void InitialsTowers(Canvas gameCanvas)
         {
             foreach(TowerBL tower in this.gameBL.GetTowersList())

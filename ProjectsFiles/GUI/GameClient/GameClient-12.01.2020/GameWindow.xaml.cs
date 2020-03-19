@@ -53,7 +53,6 @@ namespace WpfAppGameTesing
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            //Fires every second!
             
         }
 
@@ -90,7 +89,7 @@ namespace WpfAppGameTesing
 
 
 
-            private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Button button = new Button();
             button.Content = "PogU";

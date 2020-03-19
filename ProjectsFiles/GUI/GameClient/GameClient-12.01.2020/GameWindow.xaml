@@ -12,6 +12,23 @@
         </Canvas>
         <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="1115,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
         <Button x:Name="b_Copy" Content="Button" HorizontalAlignment="Left" Margin="1190,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Height="45" RenderTransformOrigin="0.455,0.556"/>
+        <StackPanel HorizontalAlignment="Left" Height="304" Margin="1005,375,0,0" VerticalAlignment="Top" Width="257">
+            <Label Name="LabelTowerInfo" Content="Label"/>
+            <Label Name="LabelTowercost" Content="Label"/>
+            <Label Name="LabelTowerDamage" Content="Label"/>
+            <Label Name="LabelTowerAttackSpeed" Content="Label"/>
+            <Label Name="LabelTowerRange" Content="Label"/>
+            <DockPanel >
+                <Label  Content="Label"/>
+                <Button Width="70" Visibility="Hidden"></Button>
+                <Label  Content="Label"/>
+            </DockPanel>
+            <DockPanel >
+                <Button Height="45" HorizontalAlignment="Right" Width="95" />
+                <Button Width="70" Visibility="Hidden"></Button>
+                <Button Height="45" HorizontalAlignment="Left" Width="95" />
+            </DockPanel>
+        </StackPanel>
 
     </Grid>
 </Window>
