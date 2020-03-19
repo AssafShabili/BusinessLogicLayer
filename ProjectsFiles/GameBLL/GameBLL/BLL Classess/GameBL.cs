@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using GameDAL.DAL_Classess;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
+using System.Windows;
+using System.Windows.Controls;
+
 using GameBLL.GameComponents;
 
 namespace GameBLL.BLL_Classess
@@ -111,12 +111,9 @@ namespace GameBLL.BLL_Classess
         /// <returns>תחזיר אמת אם אפשר לבנות את המגדל באותו מיקום אם לא אז תחזיר שקר</returns>
         public bool CanBuildTowerHere(Point postion)
         {
-            MapTile mapTile = this.map.GetTileInMap(postion);
-            if(mapTile != null)
-            {
-                return !mapTile.GetIsRoad();
-            }
-            return false;
+            return (this.map.GetMapRoad().Exists(x =>
+            (x.X != postion.X ||
+            x.Y != postion.Y)));
         }
 
         /// <summary>

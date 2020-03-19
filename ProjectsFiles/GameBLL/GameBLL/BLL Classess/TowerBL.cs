@@ -76,7 +76,12 @@ namespace GameBLL.BLL_Classess
                 this.rangeLevel = (int)dtTower.Rows[0][8];
                 this.damageLevel = (int)dtTower.Rows[0][9];
                 this.attackSpeedLevel = (int)dtTower.Rows[0][10];
+                
 
+                this.towerButton = new Button();
+                this.towerButton.Content = "PogU";
+                this.towerButton.Width = 50;
+                this.towerButton.Height = 50;
                 //this.Tex = Content
             }
         }
@@ -311,6 +316,20 @@ namespace GameBLL.BLL_Classess
         public int GetTowerSpriteWidth()
         {
             return this.spriteWidth;
+        }
+
+        /// <summary>
+        /// פעולה להחזרת עלות המגדל
+        /// </summary>
+        /// <returns>עלות בניית המגדל</returns>
+        public int GetTowerCost()
+        {
+            return this.cost;
+        }
+
+        public Button GetTowerButton()
+        {
+            return this.towerButton;
         }
 
         

@@ -47,6 +47,7 @@ namespace WpfAppGameTesing
             gameTimer.Start();
             game = new GameBL(1);
             gameEngine = new GameEngine(game);
+            this.gameEngine.InitialsTowers(gameCanvas);
         }
 
 

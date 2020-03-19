@@ -24,5 +24,13 @@ namespace GameClient_12._01._2020
         {
             InitializeComponent();
         }
+
+        private void TopPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+
+        }
+
     }
 }

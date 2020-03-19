@@ -50,11 +50,16 @@ namespace GameDAL.DAL_Classess
             $" WHERE GameTowers.Game_ID = {gameID}  AND GameTowers.Tower_ID = {towerID} ");
         }
 
+        /// <summary>
+        /// פעולה ךהוספת המגדל למשחק המתאים
+        /// </summary>
+        /// <param name="gameID">מפתח מזהה של אותו מגדל</param>
+        /// <param name="towerID">מפתח מזהה של אותו משחק </param>
         public static void MakeNewTower(int gameID,int towerID)
         {
             DBHelper.UpdateQuery(" INSERT INTO GameTowers([Game_ID],Tower_ID) "+
                 $" VALUES({gameID},{towerID}) ");
-        } // maybe I don't need it here or any where ....
+        } 
       
         #region move to busines logic or delete 
         /// <summary>

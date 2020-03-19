@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+using System.Windows;
+using System.Windows.Controls;
+
+
 using System.Data;
 using GameDAL.DAL_Classess;
 using GameBLL.GameComponents;
@@ -26,7 +29,10 @@ namespace GameBLL.BLL_Classess
         //שם של קובץ המפה
         private string pathOfImg;
         // pointsArray - מייצג את כל הנקודות שעל המפה 
-        private MapTile[,] tileArray;
+      
+        
+
+
         // mapRoad - מייצג את כל הנקודות שהם הדרך שבה ילכו האויבים
         private List<Point> mapRoad;
 
@@ -46,9 +52,7 @@ namespace GameBLL.BLL_Classess
             this.pathOfImg = Maps.GetMapImg(this.mapID);
             this.mapRoad = new List<Point>();
 
-            InitializeMapRoad();//מייצר את הדרך
-            InitializePointsArray();//מייצר את המערך של הנקודות
-            
+            InitializeMapRoad();//מייצר את הדרך            
         }
 
         /// <summary>
@@ -71,33 +75,33 @@ namespace GameBLL.BLL_Classess
 
 
 
-        /// <summary>
-        /// פעולה ליצירת שרשרת הנקודות של הדרך
-        /// </summary>
-        public void InitializePointsArray()
-        {
-            int actualY = 0;/*MapSizeHeight*/
-            int actualX = 0;/*MapSizeWidth*/
-            this.tileArray = new MapTile[GameConstants.MapWidth, GameConstants.MapHeight];
-            for (int i = 0; i < /*MapSizeWidth16*/GameConstants.MapWidth; i++)
-            {
-                for (int j = 0; j < /*MapSizeHeight*21*/GameConstants.MapHeight; j++)
-                {
-                    if (this.mapRoad.Exists(p => p.X == i && p.Y == j))
-                    {
-                        this.tileArray[i, j] = new MapTile(GameConstants.TileWidth,
-                            GameConstants.TileHeight, new Point(actualX, actualY), new Point(i, j), true);
-                    }
-                    else
-                    {
-                        this.tileArray[i, j] = new MapTile(50, 50, new Point(actualX, actualY), new Point(i, j), false);
-                    }
-                    actualY += GameConstants.TileHeight;
-                }
-                actualY = 0;
-                actualX += GameConstants.TileWidth;
-            }
-        }
+        ///// <summary>
+        ///// פעולה ליצירת שרשרת הנקודות של הדרך
+        ///// </summary>
+        //public void InitializePointsArray()
+        //{
+        //    int actualY = 0;/*MapSizeHeight*/
+        //    int actualX = 0;/*MapSizeWidth*/
+
+        //    for (int i = 0; i < /*MapSizeWidth16*/GameConstants.MapWidth; i++)
+        //    {
+        //        for (int j = 0; j < /*MapSizeHeight*21*/GameConstants.MapHeight; j++)
+        //        {
+        //            if (this.mapRoad.Exists(p => p.X == i && p.Y == j))
+        //            {
+        //                this.tileArray[i, j] = new MapTile(GameConstants.TileWidth,
+        //                    GameConstants.TileHeight, new Point(actualX, actualY), new Point(i, j), true);
+        //            }
+        //            else
+        //            {
+        //                this.tileArray[i, j] = new MapTile(50, 50, new Point(actualX, actualY), new Point(i, j), false);
+        //            }
+
+        //        }
+        //    }
+        //}
+
+
         /// <summary>
         /// פעולה ל"הכנת" שרשרת של נקודות הדרך
         /// </summary>
@@ -138,14 +142,15 @@ namespace GameBLL.BLL_Classess
         {
             return this.mapRoad;
         }
-        /// <summary>
-        /// פעולה לאיחזור המערך של הנקודות של המפה כולה
-        /// </summary>
-        /// <returns></returns>
-        public MapTile[,] GetMapPointsArray()
-        {
-            return this.tileArray;
-        }
+
+        ///// <summary>
+        ///// פעולה לאיחזור המערך של הנקודות של המפה כולה
+        ///// </summary>
+        ///// <returns></returns>
+        //public MapTile[,] GetMapPointsArray()
+        //{
+        //    return this.tileArray;
+        //}
 
         /// <summary>
         /// פעולה להחזרת מפתח של המפה
@@ -158,42 +163,43 @@ namespace GameBLL.BLL_Classess
 
         
 
-        /// <summary>
-        /// פעולה לקבלת המשבצת לפי מיקום בלוח של משחק 
-        /// </summary>
-        /// <param name="postion">מיקום בלוח של המשחק</param>
-        /// <returns>אם נמצא משבצת שהיא מכילה את המיקום הנ"ל אז הפעולה תחזיר את המשבצת ,אחרת תחזיר null</returns>
-        public MapTile GetTileInMap(Point position)
-        {
-            foreach(MapTile mapTile in this.tileArray)
-            {
-                if(mapTile.ContainsPoint(position))
-                {
-                    return mapTile;
-                }
-            }
-            return null;
-        }
+        ///// <summary>
+        ///// פעולה לקבלת המשבצת לפי מיקום בלוח של משחק 
+        ///// </summary>
+        ///// <param name="postion">מיקום בלוח של המשחק</param>
+        ///// <returns>אם נמצא משבצת שהיא מכילה את המיקום הנ"ל אז הפעולה תחזיר את המשבצת ,אחרת תחזיר null</returns>
+        //public MapTile GetTileInMap(Point position)
+        //{
+        //    foreach(MapTile mapTile in this.tileArray)
+        //    {
+        //        if(mapTile.ContainsPoint(position))
+        //        {
+        //            return mapTile;
+        //        }
+        //    }
+        //    return null;
+        //}
 
-        /// <summary>
-        ///  פעולה לקבלת המיקום במערך לפי מיקום בלוח
-        /// </summary>
-        /// <param name="position">מיקום בלוח</param>
-        /// <returns>נקודה מייצגת את המיקום במערך</returns>
-        public Point GetPositionInArray(Point position)
-        {
-            for (int i = 0; i < this.tileArray.GetLength(0); i++)
-            {
-                for (int j = 0; j < this.tileArray.GetLength(1); j++)
-                {
-                    if(this.tileArray[i,j].ContainsPoint(position))
-                    {
-                        return new Point(i,j);
-                    }
-                }
-            }
-            return Point.Zero;
-        }
+
+        ///// <summary>
+        /////  פעולה לקבלת המיקום במערך לפי מיקום בלוח
+        ///// </summary>
+        ///// <param name="position">מיקום בלוח</param>
+        ///// <returns>נקודה מייצגת את המיקום במערך</returns>
+        //public Point GetPositionInArray(Point position)
+        //{
+        //    for (int i = 0; i < this.tileArray.GetLength(0); i++)
+        //    {
+        //        for (int j = 0; j < this.tileArray.GetLength(1); j++)
+        //        {
+        //            if(this.tileArray[i,j].ContainsPoint(position))
+        //            {
+        //                return new Point(i,j);
+        //            }
+        //        }
+        //    }
+        //    return Point.Zero;
+        //}
 
 
         /// <summary>
