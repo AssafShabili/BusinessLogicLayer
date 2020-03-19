@@ -332,6 +332,21 @@ namespace GameBLL.BLL_Classess
             return this.towerButton;
         }
 
+        // ======= get's for the info of the towers
+        public int GetAttackSpeed()
+        {
+            return this.attackSpeed;
+        }
+        public int GetDamage()
+        {
+            return this.damage;
+        }
+        public int GetRange()
+        {
+            return this.range;
+        }
+        // ============= end ========================
+
         
     }
 }

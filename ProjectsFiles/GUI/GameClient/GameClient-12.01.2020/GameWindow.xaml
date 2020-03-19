@@ -6,28 +6,37 @@
         xmlns:local="clr-namespace:WpfAppGameTesing"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" Loaded="window_Loaded">
-    <Grid x:Name="gameGrid">
+    <Grid x:Name="gameGrid" Cursor="Hand">
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="630" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" />
         </Canvas>
         <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="1115,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
         <Button x:Name="b_Copy" Content="Button" HorizontalAlignment="Left" Margin="1190,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Height="45" RenderTransformOrigin="0.455,0.556"/>
-        <StackPanel HorizontalAlignment="Left" Height="304" Margin="1005,375,0,0" VerticalAlignment="Top" Width="257">
-            <Label Name="LabelTowerInfo" Content="Label"/>
-            <Label Name="LabelTowercost" Content="Label"/>
-            <Label Name="LabelTowerDamage" Content="Label"/>
-            <Label Name="LabelTowerAttackSpeed" Content="Label"/>
-            <Label Name="LabelTowerRange" Content="Label"/>
-            <DockPanel >
-                <Label  Content="Label"/>
-                <Button Width="70" Visibility="Hidden"></Button>
-                <Label  Content="Label"/>
+        <StackPanel HorizontalAlignment="Left" Height="304" Margin="1000,375,0,0" VerticalAlignment="Top" Width="272">
+            <Label x:Name="LabelTowerInfo" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+            <Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+            <Label x:Name="LabelTowerDamage" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+            <Label x:Name="LabelTowerAttackSpeed" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+
+            <Label x:Name="LabelTowerRange" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+            <!--<DockPanel >
+                <Label  Content="Label" Width="95" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+                <Button Width="70" Visibility="Hidden"/>
+                <Label  Content="Label" Width="142" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             </DockPanel>
             <DockPanel >
                 <Button Height="45" HorizontalAlignment="Right" Width="95" />
                 <Button Width="70" Visibility="Hidden"></Button>
                 <Button Height="45" HorizontalAlignment="Left" Width="95" />
-            </DockPanel>
+            </DockPanel>-->
+            <Grid>
+                
+            </Grid>
+
+
+
+
+
         </StackPanel>
 
     </Grid>

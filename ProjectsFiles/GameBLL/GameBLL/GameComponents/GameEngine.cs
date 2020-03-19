@@ -18,29 +18,36 @@ namespace GameBLL.GameComponents
         private GameBL gameBL;
         private bool attackPhase;
         private bool userDied;
-
+        
       
         public GameEngine(GameBL game)
         {
             this.gameBL = game;
             this.attackPhase = false;
             this.userDied = false;
+
         }
 
 
 
-        public void InitialsTowers(Canvas gameCanvas)
+        
+
+
+        /// <summary>
+        /// פעולה להחזרת המגדל לפי המיקום שלו בשרשרת המגדלים
+        /// הנחה שלא ינתן מיקום שלא קיים בשרשרת
+        /// </summary>
+        /// <param name="index">מיקום המגדל בשרשרת המגדלים</param>
+        /// <returns>אובייקט המגדל המתאים לפי גודל</returns>
+        public TowerBL GetTowerByIndex(int index)
         {
-            foreach(TowerBL tower in this.gameBL.GetTowersList())
-            {
-                Button button = tower.GetTowerButton();
-                Point towerLocation = tower.GetLocation();
-
-                gameCanvas.Children.Add(button);
-                Canvas.SetLeft(button, towerLocation.X);
-                Canvas.SetTop(button, towerLocation.Y);
-            }
+            //מה קורה אם שי מיקום שהוא לא קיים
+            //אולי אני צריך לתת לכפתורים את השמות עד פעם ?
+            // כן!
+            return this.gameBL.GetTowersList()[index];
         }
+        
+
 
         /// <summary>
         /// פעולה העדכון של המשחק 

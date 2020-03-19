@@ -37,6 +37,8 @@ namespace WpfAppGameTesing
         private GameEngine gameEngine;
         DispatcherTimer gameTimer;
 
+       // private List<Label> labels = new List<Label>();
+
 
         public MainWindow()
         {
@@ -47,8 +49,37 @@ namespace WpfAppGameTesing
             gameTimer.Start();
             game = new GameBL(1);
             gameEngine = new GameEngine(game);
-            this.gameEngine.InitialsTowers(gameCanvas);
+
+            #region labels-list
+            //this.labels.Add(LabelTowerInfo);
+            //this.labels.Add(LabelTowercost);
+            //this.labels.Add(LabelTowerDamage);
+            //this.labels.Add(LabelTowerAttackSpeed);
+            //this.labels.Add(LabelTowerRange);    
+            #endregion
+            
+            this.InitialsTowers(gameCanvas);
+
         }
+        
+        private void InitialsTowers(Canvas gameCanvas)
+        {
+            int i = 0;
+            foreach (TowerBL tower in this.game.GetTowersList())
+            {
+                Button button = tower.GetTowerButton();
+                Point towerLocation = tower.GetLocation();
+
+                tower.GetTowerButton().Click += TowerButton_MouseClick;
+                tower.GetTowerButton().Name = "B" + i.ToString();
+                i++;
+
+                gameCanvas.Children.Add(button);
+                Canvas.SetLeft(button, towerLocation.X);
+                Canvas.SetTop(button, towerLocation.Y);
+            }
+        }
+
 
 
         private void timer_Tick(object sender, EventArgs e)
@@ -77,12 +108,28 @@ namespace WpfAppGameTesing
 
 
         /// <summary>
-        /// 
+        /// פעולת הלחיצה בכפתור על מגדל
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TowerButton_MouseClick(object sender, MouseButtonEventArgs e)
+        private void TowerButton_MouseClick(object sender, RoutedEventArgs e)
         {
+            int index = int.Parse(
+                (((Button)(sender)).Name).Trim('B')
+                );
+
+            TowerBL tower = gameEngine.GetTowerByIndex(index);
+
+            LabelTowerInfo.Content = tower.GetTowerType().ToString() + $"{index}";
+
+            LabelTowerAttackSpeed.Content = "Tower AttackSpeed: "+tower.GetAttackSpeed();
+            LabelTowerDamage.Content = "Tower Damage: "+ tower.GetDamage();
+            LabelTowerRange.Content = "Tower Range: "+tower.GetRange();
+
+            LabelTowercost.Content = tower.GetTowerCost();
+           
+
+
 
         }
 
