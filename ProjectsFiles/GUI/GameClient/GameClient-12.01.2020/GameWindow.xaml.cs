@@ -35,9 +35,9 @@ namespace WpfAppGameTesing
 
         private GameBL game;
         private GameEngine gameEngine;
-        DispatcherTimer gameTimer;
+        private DispatcherTimer gameTimer;
 
-       // private List<Label> labels = new List<Label>();
+       
 
 
         public MainWindow()
@@ -50,17 +50,11 @@ namespace WpfAppGameTesing
             game = new GameBL(1);
             gameEngine = new GameEngine(game);
 
-            #region labels-list
-            //this.labels.Add(LabelTowerInfo);
-            //this.labels.Add(LabelTowercost);
-            //this.labels.Add(LabelTowerDamage);
-            //this.labels.Add(LabelTowerAttackSpeed);
-            //this.labels.Add(LabelTowerRange);    
-            #endregion
-            
+            LabelMoney.Content ="Money: "+this.game.GetMoney()+" $";
+            LabelWave.Content = "Wave ID: "+this.game.GetWave().GetWaveID();
             this.InitialsTowers(gameCanvas);
-
         }
+        
         
         private void InitialsTowers(Canvas gameCanvas)
         {
@@ -84,7 +78,7 @@ namespace WpfAppGameTesing
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            
+            this.gameEngine.Update(gameCanvas);
         }
 
         private void gameCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -126,11 +120,10 @@ namespace WpfAppGameTesing
             LabelTowerDamage.Content = "Tower Damage: "+ tower.GetDamage();
             LabelTowerRange.Content = "Tower Range: "+tower.GetRange();
 
-            LabelTowercost.Content = tower.GetTowerCost();
-           
 
-
-
+            AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
+            DamageButton.Content = tower.GetCostToUpgradeDamage() + " $";
+            RangeButton.Content = tower.GetCostToUpgradeRange() + " $";
         }
 
 

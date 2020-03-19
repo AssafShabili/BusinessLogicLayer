@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using GameBLL.GameComponents;
 using GameDAL.DAL_Classess;
 using System.Data;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
+
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows;
 
 namespace GameBLL.BLL_Classess
 {
@@ -28,9 +27,7 @@ namespace GameBLL.BLL_Classess
         private TowerType waveType;// סוג הסיבוב
         private int moneyGive;// כמות הכסף שמביא הסיבוב למשתמש אם המשתמש ניצח את הסיבוב
 
-        //TODO: ADD bool which is if there is more waves or not (see GameBL NextWave(); )
-        // אולי לא צריך את זה....
-
+        private List<Point> mapRoad;
 
         /// <summary>
         /// פעולה בונה למחלקת סיבוב
@@ -61,6 +58,45 @@ namespace GameBLL.BLL_Classess
                 this.waveID = -1;
             }
 
+        }
+
+
+
+        public WaveBL(int waveID, List<Point> road)
+        {
+            DataTable dataT = GameDAL.DAL_Classess.Game.GetGameWaveInfo(waveID);
+            //Console.WriteLine(DataTablePrint.BuildTable(dataT, 20));
+            if (dataT != null)
+            {
+                this.waveID = waveID;
+                Enemylst = new List<Enemy>();
+                this.mapRoad = road;
+                this.AddWaveUnit(dataT, "Wave_Normal_Unit");
+                this.AddWaveUnit(dataT, "Wave_Normal_Range");
+                this.AddWaveUnit(dataT, "Wave_Adv_Unit");
+                this.AddWaveUnit(dataT, "Wave_Adv_Range");
+                this.AddWaveUnit(dataT, "Wave_Ultra_Unit");
+                this.AddWaveUnit(dataT, "Wave_Ultra_range");
+
+                this.bossID = (int)(dataT.Rows[0]["Wave_Boss_id"]);
+                this.completeScore = (int)(dataT.Rows[0]["Wave_Complete_Score"]);
+                this.waveType = this.GetWaveTypeFromString((string)(dataT.Rows[0]["Wave_type"]));
+                this.moneyGive = (int)(dataT.Rows[0]["Wave_Money_Give"]);
+            }
+            else
+            {
+                this.waveID = -1;
+            }
+
+        }
+
+        /// <summary>
+        /// פעולה להשמת הדרך של אותם מפה
+        /// </summary>
+        /// <param name="road">שרשרת של נקודות של אותה נקודה</param>
+        public void SetMapRoad(List<Point> road)
+        {
+            this.mapRoad = road;
         }
 
         /// <summary>
@@ -104,7 +140,7 @@ namespace GameBLL.BLL_Classess
                 Enemy boss = new Enemy(                    
                     (int)(dataTable.Rows[0]["Boss_health"]),
                    $"{bossType}Boss",
-                    this.GetTowerTypeFromString(bossType));
+                    this.GetTowerTypeFromString(bossType),this.mapRoad);
 
                 this.Enemylst.Add(boss);
             }
@@ -159,8 +195,7 @@ namespace GameBLL.BLL_Classess
                 Enemy boss = new Enemy(
                     (int)(dataTable.Rows[0]["Boss_health"]),
                     $"{bossType}Boss",
-                    this.GetTowerTypeFromString(bossType));
-
+                    this.GetTowerTypeFromString(bossType),this.mapRoad);
                 this.Enemylst.Add(boss);
             }
         }
@@ -335,10 +370,11 @@ namespace GameBLL.BLL_Classess
             {
                 for (int i = 0; i < numberofUnits; i++)
                 {
-                    //I should add BLL and
-                    this.Enemylst.Add(new Enemy(
-                        (this.waveID * 10) / 2, $"{this.waveType}Unit", this.waveType));
-                    //                      ^ needs to be removed ASAP
+                    Enemy enemy = new Enemy(
+                        (this.waveID * 10) / 2, $"{this.waveType}Unit", this.waveType, this.mapRoad);
+                                   
+                    this.Enemylst.Add(enemy);
+                   
                 }
             }
 

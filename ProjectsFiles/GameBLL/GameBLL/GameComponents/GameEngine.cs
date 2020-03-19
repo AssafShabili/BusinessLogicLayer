@@ -23,15 +23,9 @@ namespace GameBLL.GameComponents
         public GameEngine(GameBL game)
         {
             this.gameBL = game;
-            this.attackPhase = false;
+            this.attackPhase = true;//return to false
             this.userDied = false;
-
         }
-
-
-
-        
-
 
         /// <summary>
         /// פעולה להחזרת המגדל לפי המיקום שלו בשרשרת המגדלים
@@ -52,12 +46,12 @@ namespace GameBLL.GameComponents
         /// <summary>
         /// פעולה העדכון של המשחק 
         /// </summary>
-        public void Update()
+        public void Update(Canvas gameCanvas)
         {
             if(attackPhase)
             {
+                this.gameBL.GetWave().GetEnemies().ForEach(e => e.Move(gameCanvas));
                 
-               //attacking time!
             }
             else//building Phase!
             {

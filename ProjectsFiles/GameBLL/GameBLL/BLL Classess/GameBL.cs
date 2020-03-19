@@ -38,9 +38,11 @@ namespace GameBLL.BLL_Classess
             {
                 this.gameID = gameID;
 
-                this.wave = new WaveBL((int)(dataTable.Rows[0]["Game_Wave_ID"]));
 
                 this.map = new MapBL((int)(dataTable.Rows[0]["Game_Map_ID"]));
+
+                this.wave = new WaveBL((int)(dataTable.Rows[0]["Game_Wave_ID"]), map.GetMapRoad());
+                //this.wave.SetMapRoad(map.GetMapRoad());
 
                 this.userHealth = (int)(dataTable.Rows[0]["Game_UserHealth"]);
                 this.score = (int)(dataTable.Rows[0]["Game_Score"]);
