@@ -29,8 +29,15 @@
                 <Button Width="70" Visibility="Hidden"></Button>
                 <Button Height="45" HorizontalAlignment="Left" Width="95" />
             </DockPanel>-->
-            <Grid>
-                
+            <Grid Height="125">
+                <Label Content="cost to upgrade Attack speed " HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10"/>
+                <Button Name="AttackSpeedButton" Content="987$" HorizontalAlignment="Left" Margin="145,0,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF7CEC7C" BorderBrush="#FFFBE6E6" Background="White"/>
+                <Label Content="cost to upgrade Damage " HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10" Margin="0,34,0,0"/>
+                <Button Name="DamageButton" Content="987$" HorizontalAlignment="Left" Margin="145,35,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF7CEC7C" BorderBrush="#FFFBE6E6" Background="White"/>
+
+                <Label Content="cost to upgrade range " HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10" Margin="0,34,0,0"/>
+                <Button Name="RangeButton" Content="987$" HorizontalAlignment="Left" Margin="145,35,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF7CEC7C" BorderBrush="#FFFBE6E6" Background="White"/>
+
             </Grid>
 
 
