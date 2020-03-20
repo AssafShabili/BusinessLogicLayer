@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
+
 namespace GameBLL.GameComponents
 {
   
@@ -105,10 +106,11 @@ namespace GameBLL.GameComponents
                 }              
                 this.EnemyImage.Width = 50;
                 this.EnemyImage.Height = 50;
-
+                
                 Canvas.SetLeft(this.EnemyImage, this.location.X);
                 Canvas.SetTop(this.EnemyImage, this.location.Y);
                 this.indexInRoad++;
+               
                 this.location = this.road[this.indexInRoad];
                 return true;
             }
@@ -127,11 +129,13 @@ namespace GameBLL.GameComponents
             }
         }
 
-        public void Update()
+        public void Update(Canvas gameCanvas)
         {
-            if(this.HP == 0)
+            if(this.HP <= 0)
             {   /*האויב שלי מת!*/
                 this.EnemyImage.Source = null;
+                this.EnemyImage.Visibility = Visibility.Hidden;
+                gameCanvas.Children.Remove(this.EnemyImage);
             }
                                  
         }
@@ -189,6 +193,15 @@ namespace GameBLL.GameComponents
         public Point GetLocation()
         {
             return this.location;
+        }
+
+        /// <summary>
+        /// פעולה לקבלת עם האויב מת או לא 
+        /// </summary>
+        /// <returns>הפעולה מחזירה אמת עם האויב מת ושקר אחרת</returns>
+        public bool IsDead()
+        {
+            return (this.HP <= 0);
         }
 
 

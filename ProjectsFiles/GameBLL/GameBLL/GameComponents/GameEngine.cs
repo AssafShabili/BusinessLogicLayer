@@ -7,6 +7,7 @@ using GameBLL.BLL_Classess;
 using GameBLL.GameComponents;
 using System.Windows;
 using System.Windows.Controls;
+using System.Threading;
 
 namespace GameBLL.GameComponents
 {
@@ -18,13 +19,26 @@ namespace GameBLL.GameComponents
         private GameBL gameBL;
         private bool attackPhase;
         private bool userDied;
-        
-      
+        private Random random;
+
+        private List<TowerProjectile> projectilelist = new List<TowerProjectile>();
+
+        private double gameTime;
+
+
+
+
+
+        private int currentEnemeysDeploy = 0;
+        private List<Enemy> currentEnemey = new List<Enemy>();
+
         public GameEngine(GameBL game)
         {
             this.gameBL = game;
             this.attackPhase = true;//return to false
             this.userDied = false;
+            this.gameTime = 0.0;
+            this.random = new Random();
         }
 
         /// <summary>
@@ -48,10 +62,35 @@ namespace GameBLL.GameComponents
         /// </summary>
         public void Update(Canvas gameCanvas)
         {
+            this.gameTime++;
+            
             if(attackPhase)
             {
-                this.gameBL.GetWave().GetEnemies().ForEach(e => e.Move(gameCanvas));
-                
+               
+                if(this.currentEnemeysDeploy < this.gameBL.GetWave().GetEnemies().Count)
+                {
+                    this.currentEnemey.Add(this.gameBL.GetWave().GetEnemies()[this.currentEnemeysDeploy]);
+                    this.currentEnemeysDeploy++;
+                }
+
+
+                this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
+                this.gameBL.GetTowersList().ForEach(tower =>
+                {
+                    this.projectilelist = tower.TowerAttack(this.gameBL.GetWave().GetEnemies(), this.projectilelist, this.gameTime);
+                });
+                this.projectilelist.ForEach(projectile => projectile.Move(gameCanvas));
+                this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas));
+
+
+                if (CheckIfAllAreDead() && CheckIfAllprojectile())
+                {
+                    GoToBuildingPhase();
+                    //MessageBox.Show("help");
+                }
+
+
+
             }
             else//building Phase!
             {
@@ -60,7 +99,28 @@ namespace GameBLL.GameComponents
         }
 
 
-
+        private bool CheckIfAllAreDead()
+        {
+            foreach(Enemy enemy in this.gameBL.GetWave().GetEnemies())
+            {
+                if(!enemy.IsDead())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool CheckIfAllprojectile()
+        {
+            foreach (TowerProjectile projectile in this.projectilelist)
+            {
+                if(!projectile.projectileHit())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
 
 

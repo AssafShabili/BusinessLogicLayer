@@ -250,13 +250,13 @@ namespace GameBLL.BLL_Classess
         {
             foreach(Enemy enemy in enemylist)
             {
-                if (this.GetTowerAttackRange().ContainsPoint(enemy.GetLocation()) &&
+                if (this.GetTowerAttackRange().ContainsPoint(enemy.GetLocation())) 
                     // the total time of the game - the last time the tower shot  > the amount the tower shoots
-                    (elapsedTime - this.coolDown) > this.attackSpeed)
+                    //(elapsedTime - this.coolDown) > this.attackSpeed)
                 {
-                    //projectilelist.Add(new TowerProjectile(enemy, this.location,GameConstants.projectileTexture
-                    //    , this.damage));
-                    //coolDown = elapsedTime;
+                    projectilelist.Add(new TowerProjectile(enemy, this.location
+                        , this.damage));
+                    coolDown = elapsedTime;
                 }
             }
             return projectilelist;

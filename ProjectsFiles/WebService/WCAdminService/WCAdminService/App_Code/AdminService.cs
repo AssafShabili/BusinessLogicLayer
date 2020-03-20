@@ -25,6 +25,7 @@ public class AdminService : IAdminService
         return this.AdminUserBL.GetAdminPercentageTable();
     }
 
+    
     /// <summary>
     /// פעולה לעדכון אחוז הכי נמוך 
     /// לפי הנתונים של משתמשים אחרים

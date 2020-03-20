@@ -44,7 +44,7 @@ namespace WpfAppGameTesing
         {
             InitializeComponent();
             gameTimer = new DispatcherTimer();
-            gameTimer.Interval = TimeSpan.FromSeconds(1);
+            gameTimer.Interval = TimeSpan.FromMilliseconds(1);
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             game = new GameBL(1);
@@ -52,6 +52,7 @@ namespace WpfAppGameTesing
 
             LabelMoney.Content ="Money: "+this.game.GetMoney()+" $";
             LabelWave.Content = "Wave ID: "+this.game.GetWave().GetWaveID();
+
             this.InitialsTowers(gameCanvas);
         }
         

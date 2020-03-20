@@ -21,7 +21,7 @@
             <Label x:Name="LabelTowerRange" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Grid Height="130">
                 <Label Content="cost to upgrade Attack speed " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
-                <Button x:Name="AttackSpeedButton" Content="987 $" HorizontalAlignment="Left" Margin="185,2,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White"/>
+                <Button x:Name="AttackSpeedButton" Content="987 $" HorizontalAlignment="Left" Margin="185,2,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Panel.ZIndex="1" />
                 <Label Content="cost to upgrade Damage " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,34,0,0"/>
                 <Button x:Name="DamageButton" Content="987 $" HorizontalAlignment="Left" Margin="185,38,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White"/>
 
@@ -33,5 +33,6 @@
 
         <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,159,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
         <Label x:Name="LabelWave" Content="Label" HorizontalAlignment="Left" Margin="965,129,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
