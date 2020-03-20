@@ -8,10 +8,19 @@
         Title="MainWindow" Height="720" Width="1280" Loaded="window_Loaded">
     <Grid x:Name="gameGrid">
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="630" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
-            <Image Source="PogU.png" Height="670" Width="950" Stretch="Fill" />
+            <Image x:Name="ImageCanvas" Source="PogU.png" Height="670" Width="950" Stretch="Fill" />
+            <Image x:Name="addingImage" HorizontalAlignment="Left" Height="100" Margin="1115,309,0,0" VerticalAlignment="Top" Width="100" Source="PogU.png"/>
         </Canvas>
         <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="1115,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
-        <Button x:Name="b_Copy" Content="Button" HorizontalAlignment="Left" Margin="1190,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Height="45" RenderTransformOrigin="0.455,0.556"/>
+        <Button x:Name="b_Copy" Content="Button" HorizontalAlignment="Left" Margin="1190,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Height="45" RenderTransformOrigin="0.455,0.556">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Image HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="50" Source="PogU.png"/>
+ 
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
 
     </Grid>
 </Window>

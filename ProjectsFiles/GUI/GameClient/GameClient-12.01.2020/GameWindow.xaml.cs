@@ -44,7 +44,9 @@ namespace WpfAppGameTesing
         {
             InitializeComponent();
             gameTimer = new DispatcherTimer();
+
             gameTimer.Interval = TimeSpan.FromMilliseconds(1);
+
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             game = new GameBL(1);

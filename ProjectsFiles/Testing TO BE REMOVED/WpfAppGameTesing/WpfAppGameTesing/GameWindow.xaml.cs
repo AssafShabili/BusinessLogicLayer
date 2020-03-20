@@ -62,8 +62,18 @@ namespace WpfAppGameTesing
             if(selection != TowerSelection.None)
             {
                 Point point = Mouse.GetPosition(gameCanvas);
+
+                Image image = new Image();
+                image.Width = 50;
+                image.Height = 50;
+                image.Source = ImageCanvas.Source;
+
+
                 Button button = new Button();
-                button.Content = "PogU";
+                button.Content = image;
+
+                
+
                 button.Width = 50;
                 button.Height = 50;
                 gameCanvas.Children.Add(button);
