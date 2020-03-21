@@ -85,6 +85,9 @@ namespace WpfAppGameTesing
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             LabelScore.Content = "Score: " + this.game.GetScore();
+
+            //AttackSpeedButton.Content = this.gameEngine.
+
         }
 
         /// <summary>
@@ -95,6 +98,8 @@ namespace WpfAppGameTesing
         private void gameCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Point point = Mouse.GetPosition(gameCanvas);
+            LabelError.Content = "";
+
             if (selection != TowerSelection.None && this.gameEngine.CanUserBuyTower()
                 && this.gameEngine.CanBuildTower(point))
             {
@@ -109,7 +114,7 @@ namespace WpfAppGameTesing
                 this.gameEngine.AddTowerToGame(towerBL);
                 this.gameEngine.SetGameMoney(50);
 
-
+               
 
                 LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
 
@@ -166,8 +171,11 @@ namespace WpfAppGameTesing
 
 
             AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
+            AttackSpeedButton.Name = "B"+index.ToString();
             DamageButton.Content = tower.GetCostToUpgradeDamage() + " $";
+            DamageButton.Name = "B"+(index.ToString());
             RangeButton.Content = tower.GetCostToUpgradeRange() + " $";
+            RangeButton.Name = "B"+(index.ToString());
         }
 
 
@@ -233,6 +241,41 @@ namespace WpfAppGameTesing
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             this.gameEngine.GoToAttackPhase();
 
+        }
+
+        private void AttackSpeedButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(((Button)sender).Name.Trim('B'), out int index))
+            {
+                if (!this.gameEngine.UpgradeTowerAttackSpeed(gameEngine.GetTowerByIndex(index)))
+                {
+                    LabelError.Content = "You dont have the money \n for it!";
+                }
+            }
+
+            
+        }
+
+        private void DamageButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
+            {
+                if (!this.gameEngine.UpgradeTowerDamage(gameEngine.GetTowerByIndex(index)))
+                {
+                    LabelError.Content = "You dont have the money \n for it!";
+                }
+            }
+        }
+
+        private void RangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
+            {
+                if (!this.gameEngine.UpgradeTowerRange(gameEngine.GetTowerByIndex(index)))
+                {
+                    LabelError.Content = "You dont have the money \n for it!";
+                }
+            }
         }
     }
 }
