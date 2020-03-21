@@ -33,6 +33,7 @@ namespace GameBLL.GameComponents
 
         private int currentEnemeysDeploy = 0;
         private List<Enemy> currentEnemey = new List<Enemy>();
+        private int enemeysGotToTheEnd;
 
         public GameEngine(GameBL game,Button button)
         {
@@ -78,32 +79,22 @@ namespace GameBLL.GameComponents
                 }
 
 
-                //this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
-                foreach(Enemy enemy in this.currentEnemey)
-                {
-                    if(!enemy.Move(gameCanvas))
-                    {
-                        this.gameBL.DamageTaken(1);
-                        if(this.gameBL.IsDead())
-                        {
-                            MessageBox.Show("you lost!");
-                            window.Close();
-                        }
-                    }                    
-                }
+                this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
+                
 
                 this.gameBL.GetTowersList().ForEach(tower =>
                 {
                     this.projectilelist = tower.TowerAttack(this.gameBL.GetWave().GetEnemies(), this.projectilelist, this.gameTime);
                 });
                 this.projectilelist.ForEach(projectile => projectile.Move(gameCanvas));
-                this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas));
+                this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas,this.gameBL));
 
 
-                if (CheckIfAllAreDead() && CheckIfAllprojectile())
+                if ((CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
                 {
                     this.currentEnemey = new List<Enemy>();
                     this.currentEnemeysDeploy = 0;
+                    this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
                     GoToBuildingPhase();
                     //MessageBox.Show("help");
                 }
@@ -153,6 +144,18 @@ namespace GameBLL.GameComponents
             foreach (TowerProjectile projectile in this.projectilelist)
             {
                 if(!projectile.projectileHit())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool CheckIfDeadOrEnd()
+        {
+            foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
+            {
+                if (enemy.IsDead() || !enemy.IsAtEnd())
                 {
                     return false;
                 }

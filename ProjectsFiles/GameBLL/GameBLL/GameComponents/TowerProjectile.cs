@@ -60,6 +60,18 @@ namespace GameBLL.GameComponents
            
         }
 
+
+        /// <summary>
+        /// פעולה לעדכון התמונות של המשחק
+        /// </summary>
+        /// <param name="gameCanvas">הרק של המשחק</param>
+        public void Update(Canvas gameCanvas)
+        {
+            this.projectileImage.Source = null;
+            this.projectileImage.Visibility = Visibility.Hidden;
+            gameCanvas.Children.Remove(this.projectileImage);
+        }
+
         /// <summary>
         /// פעולה להזזת הקליע
         /// </summary>

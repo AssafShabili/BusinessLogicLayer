@@ -129,15 +129,31 @@ namespace GameBLL.GameComponents
             }
         }
 
-        public void Update(Canvas gameCanvas)
+        public void Update(Canvas gameCanvas,GameBL game)
         {
-            if(this.HP <= 0)
+            if (this.HP <= 0)
             {   /*האויב שלי מת!*/
                 this.EnemyImage.Source = null;
                 this.EnemyImage.Visibility = Visibility.Hidden;
                 gameCanvas.Children.Remove(this.EnemyImage);
             }
+            else if(this.indexInRoad  == this.road.Count()-1)
+            {
+                game.DamageTaken(1);
+                this.EnemyImage.Source = null;
+                this.EnemyImage.Visibility = Visibility.Hidden;
+                gameCanvas.Children.Remove(this.EnemyImage);
+            }
                                  
+        }
+
+        /// <summary>
+        /// פעולה לקבלת המיקום שאותו אויב
+        /// </summary>
+        /// <returns>אמת אם נמצא בסוף בסוף אחרת הפעולה תחזיר שקר</returns>
+        public bool IsAtEnd()
+        {
+            return (this.indexInRoad == this.road.Count() - 1);
         }
 
         public void Hit(int dmg)
