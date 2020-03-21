@@ -234,10 +234,9 @@ namespace GameBLL.BLL_Classess
         // חסר תןועלת אפשר להסיר
         public void DamageTaken()
         {
-            if(this.userHealth-1 >= 0)
-            {
+            
                 this.userHealth -= 1;
-            }
+            
         }
 
         /// <summary>
@@ -246,10 +245,15 @@ namespace GameBLL.BLL_Classess
         /// <param name="hitPoints">כמות הזק שהמשתמש לוקח</param>
         public void DamageTaken(int hitPoints)
         {
-            if (this.userHealth - hitPoints >= 0)
-            {
+           
                 this.userHealth -= hitPoints;
-            }
+           
+        }
+
+
+        public bool IsDead()
+        {
+            return (this.userHealth <= 0);
         }
 
 
@@ -539,5 +543,7 @@ namespace GameBLL.BLL_Classess
             return this.towersList;
         }
         // ======= סיום פעולות איחזור ============
+
+        
     }
 }

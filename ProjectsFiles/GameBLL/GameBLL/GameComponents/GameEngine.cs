@@ -64,7 +64,7 @@ namespace GameBLL.GameComponents
         /// <summary>
         /// פעולה העדכון של המשחק 
         /// </summary>
-        public void Update(Canvas gameCanvas)
+        public void Update(Canvas gameCanvas,Window window)
         {
             this.gameTime++;
             
@@ -78,7 +78,20 @@ namespace GameBLL.GameComponents
                 }
 
 
-                this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
+                //this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
+                foreach(Enemy enemy in this.currentEnemey)
+                {
+                    if(!enemy.Move(gameCanvas))
+                    {
+                        this.gameBL.DamageTaken(1);
+                        if(this.gameBL.IsDead())
+                        {
+                            MessageBox.Show("you lost!");
+                            window.Close();
+                        }
+                    }                    
+                }
+
                 this.gameBL.GetTowersList().ForEach(tower =>
                 {
                     this.projectilelist = tower.TowerAttack(this.gameBL.GetWave().GetEnemies(), this.projectilelist, this.gameTime);
@@ -107,9 +120,16 @@ namespace GameBLL.GameComponents
 
         public bool NextWave()
         {
+            int money = this.gameBL.GetWave().GetMoneyGive();
+            int score = this.gameBL.GetWave().GetCompleteScore();
+
             WaveBL waveBL = this.gameBL.NextWave();
+           
             if (waveBL != null)
             {
+                this.gameBL.AddMoney(money);
+                this.gameBL.AddScore(score);
+
                 this.gameBL.UpdateGameScore();
                 return false;
             }
@@ -175,6 +195,7 @@ namespace GameBLL.GameComponents
         {
             this.attackPhase = false;
             this.nextWaveButton.IsEnabled = true;
+            this.gameBL.UpdateGameInfo();
         }
 
 

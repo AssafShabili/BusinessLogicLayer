@@ -88,5 +88,6 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label x:Name="LabelScore" Content="Label" HorizontalAlignment="Left" Margin="965,255,0,0" VerticalAlignment="Top"  FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
     </Grid>
 </Window>

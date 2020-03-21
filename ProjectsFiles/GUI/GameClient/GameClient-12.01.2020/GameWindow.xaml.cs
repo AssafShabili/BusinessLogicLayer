@@ -81,7 +81,10 @@ namespace WpfAppGameTesing
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.gameEngine.Update(gameCanvas);
+            this.gameEngine.Update(gameCanvas,this);
+            LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
+            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
+            LabelScore.Content = "Score: " + this.game.GetScore();
         }
 
         /// <summary>
@@ -104,6 +107,11 @@ namespace WpfAppGameTesing
                 Canvas.SetTop(towerBL.GetTowerButton(), point.Y);
 
                 this.gameEngine.AddTowerToGame(towerBL);
+                this.gameEngine.SetGameMoney(50);
+
+
+
+                LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
 
                 selection = TowerSelection.None;
             }
@@ -217,8 +225,14 @@ namespace WpfAppGameTesing
         /// <param name="e"></param>
         private void NextWaveButton_Click(object sender, RoutedEventArgs e)
         {
-            this.gameEngine.NextWave();
+            if (this.gameEngine.NextWave() == true)
+            {
+                MessageBox.Show("You Won Good job!");
+                this.Close();
+            }
+            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             this.gameEngine.GoToAttackPhase();
+
         }
     }
 }
