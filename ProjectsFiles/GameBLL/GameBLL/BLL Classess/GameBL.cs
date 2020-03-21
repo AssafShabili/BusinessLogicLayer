@@ -209,7 +209,7 @@ namespace GameBLL.BLL_Classess
             if(GameDAL.DAL_Classess.Game.IsThereANextWave(this.wave.GetWaveID()))
             {
                 //יש את הסיבוב הבא
-                this.wave = new WaveBL(this.wave.GetWaveID() + 1);
+                this.wave = new WaveBL(this.wave.GetWaveID() + 1,this.map.GetMapRoad());
                 return this.wave;
             }
             return null;//Or we can return a wave obj which is the "winning wave" 
@@ -468,7 +468,37 @@ namespace GameBLL.BLL_Classess
         }
 
 
-        
+        // ============  פעולות עדכון של הנתונים במשחק =============
+
+        /// <summary>
+        /// פעולה לעדכון הנתונים של המשחק
+        /// </summary>
+        public void UpdateGameInfo()
+        {
+            GameDAL.DAL_Classess.Game.UpdateGameInfo(
+                this.gameID,
+                this.wave.GetWaveID(),
+                this.userHealth,
+                this.score,
+                this.money);
+        }
+
+        public void UpdateGameMoney()
+        {
+            GameDAL.DAL_Classess.Game.UpdateGameMoney(
+                this.gameID,
+                this.money);
+        }
+
+        public void UpdateGameScore()
+        {
+            GameDAL.DAL_Classess.Game.UpdateGameScore(
+               this.gameID,
+               this.score);
+        }
+
+
+        // =================================================================================
 
 
         // ======= פעולות איחזור ============

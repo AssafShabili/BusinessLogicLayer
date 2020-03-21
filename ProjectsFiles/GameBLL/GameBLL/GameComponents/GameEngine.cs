@@ -25,6 +25,8 @@ namespace GameBLL.GameComponents
 
         private double gameTime;
 
+        private Button nextWaveButton;
+
 
 
 
@@ -32,12 +34,14 @@ namespace GameBLL.GameComponents
         private int currentEnemeysDeploy = 0;
         private List<Enemy> currentEnemey = new List<Enemy>();
 
-        public GameEngine(GameBL game)
+        public GameEngine(GameBL game,Button button)
         {
             this.gameBL = game;
-            this.attackPhase = false;//return to false
+            this.attackPhase = true;//return to false
             this.userDied = false;
             this.gameTime = 0.0;
+            this.nextWaveButton = button;
+            this.nextWaveButton.IsEnabled = false;
             this.random = new Random();
         }
 
@@ -85,6 +89,8 @@ namespace GameBLL.GameComponents
 
                 if (CheckIfAllAreDead() && CheckIfAllprojectile())
                 {
+                    this.currentEnemey = new List<Enemy>();
+                    this.currentEnemeysDeploy = 0;
                     GoToBuildingPhase();
                     //MessageBox.Show("help");
                 }
@@ -94,8 +100,20 @@ namespace GameBLL.GameComponents
             }
             else//building Phase!
             {
-
+                
             }
+        }
+
+
+        public bool NextWave()
+        {
+            WaveBL waveBL = this.gameBL.NextWave();
+            if (waveBL != null)
+            {
+                this.gameBL.UpdateGameScore();
+                return false;
+            }
+            return true;
         }
 
 
@@ -147,7 +165,8 @@ namespace GameBLL.GameComponents
         /// </summary>
         public void GoToAttackPhase()
         {
-            this.attackPhase = true;
+            this.attackPhase = true;         
+            this.nextWaveButton.IsEnabled = false;
         }
         /// <summary>
         /// פעולה שהופכת את המשתנה של מבטה את המצב שהוא נמצא המשחק למצב הגנה  
@@ -155,6 +174,7 @@ namespace GameBLL.GameComponents
         public void GoToBuildingPhase()
         {
             this.attackPhase = false;
+            this.nextWaveButton.IsEnabled = true;
         }
 
 

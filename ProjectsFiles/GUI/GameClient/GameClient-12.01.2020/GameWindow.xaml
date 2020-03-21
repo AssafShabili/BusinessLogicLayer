@@ -10,7 +10,6 @@
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="670" Margin="10,10,0,0" VerticalAlignment="Top" Width="950" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" Source="MapImg/sand.png" />
         </Canvas>
-        <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="990,110,0,0" VerticalAlignment="Top" Width="55"  Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
         <StackPanel HorizontalAlignment="Left" Height="304" Margin="960,375,0,0" VerticalAlignment="Top" Width="312">
             <Label x:Name="LabelTowerInfo" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
@@ -82,5 +81,12 @@
             </Button.ContentTemplate>
         </Button>
         <Label x:Name="LabelError" Content="" HorizontalAlignment="Left" Margin="1013,275,0,0" VerticalAlignment="Top" Width="232" Height="45" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+        <Button x:Name="NextWaveButton" Content="NEXT WAVE " HorizontalAlignment="Left" Margin="975,110,0,0" VerticalAlignment="Top" Width="175" Height="30" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" Click="NextWaveButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

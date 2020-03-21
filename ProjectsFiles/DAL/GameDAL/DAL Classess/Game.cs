@@ -375,6 +375,52 @@ namespace GameDAL.DAL_Classess
 
 
 
+        /// <summary>
+        /// פעולה לעדכון כמות הכסף שבמשחק
+        /// </summary>
+        /// <param name="gameID">מפתח של המשחק</param>
+        /// <param name="amount">כמות הכסף המעודכן</param>
+        public static void UpdateGameMoney(int gameID,int amount)
+        {
+            DBHelper.UpdateQuery(
+                " UPDATE Game " +
+               $" SET Game_Money = {amount} " +
+               $" WHERE Game_ID = {gameID} ");
+        }
+
+        /// <summary>
+        /// פעולה לעדכון כמות הנקודות 
+        /// </summary>
+        /// <param name="gameID">מפתח של המשחק</param>
+        /// <param name="score">ניקוד המשחק החדש</param>
+        public static void UpdateGameScore(int gameID, int score)
+        {
+            DBHelper.UpdateQuery(
+                " UPDATE Game " +
+               $" SET Game_Score = {score} " +
+               $" WHERE Game_ID = {gameID} ");
+        }
+
+        /// <summary>
+        /// פעולה לעדכון חלק מהחלקים של המשחק
+        /// </summary>
+        /// <param name="gameID">מפתח המשחק</param>
+        /// <param name="waveID">מפתח של הסיבוב</param>
+        /// <param name="userHP">כמות החיים של המשתמש</param>
+        /// <param name="score">ניקוד המשתמש</param>
+        /// <param name="money">כמות הכסף</param>
+        public static void UpdateGameInfo(int gameID,int waveID,int userHP,int score,int money)
+        {
+            DBHelper.UpdateQuery(
+               " UPDATE Game " +
+              $" SET Game_Score = {score}," +
+              $" Game_Wave_ID = {waveID}, " +
+              $" Game_UserHealth = {userHP}, " +
+              $" Game_Money = {money}" +
+              $" WHERE Game_ID = {gameID} ");
+        }
+
+
 
         
 

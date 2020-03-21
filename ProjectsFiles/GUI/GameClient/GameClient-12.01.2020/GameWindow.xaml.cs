@@ -50,7 +50,7 @@ namespace WpfAppGameTesing
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             game = new GameBL(1);
-            gameEngine = new GameEngine(game);
+            gameEngine = new GameEngine(game,NextWaveButton);
 
             LabelMoney.Content ="Money: "+this.game.GetMoney()+" $";
             LabelWave.Content = "Wave ID: "+this.game.GetWave().GetWaveID();
@@ -207,6 +207,18 @@ namespace WpfAppGameTesing
         private void ButtonSelectEarth_Click(object sender, RoutedEventArgs e)
         {
             this.selection = TowerSelection.TowerEarth;
+        }
+
+
+        /// <summary>
+        /// המשתמש עובד לסיבוב הבא
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NextWaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.gameEngine.NextWave();
+            this.gameEngine.GoToAttackPhase();
         }
     }
 }
