@@ -6,15 +6,14 @@
         xmlns:local="clr-namespace:WpfAppGameTesing"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" Loaded="window_Loaded">
-    <Grid x:Name="gameGrid" Cursor="Hand" Margin="0,1,0,-1">
+    <Grid x:Name="gameGrid" Cursor="Hand">
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="670" Margin="10,10,0,0" VerticalAlignment="Top" Width="950" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" Source="MapImg/sand.png" />
         </Canvas>
-        <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="1115,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
-        <Button x:Name="b_Copy" Content="Button" HorizontalAlignment="Left" Margin="1190,30,0,0" VerticalAlignment="Top" Width="55" MouseDoubleClick="b_MouseDoubleClick" Height="45" RenderTransformOrigin="0.455,0.556"/>
+        <Button x:Name="b" Content="Button" HorizontalAlignment="Left" Margin="990,110,0,0" VerticalAlignment="Top" Width="55"  Click="b_Click" Height="45" LostFocus="b_LostFocus" MouseMove="b_MouseMove"/>
         <StackPanel HorizontalAlignment="Left" Height="304" Margin="960,375,0,0" VerticalAlignment="Top" Width="312">
             <Label x:Name="LabelTowerInfo" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
-            <!--<Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>-->
+            <Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowerDamage" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowerAttackSpeed" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
 
@@ -31,8 +30,57 @@
             </Grid>
         </StackPanel>
 
-        <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,159,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
-        <Label x:Name="LabelWave" Content="Label" HorizontalAlignment="Left" Margin="965,129,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
+        <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,225,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
+        <Label x:Name="LabelWave" Content="Label" HorizontalAlignment="Left" Margin="965,195,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="65" Source="Img/linkedin_profile_image.png" Stretch="Fill"/>
+        <Button x:Name="ButtonSelectWater" Content="" HorizontalAlignment="Left" Margin="1160,10,0,0" VerticalAlignment="Top" Width="85" Height="80" BorderBrush="White" Background="White" Click="ButtonSelectWater_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="MapImg/Tower_water.png" Stretch="None" Width="56" Height="36" />
+                        <TextBlock Text="Water Tower" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                        <TextBlock Text="50$" HorizontalAlignment="Center" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                    </StackPanel>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Button x:Name="ButtonSelectAir" Content="" HorizontalAlignment="Left" Margin="1075,10,0,0" VerticalAlignment="Top" Width="85" Height="80" BorderBrush="White" Background="White" Click="ButtonSelectAir_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="MapImg/Tower_air.png" Stretch="None" Width="56" Height="36" />
+                        <TextBlock Text="air Tower" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                        <TextBlock Text="50$" HorizontalAlignment="Center" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                    </StackPanel>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Button x:Name="ButtonSelectEarth" Content="" HorizontalAlignment="Left" Margin="1160,95,0,0" VerticalAlignment="Top" Width="85" Height="80" BorderBrush="White" Background="White" Click="ButtonSelectEarth_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="MapImg/Tower_earth.png" Stretch="None" Width="56" Height="36" />
+                        <TextBlock Text="Earth Tower" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                        <TextBlock Text="50$" HorizontalAlignment="Center" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                    </StackPanel>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Button x:Name="ButtonSelectFire" Content="" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="85" Height="80" BorderBrush="White" Background="White" Click="ButtonSelectFire_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="MapImg/Tower_Fire.png" Stretch="None" Width="56" Height="36" />
+                        <TextBlock Text="Fire Tower" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                        <TextBlock Text="50$" HorizontalAlignment="Center" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"  />
+                    </StackPanel>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Label x:Name="LabelError" Content="" HorizontalAlignment="Left" Margin="1013,275,0,0" VerticalAlignment="Top" Width="232" Height="45" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
     </Grid>
 </Window>

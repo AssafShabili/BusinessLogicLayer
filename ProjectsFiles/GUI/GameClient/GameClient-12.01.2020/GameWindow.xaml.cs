@@ -45,7 +45,7 @@ namespace WpfAppGameTesing
             InitializeComponent();
             gameTimer = new DispatcherTimer();
 
-            gameTimer.Interval = TimeSpan.FromMilliseconds(1);
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
 
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
@@ -84,23 +84,56 @@ namespace WpfAppGameTesing
             this.gameEngine.Update(gameCanvas);
         }
 
+        /// <summary>
+        /// בנייה של המגדל
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gameCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(selection != TowerSelection.None)
+            Point point = Mouse.GetPosition(gameCanvas);
+            if (selection != TowerSelection.None && this.gameEngine.CanUserBuyTower()
+                && this.gameEngine.CanBuildTower(point))
             {
-                Point point = Mouse.GetPosition(gameCanvas);
-                Button button = new Button();
-                button.Content = "PogU";
-                button.Width = 50;               
-                button.Height = 50;
-                gameCanvas.Children.Add(button);
+                TowerBL towerBL = new TowerBL();
+                int towerID = towerBL.makeTower(TowerSelectionToString(selection),(int)point.X,(int)point.Y);
+                towerBL = new TowerBL(towerID);
 
-                Canvas.SetLeft(button, point.X);
-                Canvas.SetTop(button, point.Y);
+                gameCanvas.Children.Add(towerBL.GetTowerButton());
+                Canvas.SetLeft(towerBL.GetTowerButton(), point.X);
+                Canvas.SetTop(towerBL.GetTowerButton(), point.Y);
+
+                this.gameEngine.AddTowerToGame(towerBL);
 
                 selection = TowerSelection.None;
             }
+            else
+            {
+                this.LabelError.Content = "can build here nor, \n you don't have money to buy it";
+            }
 
+        }
+
+        /// <summary>
+        /// פעולה להמרת סוג של הבחירה לסטרינג
+        /// </summary>
+        /// <param name="towerSelection">בחירה של הסוג של הבניין</param>
+        /// <returns>הפעולה מחזירה את הסוג של אותו בחירה </returns>
+        public string TowerSelectionToString(TowerSelection towerSelection)
+        {
+            switch(towerSelection)
+            {
+                case TowerSelection.TowerAir:
+                    return "air";
+                case TowerSelection.TowerEarth:
+                    return "earth";
+                case TowerSelection.TowerFire:
+                    return "fire";
+                case TowerSelection.TowerWater:
+                    return "water";
+                default:
+                    return "";
+            }
         }
 
 
@@ -118,7 +151,7 @@ namespace WpfAppGameTesing
             TowerBL tower = gameEngine.GetTowerByIndex(index);
 
             LabelTowerInfo.Content = tower.GetTowerType().ToString() + $"{index}";
-
+            LabelTowercost.Content ="Tower is worth: " +tower.GetTowerCost().ToString()+"$";
             LabelTowerAttackSpeed.Content = "Tower AttackSpeed: "+tower.GetAttackSpeed();
             LabelTowerDamage.Content = "Tower Damage: "+ tower.GetDamage();
             LabelTowerRange.Content = "Tower Range: "+tower.GetRange();
@@ -132,18 +165,9 @@ namespace WpfAppGameTesing
 
 
 
-        private void b_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Button button = new Button();
-            button.Content = "PogU";
+      
 
-            gameGrid.Children.Add(button);
-            button.Width = 50;
-            button.Height = 50;
-            Grid.SetColumn(button, 0);
-            Grid.SetColumn(button, 0);
-        }
-
+        //בחריה של סוג האש
         private void b_Click(object sender, RoutedEventArgs e)
         {
             this.selection = TowerSelection.TowerFire;
@@ -163,6 +187,26 @@ namespace WpfAppGameTesing
         private void window_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ButtonSelectFire_Click(object sender, RoutedEventArgs e)
+        {
+            this.selection = TowerSelection.TowerFire;
+        }
+
+        private void ButtonSelectAir_Click(object sender, RoutedEventArgs e)
+        {
+            this.selection = TowerSelection.TowerAir;
+        }
+
+        private void ButtonSelectWater_Click(object sender, RoutedEventArgs e)
+        {
+            this.selection = TowerSelection.TowerWater;
+        }
+
+        private void ButtonSelectEarth_Click(object sender, RoutedEventArgs e)
+        {
+            this.selection = TowerSelection.TowerEarth;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace GameBLL.GameComponents
         public GameEngine(GameBL game)
         {
             this.gameBL = game;
-            this.attackPhase = true;//return to false
+            this.attackPhase = false;//return to false
             this.userDied = false;
             this.gameTime = 0.0;
             this.random = new Random();
@@ -122,7 +122,24 @@ namespace GameBLL.GameComponents
             return true;
         }
 
+        /// <summary>
+        /// פעולה להוספת כסף של אותו משתמש
+        /// </summary>
+        /// <param name="amount">כמות של כסף</param>
+        public void SetGameMoney(int amount)
+        {
+            this.gameBL.AddMoney(-amount);
+        }
 
+
+        /// <summary>
+        /// פעולה לבדיהק אם אפשר לבנות פה מגדל
+        /// </summary>
+        /// <returns>מחזירה אמת אם אפשר לבנות מגדל ושקר אחרת</returns>
+        public bool CanUserBuyTower()
+        {
+            return (this.gameBL.GetMoney() - 50 >= 0);           
+        }
 
 
         /// <summary>
@@ -165,6 +182,15 @@ namespace GameBLL.GameComponents
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="towerBL"></param>
+        public void AddTowerToGame(TowerBL towerBL)
+        {
+            this.gameBL.AddTowerToGame(towerBL);
         }
 
 

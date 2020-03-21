@@ -45,6 +45,7 @@
         <Button Content="?" HorizontalAlignment="Left" Margin="710,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="665,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
         <Label x:Name="LabelNoGame" Content="" HorizontalAlignment="Left" Margin="550,387,0,0" VerticalAlignment="Top" Width="232" Height="73" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>

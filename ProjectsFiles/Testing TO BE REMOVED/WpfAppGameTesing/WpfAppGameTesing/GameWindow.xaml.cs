@@ -64,13 +64,14 @@ namespace WpfAppGameTesing
                 Point point = Mouse.GetPosition(gameCanvas);
 
                 Image image = new Image();
-                image.Width = 50;
-                image.Height = 50;
-                image.Source = ImageCanvas.Source;
+                image.Width = 500;
+                image.Height = 500;
+                image.Source = GetBitmapImage("Tower_air.png");
+                image.Stretch = Stretch.None;
 
 
                 Button button = new Button();
-                button.Content = image;
+                button.Content = image ;
 
                 
 
@@ -88,6 +89,20 @@ namespace WpfAppGameTesing
 
 
 
+        /// <summary>
+        /// פעולה שמקבלת את השם של המפה  
+        /// ומחזירה את המפה כ - bitmapImage
+        /// </summary>
+        /// <param name="mapName">שם של המפה של המשחק</param>
+        /// <returns>הפעולה תחזיר את התמונה  שכדאי שנוכל להכניס אותה לתוך הפקד של התמונה</returns>
+        public BitmapImage GetBitmapImage(string mapName)
+        {
+            BitmapImage bitMap = new BitmapImage();
+            bitMap.BeginInit();
+            bitMap.UriSource = new Uri($@"{mapName}", UriKind.Relative);
+            bitMap.EndInit();
+            return bitMap;
+        }
 
         private void TowerButton_Click(object sender, RoutedEventArgs e)
         {

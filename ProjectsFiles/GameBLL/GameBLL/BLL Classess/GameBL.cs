@@ -112,10 +112,23 @@ namespace GameBLL.BLL_Classess
         /// <param name="postion">מיקום בלוח</param>
         /// <returns>תחזיר אמת אם אפשר לבנות את המגדל באותו מיקום אם לא אז תחזיר שקר</returns>
         public bool CanBuildTowerHere(Point postion)
+        {           
+            return !this.map.GetMapRoad().Exists(point =>
+            (distanceBetween2Points(point, postion) < 100));
+        }
+
+        /// <summary>
+        /// פעולה לחישוב המרחק שהיו שני נקודות
+        /// </summary>
+        /// <param name="a">נקודה א</param>
+        /// <param name="b">נקודה ב</param>
+        /// <returns>מרחב שהין שתי הנקודות שמספר ממשי</returns>
+        public double distanceBetween2Points(Point a, Point b)
         {
-            return (this.map.GetMapRoad().Exists(x =>
-            (x.X != postion.X ||
-            x.Y != postion.Y)));
+            return Math.Sqrt(
+                Math.Pow((a.X - b.X), 2) +
+                 Math.Pow((a.Y - b.Y), 2)
+                );
         }
 
         /// <summary>

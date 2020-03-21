@@ -9,6 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Shapes;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace GameBLL.BLL_Classess
 {
@@ -79,11 +80,32 @@ namespace GameBLL.BLL_Classess
                 
 
                 this.towerButton = new Button();
-                this.towerButton.Content = "PogU";
+                Image image = new Image();
+                image.Source = GetBitmapImage(this.TowerImgName);
+                image.Stretch = Stretch.None;
+                image.Width = 50;
+                image.Height = 50;
+
+                this.towerButton.Content = image;
                 this.towerButton.Width = 50;
                 this.towerButton.Height = 50;
                 //this.Tex = Content
             }
+        }
+
+        public TowerBL()
+        {
+            
+        }
+
+
+        public int MakeTower()
+        {
+            return Tower.CreateDefaultTower();
+        }
+        public int makeTower(string type,int x, int y)
+        {
+            return Tower.CreateDefaultTower(type,x,y);
         }
 
         /// <summary>
@@ -272,6 +294,7 @@ namespace GameBLL.BLL_Classess
         public void SetTowerType(TowerType towerType)
         {
             this.towerType = towerType;
+            
             GameDAL.DAL_Classess.Game.ChangeTypeTower(this.towerID, this.towerType.ToString());
         }
 
@@ -347,6 +370,22 @@ namespace GameBLL.BLL_Classess
         }
         // ============= end ========================
 
-        
+
+        /// <summary>
+        /// פעולה שמקבלת את השם של המפה  
+        /// ומחזירה את המפה כ - bitmapImage
+        /// </summary>
+        /// <param name="mapName">שם של המפה של המשחק</param>
+        /// <returns>הפעולה תחזיר את התמונה  שכדאי שנוכל להכניס אותה לתוך הפקד של התמונה</returns>
+        public BitmapImage GetBitmapImage(string mapName)
+        {
+            BitmapImage bitMap = new BitmapImage();
+            bitMap.BeginInit();
+            bitMap.UriSource = new Uri($@"\MapImg\{mapName}", UriKind.Relative);
+            bitMap.EndInit();
+            return bitMap;
+        }
+
+
     }
 }
