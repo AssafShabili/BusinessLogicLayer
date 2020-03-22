@@ -21,10 +21,10 @@
                 <Label Content="cost to upgrade Attack speed " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
                 <Button x:Name="AttackSpeedButton" Content="987 $" HorizontalAlignment="Left" Margin="185,2,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Panel.ZIndex="1" Click="AttackSpeedButton_Click" />
                 <Label Content="cost to upgrade Damage " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,34,0,0"/>
-                <Button x:Name="DamageButton" Content="987 $" HorizontalAlignment="Left" Margin="185,38,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White"/>
+                <Button x:Name="DamageButton" Content="987 $" HorizontalAlignment="Left" Margin="185,38,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Click="DamageButton_Click"/>
 
                 <Label Content="cost to upgrade range " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,70,0,0"/>
-                <Button x:Name="RangeButton" Content="987 $" HorizontalAlignment="Left" Margin="185,74,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White"/>
+                <Button x:Name="RangeButton" Content="987 $" HorizontalAlignment="Left" Margin="185,74,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Click="RangeButton_Click"/>
                 <Label Content="In order to buy, just click the price!" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="225" Height="20" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10" Foreground="#FF6083E0"/>
             </Grid>
         </StackPanel>
