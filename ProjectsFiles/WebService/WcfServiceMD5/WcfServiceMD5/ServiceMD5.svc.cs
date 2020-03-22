@@ -12,19 +12,14 @@ namespace WcfServiceMD5
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IServiceMD5
-    {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
+    {      
         /// <summary>
         /// פעולה לקבלת הסיסמא בהצפנה
         /// </summary>      
         /// <param name="password">סיסמא להצפנה</param>
         /// <returns>MD5 hash
         /// של אותה סיסמא</returns>
-        public static string GetMd5Hash(string password)
+        public string GetMd5Hash(string password)
         {
             using (MD5 md5Hash = MD5.Create())
             {
@@ -54,7 +49,7 @@ namespace WcfServiceMD5
         /// <param name="password">סיסמא להצפנה</param>
         /// <returns>MD5 hash
         /// של אותה סיסמא</returns>
-        public static string GetMd5Hash(MD5 md5Hash, string password)
+        public  string GetMd5HashWithMD5Hash(MD5 md5Hash, string password)
         {
 
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -82,12 +77,12 @@ namespace WcfServiceMD5
         /// <param name="password">הסיסמא הרגילה</param>
         /// <param name="hashedPassword">הסיסמא המוצפנת</param>
         /// <returns>אמת אם הסיסמא המוצפנת היא שווה לסיסמא הרגילה</returns>
-        public static bool VerifyMd5Hash(string password, string hashedPassword)
+        public  bool VerifyMd5Hash(string password, string hashedPassword)
         {
             using (MD5 md5Hash = MD5.Create())
             {
                 // Hash the input.
-                string hashOfInput = GetMd5Hash(md5Hash,password);
+                string hashOfInput = GetMd5HashWithMD5Hash(md5Hash,password);
 
                 // Create a StringComparer an compare the hashes.
                 StringComparer comparer = StringComparer.OrdinalIgnoreCase;

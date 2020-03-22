@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Security.Cryptography;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
@@ -12,14 +13,14 @@ namespace WcfServiceMD5
     [ServiceContract]
     public interface IServiceMD5
     {
+        [OperationContract]
+        string GetMd5Hash(string password);
 
         [OperationContract]
-        string GetData(int value);
+        string GetMd5HashWithMD5Hash(MD5 md5Hash, string password);
 
         [OperationContract]
-       
-
-        // TODO: Add your service operations here
+        bool VerifyMd5Hash(string password, string hashedPassword);     
     }
 
 

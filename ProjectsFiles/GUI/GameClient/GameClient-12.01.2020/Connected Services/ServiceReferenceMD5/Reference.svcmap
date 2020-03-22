@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="55b3b0c5-0135-4150-bc14-6117665b79ff" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52590/ServiceMD5.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="5335c70b-c7da-4f7d-af62-5efb190c315c" SourceId="1" SourceUrl="http://localhost:52590/ServiceMD5.svc?wsdl" />
+    <MetadataFile FileName="ServiceMD5.xsd" MetadataType="Schema" ID="016e64e6-f66a-4613-bec8-efb34c3d3024" SourceId="1" SourceUrl="http://localhost:52590/ServiceMD5.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceMD51.xsd" MetadataType="Schema" ID="86dcfaa7-7adf-43e3-b7bc-17413b3db66f" SourceId="1" SourceUrl="http://localhost:52590/ServiceMD5.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceMD52.xsd" MetadataType="Schema" ID="361421b5-ba2c-4799-bc2f-85a03730302c" SourceId="1" SourceUrl="http://localhost:52590/ServiceMD5.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceMD5.disco" MetadataType="Disco" ID="46829f13-d0f4-4ca5-9066-c200d8fbc19b" SourceId="1" SourceUrl="http://localhost:52590/ServiceMD5.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

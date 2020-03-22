@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GameBLL.BLL_Classess;
 using GameBLL.GameComponents;
+using GameClient_12._01._2020.ServiceReferenceMD5;
+
 
 namespace GameClient_12._01._2020
 {
@@ -130,26 +132,34 @@ namespace GameClient_12._01._2020
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
-           
-            if(                                   
-                Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success
-               && Password_TextBox.Password.Length > 8 
-               && this.currnetUser.LogIn(Email_TextBox.Text, Password_TextBox.Password) == true)
+            string Hashedpassword = "";
+            if(Password_TextBox.Password.Length > 8)
             {
-                currnetUser = new UserBL(Email_TextBox.Text, Password_TextBox.Password);
-                
-                GameLobby gameLobby = new GameLobby(currnetUser);
-                this.Hide();
-                gameLobby.Show();
-                this.Close();
-               
+                using (ServiceMD5Client service = new ServiceMD5Client())
+                {
+                    Hashedpassword = service.GetMd5Hash(Password_TextBox.Password);
+                }
+                if (
+                   Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success                 
+                  && this.currnetUser.LogIn(Email_TextBox.Text, Hashedpassword) == true)
+                {
+                    currnetUser = new UserBL(Email_TextBox.Text, Hashedpassword);
+
+                    GameLobby gameLobby = new GameLobby(currnetUser);
+                    this.Hide();
+                    gameLobby.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
+                }
             }
             else
             {
                 InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
-            }
-
+            }                        
         }
 
         private void CantSignInlbl_MouseEnter(object sender, MouseButtonEventArgs e)
