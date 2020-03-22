@@ -137,7 +137,15 @@ namespace GameClient_12._01._2020
             {
                 using (ServiceMD5Client service = new ServiceMD5Client())
                 {
-                    Hashedpassword = service.GetMd5Hash(Password_TextBox.Password);
+                    try
+                    {
+                        Hashedpassword = service.GetMd5Hash(Password_TextBox.Password);
+                    }
+                    catch
+                    {
+                        InputErrorLabel.Content = "[Error] no connection to the WS. \n try again later";
+                        return;
+                    }
                 }
                 if (
                    Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success                 
@@ -158,7 +166,7 @@ namespace GameClient_12._01._2020
             }
             else
             {
-                InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
+                InputErrorLabel.Content = "[Error] Password aren't valid";
             }                        
         }
 

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GameClient_12._01._2020"
              
-             StartupUri="MainWindow.xaml">
+             StartupUri="GameWindow.xaml">
     <!--need to change it to the main Windows-->
     <Application.Resources>
         <ResourceDictionary>

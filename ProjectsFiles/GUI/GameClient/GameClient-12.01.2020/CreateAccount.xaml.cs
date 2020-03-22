@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GameBLL.BLL_Classess;
+using GameClient_12._01._2020.ServiceReferenceMD5;
 
 
 namespace GameClient_12._01._2020
@@ -89,23 +90,36 @@ namespace GameClient_12._01._2020
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success
-               && Password_TextBox.Password.Length > 8) 
+
+            string Hashedpassword = "";
+            if (Password_TextBox.Password.Length > 8)
             {
-                if(!this.currnetUser.DoesEmailExist(Email_TextBox.Text))
+                using (ServiceMD5Client service = new ServiceMD5Client())
                 {
-                    this.currnetUser.SighIn(Email_TextBox.Text, Password_TextBox.Password);
-                    MessageBox.Show("Redirecting to the Login page so you could login in");
-                    this.Close();
+                    Hashedpassword = service.GetMd5Hash(Password_TextBox.Password);
+                }
+
+                if (Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success)
+                {
+                    if (!this.currnetUser.DoesEmailExist(Email_TextBox.Text))
+                    {
+                        this.currnetUser.SighIn(Email_TextBox.Text, Hashedpassword);
+                        MessageBox.Show("Redirecting to the Login page so you could login in");
+                        this.Close();
+                    }
+                    else
+                    {
+                        InputErrorLabel.Content = "[Error] Found a User \n with this E-maill \n address.";
+                    }
                 }
                 else
                 {
-                    InputErrorLabel.Content = "[Error] Found a User \n with this E-maill \n address.";
+                    InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
                 }
             }
             else
             {
-                InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
+                InputErrorLabel.Content = "[Error] Password aren't valid";
             }
 
         }
