@@ -21,6 +21,9 @@ namespace GameBLL.GameComponents
         private bool userDied;
         private Random random;
 
+        private bool wonWave;
+
+
         private List<TowerProjectile> projectilelist = new List<TowerProjectile>();
 
         private double gameTime;
@@ -89,15 +92,28 @@ namespace GameBLL.GameComponents
                 this.projectilelist.ForEach(projectile => projectile.Move(gameCanvas));
                 this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas,this.gameBL));
 
-
+                //תנאי הניצחון
                 if ((CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
                 {
                     this.currentEnemey = new List<Enemy>();
                     this.currentEnemeysDeploy = 0;
                     this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
                     GoToBuildingPhase();
-                    //MessageBox.Show("help");
+
+                    this.wonWave = true;
+
+                    
                 }
+                ////תנאי ההפסד
+                //else if((!CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
+                //{
+                //    this.currentEnemey = new List<Enemy>();
+                //    this.currentEnemeysDeploy = 0;
+                //    this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
+                //    GoToBuildingPhase();
+
+                //    this.wonWave = false;
+                //}
 
 
 
@@ -113,7 +129,7 @@ namespace GameBLL.GameComponents
         {
             int money = this.gameBL.GetWave().GetMoneyGive();
             int score = this.gameBL.GetWave().GetCompleteScore();
-
+            int preWaveID = this.gameBL.GetWave().GetWaveID();
             WaveBL waveBL = this.gameBL.NextWave();
            
             if (waveBL != null)
@@ -121,11 +137,21 @@ namespace GameBLL.GameComponents
                 this.gameBL.AddMoney(money);
                 this.gameBL.AddScore(score);
 
+                //הפעולה למורכבת שלי 
+                this.gameBL.GetWave().RecalculateEnemyWave(this.gameBL,
+                    this.gameBL.GetMap().GetMapID());
+
+                this.gameBL.UpdatePropertiesInfo(this.wonWave, preWaveID);
+
                 this.gameBL.UpdateGameScore();
+
                 return false;
             }
             return true;
         }
+
+
+       
 
 
         private bool CheckIfAllAreDead()
@@ -150,7 +176,6 @@ namespace GameBLL.GameComponents
             }
             return true;
         }
-
         private bool CheckIfDeadOrEnd()
         {
             foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())

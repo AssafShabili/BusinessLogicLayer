@@ -437,7 +437,7 @@ namespace GameBLL.BLL_Classess
             towersCommonList.Add(new Tuple<TowerType, int>(TowerType.Earth, earth));
             towersCommonList.Add(new Tuple<TowerType, int>(TowerType.defaultType, normal));
 
-            towersCommonList.Sort();
+            //towersCommonList.Sort();
 
             return towersCommonList;
         }
@@ -544,6 +544,13 @@ namespace GameBLL.BLL_Classess
         }
         // ======= סיום פעולות איחזור ============
 
+        public void UpdatePropertiesInfo(bool won,int waveID)
+        {
+            List<Tuple<TowerType, int>> lst = GetMostCommonTower();
+            GameDAL.DAL_Classess.Properties.UpdateWaveProperties(
+                waveID, won, lst[2].Item2,
+                lst[1].Item2, lst[0].Item2, lst[3].Item2);
+        }
         
     }
 }
