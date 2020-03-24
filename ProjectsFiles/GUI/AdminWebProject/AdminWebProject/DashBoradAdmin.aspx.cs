@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GameBLL.BLL_Classess;
 using System.Data;
+using AdminWebProject.AdminServiceReference;
 
 namespace AdminWebProject
 {
     public partial class DashBoradAdmin : System.Web.UI.Page
     {
         AdminUserBL adminUser;
-       // AdminServiceClient AdminServiceClient;
+        AdminServiceClient AdminServiceClient;
         DataTable dataTable = null;
 
 
@@ -39,21 +40,22 @@ namespace AdminWebProject
                 }
                 try
                 {
-                    //using (AdminServiceClient = new AdminServiceClient())
-                   // {
-                        //LabelNUmberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
-                        //LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
-                        //dataTable = AdminServiceClient.GetAdminPercentageTable();
-                        dataTable.Columns.RemoveAt(0);
-//}
+                    using (AdminServiceClient = new AdminServiceClient())
+                    {
+                        LabelNumberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
+                        LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
+                        dataTable = AdminServiceClient.GetAdminPercentageTable();
+                       
+                    }
+
                 }
                 catch (Exception)
                 {
                     Response.Redirect("~/WebFormError.aspx");
                 }
+
                 GridViewPropertes.DataSource = adminUser.GetWaveProperties();
                 GridViewPropertes.DataBind();
-
                 InitializeTextBoxs(dataTable);
             }
 
@@ -82,6 +84,9 @@ namespace AdminWebProject
             GridViewPropertes.DataBind();
         }
 
-       
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            LabelNumberOfUsers.Text = "testing update!";
+        }
     }
 }
