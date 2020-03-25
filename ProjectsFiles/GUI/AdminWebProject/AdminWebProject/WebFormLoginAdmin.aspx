@@ -34,7 +34,7 @@
                     <img src="https://i.imgur.com/CQQpqBm.png"   style="background-position: center;
     background-size: cover"/>
               </div>              
-              <div class="col-lg-6 bg-login-image-BTD" >
+              <div class="col-lg-6" >
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Admin Login

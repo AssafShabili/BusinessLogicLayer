@@ -47,7 +47,6 @@ namespace AdminWebProject
                         dataTable = AdminServiceClient.GetAdminPercentageTable();
                        
                     }
-
                 }
                 catch (Exception)
                 {
