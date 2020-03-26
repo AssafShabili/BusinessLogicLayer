@@ -136,7 +136,7 @@
                                         <div class="card shadow pt-4 pb-2">
                                             <!-- <canvas id="myPieChart"></canvas> -->
 
-                                            <table class="table">
+                                            <table class="table table-sm">
                                                 <tr>
                                                     <th>
                                                         <asp:Label runat="server" CssClass="text-black-50" ID="label">Lowest Winrate</asp:Label>
@@ -160,13 +160,13 @@
                                                 </tr>
                                                 <tr>
                                                     <th>
-                                                        <asp:LinkButton ID="LinkButtonCheckInput" ClientIDMode="Inherit" autopostback="true" OnClientClick="checkInput()" onclick="LinkButton1_Click" runat="server" class="btn btn-success btn-icon-split">               
+                                                        <asp:LinkButton ID="LinkButtonCheckInput" ClientIDMode="Inherit"  OnClientClick="return checkInput();" onclick="LinkButton1_Click" runat="server" class="btn btn-success btn-icon-split">               
                                                             <span class="icon text-white-50">
                                                                     <i id="i-Percentage" class="fas fa-check"></i>
                                                             </span>
                                                             <span class="text">Split Button Success</span>
                                                         </asp:LinkButton>
-                                                        
+                                                        <p id="p-danger" class="text-danger"></p>
                                                         
                                                     </th>
                                                     
@@ -326,9 +326,12 @@
                 //console.log(textBoxList[i]);
                 if (isNaN(textBoxList[i])) {
                     changeToWarning();
+                    document.getElementById("p-danger").textContent += "you must insert a number!";
                     return false;
                 }
             }
+            document.getElementById("p-danger").className = "text-info";
+            document.getElementById("p-danger").textContent += "Updating ...";
             changeToOk();
             return true;
         }

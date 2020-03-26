@@ -52,6 +52,7 @@ namespace AdminWebProject
                 {
                     Response.Redirect("~/WebFormError.aspx");
                 }
+               
 
                 GridViewPropertes.DataSource = adminUser.GetWaveProperties();
                 GridViewPropertes.DataBind();
@@ -85,7 +86,18 @@ namespace AdminWebProject
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            LabelNumberOfUsers.Text = "testing update!";
+            //LabelNumberOfUsers.Text = "testing update!";
+            using (AdminServiceClient = new AdminServiceClient())
+            {
+                AdminServiceClient.SetAdminPercentageHighestCurrentWinrate(
+                    double.Parse(TextBoxHighestCurrentWinrate.Text));
+                AdminServiceClient.SetAdminPercentageLowestCurrentWinrate(
+                   double.Parse(TextBoxLowestCurrentWinrate.Text));
+                AdminServiceClient.SetAdminPercentageLowestWinrate(
+                  double.Parse(TextBoxLowestWinrate.Text));
+                AdminServiceClient.SetUpdateAdminPercentageHighestWinrate(
+                  double.Parse(TextBoxHighestWinrate.Text));
+            }
         }
     }
 }
