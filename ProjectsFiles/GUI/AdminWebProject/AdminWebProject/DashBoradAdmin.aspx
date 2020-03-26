@@ -319,22 +319,28 @@
             textBoxList.push((document.querySelector("#TextBoxHighestWinrate").value));
             textBoxList.push((document.querySelector("#TextBoxLowestCurrentWinrate").value));
 
-            console.log("hi all it's me!");
+            //console.log("hi all, it's me!");
 
 
             for (var i = 0; i < textBoxList.length; i++) {
                 //console.log(textBoxList[i]);
                 if (isNaN(textBoxList[i])) {
                     changeToWarning();
-                    document.getElementById("p-danger").textContent += "you must insert a number!";
+                    document.getElementById("p-danger").textContent = "you must insert a number!";
+                    return false;
+                }
+                else if (Number(textBoxList[i]) < 0) {
+                    changeToWarning();
+                    document.getElementById("p-danger").textContent = "you must insert a Positive number!";
                     return false;
                 }
             }
             document.getElementById("p-danger").className = "text-info";
-            document.getElementById("p-danger").textContent += "Updating ...";
+            document.getElementById("p-danger").textContent = "Updating ...";
             changeToOk();
             return true;
         }
+
 
         function changeToWarning() {
             document.getElementById("LinkButtonCheckInput").className = "btn btn-warning btn-icon-split";
