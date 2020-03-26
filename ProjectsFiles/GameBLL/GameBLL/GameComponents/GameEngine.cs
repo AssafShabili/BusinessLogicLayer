@@ -41,11 +41,11 @@ namespace GameBLL.GameComponents
         public GameEngine(GameBL game, Button button)
         {
             this.gameBL = game;
-            this.attackPhase = false;//return to false
+            this.attackPhase = true;//return to false
             this.userDied = false;
             this.gameTime = 0.0;
             this.nextWaveButton = button;
-            this.nextWaveButton.IsEnabled = false;
+            this.nextWaveButton.IsEnabled = true;
             this.random = new Random();
         }
 

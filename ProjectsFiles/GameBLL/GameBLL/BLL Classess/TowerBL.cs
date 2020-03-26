@@ -100,7 +100,7 @@ namespace GameBLL.BLL_Classess
 
         public void UpdateImage()
         {
-            this.TowerImgName = $"Tower_{this.towerType.ToString().ToLower()}";
+            this.TowerImgName = $"Tower_{this.towerType.ToString().ToLower()}.png";
             ((Image)(this.towerButton.Content)).Source = GetBitmapImage(this.TowerImgName);
         }
 
@@ -278,9 +278,9 @@ namespace GameBLL.BLL_Classess
         {
             foreach(Enemy enemy in enemylist)
             {
-                if (this.GetTowerAttackRange().ContainsPoint(enemy.GetLocation())) 
+                if (this.GetTowerAttackRange().ContainsPoint(enemy.GetLocation())
                     // the total time of the game - the last time the tower shot  > the amount the tower shoots
-                    //(elapsedTime - this.coolDown) > this.attackSpeed)
+                    && (elapsedTime - this.coolDown) > this.attackSpeed)
                 {
                     projectilelist.Add(new TowerProjectile(enemy, this.location
                         , this.damage));

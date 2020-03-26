@@ -83,6 +83,7 @@ namespace WpfAppGameTesing
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             LabelScore.Content = "Score: " + this.game.GetScore();
+            LabelHp.Content = this.game.GetUserHealth();
 
             //AttackSpeedButton.Content = this.gameEngine.
 
@@ -168,9 +169,7 @@ namespace WpfAppGameTesing
             LabelTowerRange.Content = "Tower Range: " + tower.GetRange();
 
             ComboBoxTypeTower.Name = "B" + index;
-            ComboBoxTypeTower.SelectedIndex = GetTowerTypeInComboBoxIndex(tower.GetTowerType());
-
-
+            
 
             AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
             AttackSpeedButton.Name = "B" + index.ToString();
@@ -263,6 +262,7 @@ namespace WpfAppGameTesing
 
         }
 
+        #region פעולות לשדרוג הבניין ושינוי הבניין
         private void AttackSpeedButton_Click(object sender, RoutedEventArgs e)
         {
             if(int.TryParse(((Button)sender).Name.Trim('B'), out int index))
@@ -275,7 +275,6 @@ namespace WpfAppGameTesing
 
             
         }
-
         private void DamageButton_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
@@ -286,7 +285,6 @@ namespace WpfAppGameTesing
                 }
             }
         }
-
         private void RangeButton_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
@@ -297,6 +295,8 @@ namespace WpfAppGameTesing
                 }
             }
         }
+
+
 
         private void ComboBoxTypeTower_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -330,5 +330,6 @@ namespace WpfAppGameTesing
                     break;
             }
         }
+        #endregion
     }
 }

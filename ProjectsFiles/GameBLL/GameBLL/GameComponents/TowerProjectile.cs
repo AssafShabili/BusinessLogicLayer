@@ -19,7 +19,7 @@ namespace GameBLL.GameComponents
         private Point position;// מיקום שמימנו נורה הקליע
         private Image projectileImage;// איך נראה הקליע
         private int damage;// כמות הנזק של אותו קליע
-        private int speed = 15;// מהירות הקליע
+        private int speed;// מהירות הקליע
 
 
         private bool hit;
@@ -34,7 +34,7 @@ namespace GameBLL.GameComponents
         /// <param name="point">מיקום שמימנו נורה הקליע</param>
         /// <param name="texture2D">איך שנראה הקליע</param>
         /// <param name="dmg">כמות שנזק של אותו קליע</param>
-        public TowerProjectile(Enemy enemy, Point point,int dmg)
+        public TowerProjectile(Enemy enemy, Point point,int dmg,int speed=15)
         {
             this.target = enemy;
             this.position = point;
@@ -42,6 +42,8 @@ namespace GameBLL.GameComponents
             this.projectileImage = new Image();
             this.projectileImage.Width = 15;
             this.projectileImage.Height = 15;
+
+            this.speed = speed;
 
             this.hit = false;
            
@@ -85,6 +87,7 @@ namespace GameBLL.GameComponents
                     (int)this.target.GetLocation().Y);
 
                 Microsoft.Xna.Framework.Vector2 direction = (positionXna - targetXna).ToVector2();
+
                 if (direction != Microsoft.Xna.Framework.Vector2.Zero)
                 {
                     direction.Normalize();
@@ -96,14 +99,18 @@ namespace GameBLL.GameComponents
                 if (!this.addToCanvas)
                 {
                     gameCanvas.Children.Add(this.projectileImage);
+                    Canvas.SetLeft(this.projectileImage, this.position.X);
+                    Canvas.SetTop(this.projectileImage, this.position.Y);
                     this.addToCanvas = true;
                 }
                 else
                 {
-                    Panel.SetZIndex(this.projectileImage, 1);
+                    Canvas.SetZIndex(this.projectileImage, 3);
                     Canvas.SetLeft(this.projectileImage, this.position.X);
                     Canvas.SetTop(this.projectileImage, this.position.Y);
+
                 }
+              
 
 
 
