@@ -98,6 +98,12 @@ namespace GameBLL.BLL_Classess
             
         }
 
+        public void UpdateImage()
+        {
+            this.TowerImgName = $"Tower_{this.towerType.ToString().ToLower()}";
+            ((Image)(this.towerButton.Content)).Source = GetBitmapImage(this.TowerImgName);
+        }
+
 
         public int MakeTower()
         {

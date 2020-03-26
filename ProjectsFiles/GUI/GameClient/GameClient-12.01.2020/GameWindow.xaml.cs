@@ -37,7 +37,7 @@ namespace WpfAppGameTesing
         private GameEngine gameEngine;
         private DispatcherTimer gameTimer;
 
-       
+
 
 
         public MainWindow()
@@ -50,15 +50,15 @@ namespace WpfAppGameTesing
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             game = new GameBL(1);
-            gameEngine = new GameEngine(game,NextWaveButton);
+            gameEngine = new GameEngine(game, NextWaveButton);
 
-            LabelMoney.Content ="Money: "+this.game.GetMoney()+" $";
-            LabelWave.Content = "Wave ID: "+this.game.GetWave().GetWaveID();
+            LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
+            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
 
             this.InitialsTowers(gameCanvas);
         }
-        
-        
+
+
         private void InitialsTowers(Canvas gameCanvas)
         {
             int i = 0;
@@ -66,11 +66,9 @@ namespace WpfAppGameTesing
             {
                 Button button = tower.GetTowerButton();
                 Point towerLocation = tower.GetLocation();
-
                 tower.GetTowerButton().Click += TowerButton_MouseClick;
                 tower.GetTowerButton().Name = "B" + i.ToString();
                 i++;
-
                 gameCanvas.Children.Add(button);
                 Canvas.SetLeft(button, towerLocation.X);
                 Canvas.SetTop(button, towerLocation.Y);
@@ -81,7 +79,7 @@ namespace WpfAppGameTesing
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.gameEngine.Update(gameCanvas,this);
+            this.gameEngine.Update(gameCanvas, this);
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             LabelScore.Content = "Score: " + this.game.GetScore();
@@ -104,7 +102,7 @@ namespace WpfAppGameTesing
                 && this.gameEngine.CanBuildTower(point))
             {
                 TowerBL towerBL = new TowerBL();
-                int towerID = towerBL.makeTower(TowerSelectionToString(selection),(int)point.X,(int)point.Y);
+                int towerID = towerBL.makeTower(TowerSelectionToString(selection), (int)point.X, (int)point.Y);
                 towerBL = new TowerBL(towerID);
 
                 gameCanvas.Children.Add(towerBL.GetTowerButton());
@@ -114,7 +112,7 @@ namespace WpfAppGameTesing
                 this.gameEngine.AddTowerToGame(towerBL);
                 this.gameEngine.SetGameMoney(50);
 
-               
+
 
                 LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
 
@@ -134,7 +132,7 @@ namespace WpfAppGameTesing
         /// <returns>הפעולה מחזירה את הסוג של אותו בחירה </returns>
         public string TowerSelectionToString(TowerSelection towerSelection)
         {
-            switch(towerSelection)
+            switch (towerSelection)
             {
                 case TowerSelection.TowerAir:
                     return "air";
@@ -164,20 +162,42 @@ namespace WpfAppGameTesing
             TowerBL tower = gameEngine.GetTowerByIndex(index);
 
             LabelTowerInfo.Content = tower.GetTowerType().ToString() + $"{index}";
-            LabelTowercost.Content ="Tower is worth: " +tower.GetTowerCost().ToString()+"$";
-            LabelTowerAttackSpeed.Content = "Tower AttackSpeed: "+tower.GetAttackSpeed();
-            LabelTowerDamage.Content = "Tower Damage: "+ tower.GetDamage();
-            LabelTowerRange.Content = "Tower Range: "+tower.GetRange();
+            LabelTowercost.Content = "Tower is worth: " + tower.GetTowerCost().ToString() + "$";
+            LabelTowerAttackSpeed.Content = "Tower AttackSpeed: " + tower.GetAttackSpeed();
+            LabelTowerDamage.Content = "Tower Damage: " + tower.GetDamage();
+            LabelTowerRange.Content = "Tower Range: " + tower.GetRange();
+
+            ComboBoxTypeTower.Name = "B" + index;
+            ComboBoxTypeTower.SelectedIndex = GetTowerTypeInComboBoxIndex(tower.GetTowerType());
+
 
 
             AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
-            AttackSpeedButton.Name = "B"+index.ToString();
+            AttackSpeedButton.Name = "B" + index.ToString();
             DamageButton.Content = tower.GetCostToUpgradeDamage() + " $";
-            DamageButton.Name = "B"+(index.ToString());
+            DamageButton.Name = "B" + (index.ToString());
             RangeButton.Content = tower.GetCostToUpgradeRange() + " $";
-            RangeButton.Name = "B"+(index.ToString());
+            RangeButton.Name = "B" + (index.ToString());
         }
 
+
+        public int GetTowerTypeInComboBoxIndex(TowerType towerType)
+        {
+            switch (towerType)
+            {
+                case TowerType.Fire:
+                    return 0;
+                case TowerType.Air:
+                    return 2;
+                case TowerType.Water:
+                    return 1;
+                case TowerType.Earth:
+                    return 3;
+                default:
+                    return 0;
+            }
+
+        }
 
 
 
@@ -275,6 +295,39 @@ namespace WpfAppGameTesing
                 {
                     LabelError.Content = "You dont have the money \n for it!";
                 }
+            }
+        }
+
+        private void ComboBoxTypeTower_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = int.Parse(
+               (((ComboBox)(sender)).Name).Trim('B')
+               );
+
+            /*
+             * אני לא צריך לדאוג לגביי החיוב של התשלום של המשתמשים שלי
+             */
+            TowerBL tower = this.gameEngine.GetTowerByIndex(index);
+            switch (ComboBoxTypeTower.SelectedIndex)
+            {
+                case 0:
+                    tower.SetTowerType(TowerType.Fire);
+                    tower.UpdateImage();
+                    break;
+                case 1:
+                    tower.SetTowerType(TowerType.Water);
+                    tower.UpdateImage();
+                    break;
+                case 2:
+                    tower.SetTowerType(TowerType.Air);
+                    tower.UpdateImage();
+                    break;
+                case 3:
+                    tower.SetTowerType(TowerType.Earth);
+                    tower.UpdateImage();
+                    break;
+                default:
+                    break;
             }
         }
     }

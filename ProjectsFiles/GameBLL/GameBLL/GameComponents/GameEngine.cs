@@ -12,7 +12,7 @@ using System.Threading;
 namespace GameBLL.GameComponents
 {
 
-    
+
 
     public class GameEngine
     {
@@ -38,10 +38,10 @@ namespace GameBLL.GameComponents
         private List<Enemy> currentEnemey = new List<Enemy>();
         private int enemeysGotToTheEnd;
 
-        public GameEngine(GameBL game,Button button)
+        public GameEngine(GameBL game, Button button)
         {
             this.gameBL = game;
-            this.attackPhase = true;//return to false
+            this.attackPhase = false;//return to false
             this.userDied = false;
             this.gameTime = 0.0;
             this.nextWaveButton = button;
@@ -62,20 +62,20 @@ namespace GameBLL.GameComponents
             // כן!
             return this.gameBL.GetTowersList()[index];
         }
-        
+
 
 
         /// <summary>
         /// פעולה העדכון של המשחק 
         /// </summary>
-        public void Update(Canvas gameCanvas,Window window)
+        public void Update(Canvas gameCanvas, Window window)
         {
             this.gameTime++;
-            
-            if(attackPhase)
+
+            if (attackPhase)
             {
-               
-                if(this.currentEnemeysDeploy < this.gameBL.GetWave().GetEnemies().Count)
+
+                if (this.currentEnemeysDeploy < this.gameBL.GetWave().GetEnemies().Count)
                 {
                     this.currentEnemey.Add(this.gameBL.GetWave().GetEnemies()[this.currentEnemeysDeploy]);
                     this.currentEnemeysDeploy++;
@@ -83,14 +83,14 @@ namespace GameBLL.GameComponents
 
 
                 this.currentEnemey.ForEach(enemey => enemey.Move(gameCanvas));
-                
+
 
                 this.gameBL.GetTowersList().ForEach(tower =>
                 {
                     this.projectilelist = tower.TowerAttack(this.gameBL.GetWave().GetEnemies(), this.projectilelist, this.gameTime);
                 });
                 this.projectilelist.ForEach(projectile => projectile.Move(gameCanvas));
-                this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas,this.gameBL));
+                this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas, this.gameBL));
 
                 //תנאי הניצחון
                 if ((CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
@@ -100,27 +100,16 @@ namespace GameBLL.GameComponents
                     this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
                     GoToBuildingPhase();
 
-                    this.wonWave = true;
-
-                    
+                    this.wonWave = CheckIfAllAreDead();
                 }
-                ////תנאי ההפסד
-                //else if((!CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
-                //{
-                //    this.currentEnemey = new List<Enemy>();
-                //    this.currentEnemeysDeploy = 0;
-                //    this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
-                //    GoToBuildingPhase();
-
-                //    this.wonWave = false;
-                //}
-
-
-
             }
             else//building Phase!
             {
-                
+                if (this.gameBL.GetUserHealth() <= 0)
+                {
+                    MessageBox.Show("You have lost!");
+                    window.Close();
+                }
             }
         }
 
@@ -131,7 +120,7 @@ namespace GameBLL.GameComponents
             int score = this.gameBL.GetWave().GetCompleteScore();
             int preWaveID = this.gameBL.GetWave().GetWaveID();
             WaveBL waveBL = this.gameBL.NextWave();
-           
+
             if (waveBL != null)
             {
                 this.gameBL.AddMoney(money);
@@ -151,14 +140,14 @@ namespace GameBLL.GameComponents
         }
 
 
-       
+
 
 
         private bool CheckIfAllAreDead()
         {
-            foreach(Enemy enemy in this.gameBL.GetWave().GetEnemies())
+            foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
             {
-                if(!enemy.IsDead())
+                if (!enemy.IsDead())
                 {
                     return false;
                 }
@@ -169,7 +158,7 @@ namespace GameBLL.GameComponents
         {
             foreach (TowerProjectile projectile in this.projectilelist)
             {
-                if(!projectile.projectileHit())
+                if (!projectile.projectileHit())
                 {
                     return false;
                 }
@@ -204,7 +193,7 @@ namespace GameBLL.GameComponents
         /// <returns>מחזירה אמת אם אפשר לבנות מגדל ושקר אחרת</returns>
         public bool CanUserBuyTower()
         {
-            return (this.gameBL.GetMoney() - 50 >= 0);           
+            return (this.gameBL.GetMoney() - 50 >= 0);
         }
 
 
@@ -213,7 +202,7 @@ namespace GameBLL.GameComponents
         /// </summary>
         public void GoToAttackPhase()
         {
-            this.attackPhase = true;         
+            this.attackPhase = true;
             this.nextWaveButton.IsEnabled = false;
         }
         /// <summary>
@@ -245,7 +234,7 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לבנות המגדל (והפעולה בונה אותו) אחרת הפעולה תחזיר שקר ולא תבנה את המגדל</returns>
         public bool BuildTower(TowerBL towerBL)
         {
-            if( (this.gameBL.GetMoney()-towerBL.GetTowerCost()) >= 0 )
+            if ((this.gameBL.GetMoney() - towerBL.GetTowerCost()) >= 0)
             {
                 gameBL.AddTowerToGame(towerBL);
                 return true;
@@ -271,7 +260,7 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerAttackSpeed(TowerBL towerBL)
         {
-           return  gameBL.UpgradeTowerAttackSpeed(towerBL);
+            return gameBL.UpgradeTowerAttackSpeed(towerBL);
         }
         /// <summary>
         /// פעולה לשידרוג המגדל
@@ -280,7 +269,7 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerDamage(TowerBL towerBL)
         {
-            return gameBL.UpgradeTowerDamage(towerBL);           
+            return gameBL.UpgradeTowerDamage(towerBL);
         }
         /// <summary>
         /// פעולה לשידרוג המגדל
@@ -289,14 +278,51 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerRange(TowerBL towerBL)
         {
-            return gameBL.UpgradeTowerRange(towerBL);           
+            return gameBL.UpgradeTowerRange(towerBL);
+        }
+
+
+        /// <summary>
+        /// פעולה לעדכון המגדלים במשחק
+        /// </summary>
+        /// <param name="index">המיקום של המגדל בשרשרת של המגדלים</param>
+        public void ChangeTowerType(int index, TowerType towerType)
+        {
+            gameBL.GetTowersList()[index].SetTowerType(towerType);
         }
 
 
 
 
 
-        
+        /// <summary>
+        /// פעולה לשינוי המחזירה סוג של מגדל לפי הסטריג שהיא קיבלה
+        /// </summary>
+        /// <param name="input">סריטג שמייצג את סוג במגדל</param>
+        /// <returns></returns>
+        public TowerType GetTowerTypeFromString(string input)
+        {
+            switch (input.ToLower())
+            {
+                case "water":
+                    return TowerType.Water;
+                case "fire":
+                    return TowerType.Fire;
+                case "air":
+                    return TowerType.Air;
+                case "earth":
+                    return TowerType.Earth;
+                default:
+                    return TowerType.defaultType;
+            }
+        }
+
+
+
+
+
+
+
 
     }
 
