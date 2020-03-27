@@ -5,49 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-
+using System.Data;
 
 namespace GameBLL
 {
     public static class GameConstants
     {
-        public const double FireToFire = 0.5;
-        public const double FireToWater = 0.5;
-        public const double FireToAir = 0.5;
-        public const double FireToEarth = 1.5;
+        public static double lowestWinrate;
+        public static double highestWinrate;
+        public static double highestCurrentWinrate;
+        public static double lowestCurrentWinrate;
 
-
-        public const double WaterToFire = 1.5;
-        public const double WaterToWater = 0.5;
-        public const double WaterToAir = 0.5;
-        public const double WaterToEarth = 0.5;
-
-
-        public const int TileWidth = 50;
-        public const int TileHeight = 50;
-        public const int MapWidth = 16;
-        public const int MapHeight = 21;
-        public const Image projectileTexture = null;
-
-        public const Image Wave_Normal_Unit = null;
-        public const Image Wave_Normal_Range = null;
-        public const Image Wave_Adv_Unit = null;
-        public const Image Wave_Adv_Range = null;
-        public const Image Wave_Ultra_Unit = null;
-        public const Image Wave_Ultra_Range = null;
-
-
-        public const Image fireBoss = null;
-        public const Image waterBoss = null;
-        public const Image airBoss = null;
-        public const Image earthBoss = null;
-
-        
-
-
-
-
-
-
+        /// <summary>
+        /// פעולה להשמת הנתונים בתוך הנתונים המתאימים
+        /// </summary>
+        /// <param name="dataTable">טבלת נתונים שהובאה מבסיס הנתונים שלי</param>
+        public static void InitializeVariables(DataTable dataTable)
+        {
+            lowestWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Lowest_winrate"]);
+            highestWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Highest_winrate"]);
+            highestCurrentWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Highest_Current_Winrate"]);
+            lowestCurrentWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Lowest_Current_Winrate"]);
+        }
     }
 }

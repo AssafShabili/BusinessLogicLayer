@@ -21,9 +21,8 @@ namespace GameClient_12._01._2020
     public partial class GameLobby : Window
     {
         private UserBL user;
+        private LoadingWindow loadingWindow;
 
-        //private int GameID;
-        //private int countGamesSaves;
 
         public GameLobby(UserBL user)
         {
@@ -120,17 +119,23 @@ namespace GameClient_12._01._2020
 
         private void ButtonGame3_Click(object sender, RoutedEventArgs e)
         {
-           
+             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(2));
+            this.Hide();
+            this.loadingWindow.Show();
         }
 
         private void ButtonGame2_Click(object sender, RoutedEventArgs e)
         {
-           
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1));
+            this.Hide();
+            loadingWindow.Show();
         }
 
         private void ButtonGame1_Click(object sender, RoutedEventArgs e)
         {
-           
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(0));
+            this.Hide();
+            this.loadingWindow.Show();
         }
     }
 }
