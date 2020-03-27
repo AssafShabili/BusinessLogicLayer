@@ -22,10 +22,10 @@ namespace GameBLL
         /// <param name="dataTable">טבלת נתונים שהובאה מבסיס הנתונים שלי</param>
         public static void InitializeVariables(DataTable dataTable)
         {
-            lowestWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Lowest_winrate"]);
-            highestWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Highest_winrate"]);
-            highestCurrentWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Highest_Current_Winrate"]);
-            lowestCurrentWinrate = (double)(dataTable.Rows[0]["AdminPercentage_Lowest_Current_Winrate"]);
+            lowestWinrate = Convert.ToDouble((dataTable.Rows[0]["AdminPercentage_Lowest_winrate"]));
+            highestWinrate = Convert.ToDouble(dataTable.Rows[0]["AdminPercentage_Highest_winrate"]);
+            highestCurrentWinrate = Convert.ToDouble(dataTable.Rows[0]["AdminPercentage_Highest_Current_Winrate"]);
+            lowestCurrentWinrate = Convert.ToDouble(dataTable.Rows[0]["AdminPercentage_Lowest_Current_Winrate"]);
         }
     }
 }

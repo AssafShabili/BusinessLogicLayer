@@ -110,15 +110,14 @@ namespace GameBLL.BLL_Classess
             Image image = new Image();
             switch (type.ToLower())
             {
-                case "fire":
-                    
+                case "fire":                
                     return image;
-                case "water":
-                    return GameConstants.waterBoss;
-                case "air":
-                    return GameConstants.airBoss;
-                case "earth":
-                    return GameConstants.earthBoss;
+                //case "water":
+                //    return GameConstants.waterBoss;
+                //case "air":
+                //    return GameConstants.airBoss;
+                //case "earth":
+                //    return GameConstants.earthBoss;
                 default:
                     return null;
             }

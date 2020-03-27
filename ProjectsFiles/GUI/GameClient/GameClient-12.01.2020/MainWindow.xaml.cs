@@ -143,7 +143,7 @@ namespace GameClient_12._01._2020
                     }
                     catch
                     {
-                        InputErrorLabel.Content = "[Error] no connection to the WS. \n try again later";
+                        InputErrorLabel.Content = "[Error]\n no connection\n to the WS. \n try again later";
                         return;
                     }
                 }

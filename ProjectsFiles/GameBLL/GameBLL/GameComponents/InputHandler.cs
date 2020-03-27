@@ -49,14 +49,15 @@ namespace GameBLL.GameComponents
         /// פעולה לבדיקה אם מיקום הבחירה היא הבתוך שדה המשחק!
         /// </summary>
         /// <returns>אמת אם הלחיצה הייתה בתוך הלוח או שקר אם הלחיצה הייתה החוץ ללוח</returns>
-        public bool SelectionInGameBounds()
+        public bool SelectionInGameBounds()//can Delete it
         {
-            int topY = 0;
-            int leftX = 0;
+            return false;
+            //int topY = 0;
+            //int leftX = 0;
 
-            return this.position.Y > topY && this.position.X > leftX &&
-                        this.position.Y < topY + (GameConstants.MapHeight * GameConstants.TileHeight) &&
-                        this.position.X < leftX + (GameConstants.MapWidth * GameConstants.MapWidth);
+            //return this.position.Y > topY && this.position.X > leftX &&
+            //            this.position.Y < topY + (GameConstants.MapHeight * GameConstants.TileHeight) &&
+            //            this.position.X < leftX + (GameConstants.MapWidth * GameConstants.MapWidth);
         }
     }       
 }

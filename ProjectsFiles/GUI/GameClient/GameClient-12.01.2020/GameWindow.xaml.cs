@@ -16,7 +16,7 @@ using System.Windows.Threading;
 using GameBLL.BLL_Classess;
 using GameBLL.GameComponents;
 
-namespace WpfAppGameTesing
+namespace GameClient_12._01._2020
 {
     public enum TowerSelection
     {
@@ -29,7 +29,7 @@ namespace WpfAppGameTesing
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameWindow : Window
     {
         public TowerSelection selection = TowerSelection.None;
 
@@ -40,7 +40,7 @@ namespace WpfAppGameTesing
 
 
 
-        public MainWindow()
+        public GameWindow(GameBL game)
         {
             InitializeComponent();
             gameTimer = new DispatcherTimer();
@@ -49,11 +49,10 @@ namespace WpfAppGameTesing
 
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
-            game = new GameBL(1);
+            this.game = new GameBL(1);
             gameEngine = new GameEngine(game, NextWaveButton);
 
-            LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
-            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
+           
 
             this.InitialsTowers(gameCanvas);
         }
