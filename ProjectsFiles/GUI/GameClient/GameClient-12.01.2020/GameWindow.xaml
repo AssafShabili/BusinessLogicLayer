@@ -31,16 +31,13 @@
                 <Button x:Name="AttackSpeedButton" Content="987 $" HorizontalAlignment="Left" Margin="185,22,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Panel.ZIndex="1" Click="AttackSpeedButton_Click" />
                 <Label Content="cost to upgrade Damage " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,54,0,0"/>
                 <Button x:Name="DamageButton" Content="987 $" HorizontalAlignment="Left" Margin="185,58,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Click="DamageButton_Click"/>
-
                 <Label Content="cost to upgrade range " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,90,0,0"/>
                 <Button x:Name="RangeButton" Content="987 $" HorizontalAlignment="Left" Margin="185,94,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Click="RangeButton_Click"/>
                 <Label Content="In order to buy, just click the price!" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="225" Height="20" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10" Foreground="#FF6083E0"/>
             </Grid>
         </StackPanel>
-
         <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,200,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
         <Label x:Name="LabelWave" Content="Label" HorizontalAlignment="Left" Margin="965,170,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
-
         <Button x:Name="ButtonSelectWater" Content="" HorizontalAlignment="Left" Margin="1160,10,0,0" VerticalAlignment="Top" Width="85" Height="80" BorderBrush="White" Background="White" Click="ButtonSelectWater_Click">
             <Button.ContentTemplate>
                 <DataTemplate>
