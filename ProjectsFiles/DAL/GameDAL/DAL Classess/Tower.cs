@@ -121,5 +121,35 @@ namespace GameDAL.DAL_Classess
         }
 
 
+        /// <summary>
+        /// פעולה לעדכון הערכים של המגדל
+        /// </summary>
+        /// <param name="towerID">מפתח של אתו מגדל</param>
+        /// <param name="type">סוג של המגדל </param>
+        /// <param name="range">מרחק הירייה של המגדל</param>
+        /// <param name="attackSpeed">קצב התקיפה של אותו מגדל</param>
+        /// <param name="damage">נזק של אותו מגדל</param>
+        /// <param name="cost">עלות של מחירת המגדל</param>
+        /// <param name="img">תמונת המגדל</param>
+        /// <param name="Dlvl">רמת הנזק של המגדל</param>
+        /// <param name="Rlvl">רמת המרחק של משידרוג המגדל</param>
+        /// <param name="Alvl">רמת השידרוג של התקיפה של המגדל</param>
+        public static void UpdateTowerInfo(int towerID, string type,int range,int attackSpeed,int damage,int cost,string img,int Dlvl,int Rlvl,int Alvl)
+        {
+            DBHelper.UpdateQuery(
+                "UPDATE Towers " +
+               $" SET Tower_Type = '{type}', " +
+               $" Tower_range = {range}, " +
+               $" Tower_damage = {damage}, " +
+               $" Tower_attackSpeed = {attackSpeed}, " +
+               $" Tower_cost = {cost}, " +
+               $" Tower_Img = '{img}', " +
+               $" Tower_damage_lvl = {Dlvl}, " +
+               $" Tower_range_lvl = {Rlvl}, " +
+               $" Tower_attackSpeed_lvl = {Alvl} " +
+               $" WHERE Tower_ID = {towerID}");
+        }
+
+
     }
 }
