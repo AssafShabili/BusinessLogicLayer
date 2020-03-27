@@ -34,6 +34,11 @@ namespace GameClient_12._01._2020
         {
             InitializeComponent();
             this.game = new GameBL(1);
+
+            GameWindow gameWindow = new GameWindow(this.game);
+            this.Hide();
+            gameWindow.Show();
+
             this.backgroundWorker = new BackgroundWorker();
             this.backgroundWorker.DoWork += bg_DoWork;
             this.backgroundWorker.RunWorkerCompleted += bg_RunWorkerCompleted;

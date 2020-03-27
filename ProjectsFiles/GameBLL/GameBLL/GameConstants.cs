@@ -11,10 +11,12 @@ namespace GameBLL
 {
     public static class GameConstants
     {
-        public static double lowestWinrate;
-        public static double highestWinrate;
-        public static double highestCurrentWinrate;
-        public static double lowestCurrentWinrate;
+        public static double lowestWinrate = 36.5;
+        public static double highestWinrate = 50.5;
+        public static double highestCurrentWinrate = 80;
+        public static double lowestCurrentWinrate = 29;
+
+
 
         /// <summary>
         /// פעולה להשמת הנתונים בתוך הנתונים המתאימים

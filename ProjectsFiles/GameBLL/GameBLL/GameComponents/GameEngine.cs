@@ -177,6 +177,8 @@ namespace GameBLL.GameComponents
             return true;
         }
 
+
+
         /// <summary>
         /// פעולה להוספת כסף של אותו משתמש
         /// </summary>
@@ -315,6 +317,16 @@ namespace GameBLL.GameComponents
                 default:
                     return TowerType.defaultType;
             }
+        }
+
+
+        /// <summary>
+        /// פעולה שמחזירה איזה סוג של בניינים כדאי לאותו משתמש לבנות
+        /// </summary>
+        /// <returns>סטרניג שמייצג את התגובה לאותו דבר</returns>
+        public string ShouldBuildTowers()
+        {
+            return this.gameBL.ShouldBuilt();
         }
 
 

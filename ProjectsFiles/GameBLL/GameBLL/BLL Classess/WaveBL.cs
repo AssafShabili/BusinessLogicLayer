@@ -238,7 +238,7 @@ namespace GameBLL.BLL_Classess
         {
             double currentWaveWinRate = Properties.GetWinRateOfWaveByID(this.waveID);
 
-            if (currentWaveWinRate <= 36.5)
+            if (currentWaveWinRate <= /*36.5*/ GameConstants.lowestWinrate)
             {//בדיקה של אחוז הניצחון בסיבוב הנל
                 if (currentWaveWinRate >= 10 && currentWaveWinRate <= 20)
                 {
@@ -265,7 +265,7 @@ namespace GameBLL.BLL_Classess
                     }
                 }
             }
-            else if (currentWaveWinRate <= 50.5)
+            else if (currentWaveWinRate <= /*50.5*/ GameConstants.highestWinrate)
             {
                 /*
                  * אם אחוז הניצחון שלי הוא מתחת ל50.5 אני מחליש את שאר האויבים 
@@ -278,7 +278,7 @@ namespace GameBLL.BLL_Classess
             }
             
             // אם אחוז הניצחון של המשתמש גבוהה מאוד 
-            if(game.CalculateWinStreak() >= 80 )
+            if(game.CalculateWinStreak() >= /*80*/ GameConstants.highestCurrentWinrate )
             {
                 List<Tuple<TowerType, int>> towerList = game.GetMostCommonTower();
                 Tuple<TowerType, int> maxTowerTuple = new Tuple<TowerType, int>(TowerType.defaultType,-1);
@@ -303,7 +303,7 @@ namespace GameBLL.BLL_Classess
                 this.AddBossToWave(this.GetCounterTowerType(maxTowerTuple.Item1),false);
 
             }
-            else if (game.CalculateWinStreak() <= 29)
+            else if (game.CalculateWinStreak() <= /*29*/ GameConstants.lowestCurrentWinrate)
             {
                 List<Tuple<TowerType, int>> towerList = game.GetMostCommonTower();
                 Tuple<TowerType, int> maxTowerTuple = new Tuple<TowerType, int>(TowerType.defaultType, -1);

@@ -39,7 +39,6 @@ namespace GameClient_12._01._2020
 
 
 
-
         public GameWindow(GameBL game)
         {
             InitializeComponent();
