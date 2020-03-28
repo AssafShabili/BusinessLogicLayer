@@ -374,6 +374,22 @@ namespace GameBLL.BLL_Classess
         {
             return this.range;
         }
+        public string GetTowerImage()
+        {
+            return this.TowerImgName;
+        }
+        public int GetAttackSpeedLevel()
+        {
+            return this.attackSpeedLevel;
+        }
+        public int GetDamageLevel()
+        {
+            return this.damageLevel;
+        }
+        public int GetRangeLevel()
+        {
+            return this.rangeLevel;
+        }
         // ============= end ========================
 
 

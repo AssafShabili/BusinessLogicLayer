@@ -215,6 +215,7 @@ namespace GameBLL.GameComponents
             this.attackPhase = false;
             this.nextWaveButton.IsEnabled = true;
             this.gameBL.UpdateGameInfo();
+            
         }
 
 

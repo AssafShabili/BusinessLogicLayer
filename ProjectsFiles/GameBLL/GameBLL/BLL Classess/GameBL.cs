@@ -543,7 +543,11 @@ namespace GameBLL.BLL_Classess
             return this.towersList;
         }
         // ======= סיום פעולות איחזור ============
-
+        /// <summary>
+        /// פעולה לעדכון הנתונים של הסיבוב בבסיס הנתונים שלי
+        /// </summary>
+        /// <param name="won">אם המשתמש ניצח את אותו סיבוב </param>
+        /// <param name="waveID">מפתח של הסיבוב </param>
         public void UpdatePropertiesInfo(bool won,int waveID)
         {
             List<Tuple<TowerType, int>> lst = GetMostCommonTower();
@@ -551,6 +555,29 @@ namespace GameBLL.BLL_Classess
                 waveID, won, lst[2].Item2,
                 lst[1].Item2, lst[0].Item2, lst[3].Item2);
         }
+
+        /// <summary>
+        /// פעולה לעדכון הנתונים של המגדל בבסיס הנתונים 
+        /// </summary>
+        public void UpdateTowerInfo()
+        {
+            foreach (TowerBL tower in this.towersList)
+            {
+                GameDAL.DAL_Classess.Tower.UpdateTowerInfo(
+                    tower.GetTowerID(),
+                    tower.GetTowerType().ToString().ToLower(),
+                    tower.GetRange(),
+                    tower.GetAttackSpeed(),
+                    tower.GetDamage(),
+                    tower.GetTowerCost(),
+                    tower.GetTowerImage(),
+                    tower.GetDamageLevel(),
+                    tower.GetRangeLevel(),
+                    tower.GetAttackSpeedLevel()
+                    );
+            }
+        }
+
         
     }
 }
