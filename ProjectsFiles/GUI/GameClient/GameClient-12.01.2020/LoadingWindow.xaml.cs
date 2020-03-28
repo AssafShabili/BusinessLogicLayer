@@ -27,15 +27,17 @@ namespace GameClient_12._01._2020
     {
         private BackgroundWorker backgroundWorker;
         private GameBL game;
+        private UserBL UserBL;
 
         private bool error = false;
         
-        public LoadingWindow()
+        public LoadingWindow(GameBL gameBL,UserBL userBL)
         {
             InitializeComponent();
-            this.game = new GameBL(1);
+            this.game = gameBL;
+            this.UserBL = userBL;
 
-            GameWindow gameWindow = new GameWindow(this.game);
+            GameWindow gameWindow = new GameWindow(this.game,userBL);
             this.Hide();
             gameWindow.Show();
 
@@ -56,7 +58,7 @@ namespace GameClient_12._01._2020
             if(!this.error)
             {
                 labelLoading.Content = "finishing up ...";
-                GameWindow gameWindow = new GameWindow(this.game);
+                GameWindow gameWindow = new GameWindow(this.game,UserBL);
                 ProgressBarLoading.Value += 10;
                 gameWindow.Show();
                 this.Close();

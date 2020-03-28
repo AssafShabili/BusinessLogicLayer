@@ -35,7 +35,7 @@
             </Button.RenderTransform>
         </Button>
         <Label Content="Next" HorizontalAlignment="Left" Margin="508,140,0,0" Foreground="#FFD13639" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="18" Height="27" Width="49"/>
-        <Button x:Name="choosingButton" Content="I CHOOSE THIS MAP! 🡪" HorizontalAlignment="Left" Margin="185,310,0,0" VerticalAlignment="Top" Width="215" Height="44" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="choosingButton" Content="I CHOOSE THIS MAP! 🡪" HorizontalAlignment="Left" Margin="185,310,0,0" VerticalAlignment="Top" Width="215" Height="44" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" RenderTransformOrigin="0.5,0.5" Click="choosingButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

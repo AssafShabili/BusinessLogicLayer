@@ -580,7 +580,7 @@ namespace GameBLL.BLL_Classess
 
 
         /// <summary>
-        /// 
+        /// פעולה ליצירת המשחק 
         /// </summary>
         /// <param name="mapID"> מפתח של המפה</param>
         /// <returns>מחזיר את המפתח של המשחק החדש או שיחזיר -1 במקרה שזה לא הצליח</returns>

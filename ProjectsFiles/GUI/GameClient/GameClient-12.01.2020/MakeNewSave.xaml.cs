@@ -85,8 +85,7 @@ namespace GameClient_12._01._2020
             --currentIndex;
             if (MapsList.Count > currentIndex && currentIndex >= 0)
             {
-                MapImage.Source = GetBitmapImage(MapsList[currentIndex].GetMapName());
-               
+                MapImage.Source = GetBitmapImage(MapsList[currentIndex].GetMapName());  
             }
 
         }

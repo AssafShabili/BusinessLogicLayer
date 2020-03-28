@@ -37,14 +37,14 @@
             </Grid>
 
             <Grid x:Name="GridWhatShould" Height="85">
-                <Button x:Name="ShouldBuiltButton" Margin="15,15,140,40" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Content="What should I build?" >
+                <Button x:Name="ShouldBuiltButton" Margin="15,15,140,40" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Content="What should I build?" Click="ShouldBuiltButton_Click" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Label Margin="5,50,10,5" x:Name="LabelShouldBuit"  FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
+                <Label Margin="5,50,10,5" x:Name="LabelShouldBuilt"  FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
             </Grid>
         </StackPanel>
         <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,200,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
