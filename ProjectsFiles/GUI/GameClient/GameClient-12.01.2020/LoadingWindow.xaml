@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient_12._01._2020"
         mc:Ignorable="d"
-        Title="LoadingWindow" WindowStyle="None" Height="300" Width="450" Loaded="Window_Loaded_1">
+        Title="Loading..." Height="300" Width="450" Loaded="Window_Loaded_1" WindowStartupLocation="CenterScreen"  WindowStyle="None" >
     <Grid>
         <Rectangle x:Name="TopPanel" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="439" MouseDown="TopPanel_MouseDown" Opacity="0"/>
         <Image HorizontalAlignment="Left" Height="275" Margin="0,-15,-118,0" VerticalAlignment="Top" Width="560" Source="Img/MONSTERS.jpg"/>
-        <Label Content="Loading " HorizontalAlignment="Left" Margin="161,160,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16" Width="239" Foreground="#FFD13639"/>
-        <ProgressBar x:Name="ProgressBarLoading" HorizontalAlignment="Left" Height="20" Margin="0,255,0,0" VerticalAlignment="Top" Width="442" Foreground="#FFD13639" BorderBrush="#FFFFFDFD" Background="White" Loaded="ProgressBarLoading_Loaded"/>
+        <Label Name="labelLoading" Content="Loading " HorizontalAlignment="Left" Margin="161,160,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16" Width="239" Foreground="#FFD13639"/>
+        <ProgressBar x:Name="ProgressBarLoading" HorizontalAlignment="Left" Height="20" Margin="0,255,0,0" VerticalAlignment="Top" Width="450" Foreground="#FFD13639" BorderBrush="#FFFFFDFD" Background="White" Loaded="ProgressBarLoading_Loaded"/>
 
 
     </Grid>

@@ -36,10 +36,11 @@ namespace GameClient_12._01._2020
         private GameBL game;
         private GameEngine gameEngine;
         private DispatcherTimer gameTimer;
+        private UserBL user;
 
 
 
-        public GameWindow(GameBL game)
+        public GameWindow(GameBL game,UserBL user)
         {
             InitializeComponent();
             gameTimer = new DispatcherTimer();
@@ -49,6 +50,9 @@ namespace GameClient_12._01._2020
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             this.game = new GameBL(1);
+
+            this.user = user;
+
             gameEngine = new GameEngine(game, NextWaveButton);
 
            
@@ -132,7 +136,7 @@ namespace GameClient_12._01._2020
 
                 selection = TowerSelection.None;
             }
-            else
+            else if (!this.gameEngine.CanUserBuyTower() || !this.gameEngine.CanBuildTower(point))
             {
                 this.LabelError.Content = "can build here nor, \n you don't have money to buy it";
             }
@@ -172,6 +176,8 @@ namespace GameClient_12._01._2020
             int index = int.Parse(
                 (((Button)(sender)).Name).Trim('B')
                 );
+
+            sectionA.Visibility = Visibility.Visible;
 
             TowerBL tower = gameEngine.GetTowerByIndex(index);
 

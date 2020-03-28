@@ -22,6 +22,7 @@ namespace GameClient_12._01._2020
     {
         private UserBL user;
         private LoadingWindow loadingWindow;
+        private MakeNewSave MakeNewSaveWindow;
 
 
         public GameLobby(UserBL user)
@@ -70,6 +71,8 @@ namespace GameClient_12._01._2020
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
                     ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
                     ImgGame3.Source = GetBitmapImage(userMaps[2].GetMapName());
+
+                    NewGameButton.Visibility = Visibility.Hidden;
                     break;
                 case 2:
                     ButtonGame3.IsEnabled = false;

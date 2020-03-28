@@ -76,6 +76,35 @@ namespace GameBLL.BLL_Classess
             return !Users.LoginIn(email, password);
         }
 
+        /// <summary>
+        /// פעולה למחיקה של השמירה של אותו משתמש
+        /// </summary>
+        /// <param name="index">מיקום בבסיס הנתונים</param>
+        public void RemoveGameSave(int index)
+        {
+            GameDAL.DAL_Classess.Users.DeleteGameSaveFromUser(this.userID,
+                this.gameSaves[index].GetGameBLID());
+        }
+
+        /// <summary>
+        /// פעולה למציאת המיקום של שמירה של משחק
+        /// </summary>
+        /// <param name="game">משחק שאותו אנחנו רוצים לחפש</param>
+        /// <returns>הפעולה מחזירה את המיקום של כל המשחקים</returns>
+        public int GetIndexOfGameBL(GameBL game)
+        {
+            int index = 0;
+            foreach (GameBL gameSave in this.gameSaves)
+            {
+                if(gameSave.GetGameBLID() == game.GetGameBLID())
+                {
+                    return index;
+                }
+                index++;
+            }
+            return -1;
+        }
+
         
         /// <summary>
         /// פעולה בונה של משתמש

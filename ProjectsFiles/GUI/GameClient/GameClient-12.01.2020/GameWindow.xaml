@@ -10,7 +10,7 @@
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="670" Margin="10,10,0,0" VerticalAlignment="Top" Width="950" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" Source="MapImg/sand.png" />
         </Canvas>
-        <StackPanel HorizontalAlignment="Left" Height="304" Margin="965,385,-5,0" VerticalAlignment="Top" Width="312">
+        <StackPanel Name="sectionA" HorizontalAlignment="Left" Height="304" Margin="965,385,-5,0" VerticalAlignment="Top" Width="312">
             <Label x:Name="LabelTowerInfo" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowerDamage" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>

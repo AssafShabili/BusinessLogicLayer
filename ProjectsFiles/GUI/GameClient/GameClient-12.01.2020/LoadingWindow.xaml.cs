@@ -55,6 +55,7 @@ namespace GameClient_12._01._2020
         {
             if(!this.error)
             {
+                labelLoading.Content = "finishing up ...";
                 GameWindow gameWindow = new GameWindow(this.game);
                 ProgressBarLoading.Value += 10;
                 gameWindow.Show();
@@ -76,11 +77,13 @@ namespace GameClient_12._01._2020
                     this.Dispatcher.Invoke(() =>
                     {
                         ProgressBarLoading.Value += 60;
+                        labelLoading.Content = "Fetching the info ..";
                     });
                     GameConstants.InitializeVariables(dataTable);
                     this.Dispatcher.Invoke(() =>
                     {
                         ProgressBarLoading.Value += 30;
+                        labelLoading.Content = "Initializing the info ...";
                     });
                 }
             }

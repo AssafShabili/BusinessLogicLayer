@@ -23,11 +23,21 @@ namespace GameClient_12._01._2020
     {
         //שומר את כל המידע שקשור למפות
         List<MapBL> MapsList;
+        GameBL game;
+        UserBL UserBL;
         int currentIndex = 0;// המיקום של המשתמש בשרשרת של המפה
+
+        public MakeNewSave(UserBL userBL)
+        {
+            InitializeComponent();
+            game = new GameBL();
+            UserBL = userBL;
+        }
 
         public MakeNewSave()
         {
             InitializeComponent();
+            game = new GameBL();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -113,6 +123,12 @@ namespace GameClient_12._01._2020
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             CycleToThePreviousMap();
+        }
+
+        private void choosingButton_Click(object sender, RoutedEventArgs e)
+        {
+            int gameID = game.MakeANewGame(MapsList[currentIndex].GetMapID());
+            UserBL.AddGameSave(new GameBL(gameID));
         }
     }
 }

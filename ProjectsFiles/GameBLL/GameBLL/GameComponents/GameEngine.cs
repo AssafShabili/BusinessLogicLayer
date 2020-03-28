@@ -18,7 +18,7 @@ namespace GameBLL.GameComponents
     {
         private GameBL gameBL;
         private bool attackPhase;
-        private bool userDied;
+
         private Random random;
 
         private bool wonWave;
@@ -34,9 +34,11 @@ namespace GameBLL.GameComponents
 
 
 
+
+
         private int currentEnemeysDeploy = 0;
         private List<Enemy> currentEnemey = new List<Enemy>();
-        private int enemeysGotToTheEnd;
+
 
         public GameEngine(GameBL game, Button button)
         {
@@ -69,7 +71,10 @@ namespace GameBLL.GameComponents
         /// <summary>
         /// פעולה העדכון של המשחק 
         /// </summary>
-        public void Update(Canvas gameCanvas, Window window)
+        /// <param name="gameCanvas">לוח המשחק</param>
+        /// <param name="window">לוח של המשחק</param>
+        /// <param name="user">משתמש</param>
+        public void Update(Canvas gameCanvas, Window window,UserBL user)
         {
             this.gameTime++;
 
@@ -97,7 +102,8 @@ namespace GameBLL.GameComponents
 
                 if (this.gameBL.GetUserHealth() <= 0)
                 {
-                    MessageBox.Show("You have lost!");
+                    MessageBox.Show("You have lost! \n deleting your save ...");
+                    user.RemoveGameSave(user.GetIndexOfGameBL(this.gameBL));
                     window.Close();
                 }
 
@@ -111,15 +117,7 @@ namespace GameBLL.GameComponents
 
                     this.wonWave = CheckIfAllAreDead();
                 }
-                //if(CheckIfAllprojectile() && CheckIfDeadOrEnd())
-                //{
-                //    this.currentEnemey = new List<Enemy>();
-                //    this.currentEnemeysDeploy = 0;
-                //    this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
-                //    GoToBuildingPhase();
-
-                //    this.wonWave = CheckIfAllAreDead();
-                //}
+               
 
             }
             else//building Phase!
