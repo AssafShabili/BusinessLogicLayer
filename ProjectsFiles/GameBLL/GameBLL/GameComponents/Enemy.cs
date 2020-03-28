@@ -28,7 +28,7 @@ namespace GameBLL.GameComponents
        
 
         private int currentFrame = 0;
-        private int frameCount = 4;
+        private int frameCount = 3;
 
         
 

@@ -99,30 +99,32 @@ namespace GameBLL.BLL_Classess
             this.mapRoad = road;
         }
 
-        /// <summary>
-        /// פעולה לקבלת טֶקְסְטוּרָה מתוך שם של הסוג של האויב
-        /// או בוס
-        /// </summary>
-        /// <param name="type">שם </param>
-        /// <returns>מחזיר את טֶקְסְטוּרָה לפי הסטריג שנקלט </returns>
-        private Image GetBossTexture2D(string type)
-        {
-            Image image = new Image();
-            switch (type.ToLower())
-            {
-                case "fire":                
-                    return image;
-                //case "water":
-                //    return GameConstants.waterBoss;
-                //case "air":
-                //    return GameConstants.airBoss;
-                //case "earth":
-                //    return GameConstants.earthBoss;
-                default:
-                    return null;
-            }
 
-        }
+        //TOdo delete it
+        ///// <summary>
+        ///// פעולה לקבלת טֶקְסְטוּרָה מתוך שם של הסוג של האויב
+        ///// או בוס
+        ///// </summary>
+        ///// <param name="type">שם </param>
+        ///// <returns>מחזיר את טֶקְסְטוּרָה לפי הסטריג שנקלט </returns>
+        //private Image GetBossTexture2D(string type)
+        //{
+        //    Image image = new Image();
+        //    switch (type.ToLower())
+        //    {
+        //        case "fire":                
+        //           image.Source = 
+        //        //case "water":
+        //        //    return GameConstants.waterBoss;
+        //        //case "air":
+        //        //    return GameConstants.airBoss;
+        //        //case "earth":
+        //        //    return GameConstants.earthBoss;
+               
+        //    }
+        //    return image;
+
+        //} //TODO delete it!!!
 
         /// <summary>
         /// פעולה שמקבלת מפתח של בוס 
@@ -131,7 +133,6 @@ namespace GameBLL.BLL_Classess
         /// <param name="bossID">מפתח של בוס</param>
         public void AddBossToWave(int bossID)
         {
-
             DataTable dataTable = GameDAL.DAL_Classess.Game.GetBossInfoByBossID(bossID);
             if(dataTable != null)
             {
@@ -219,14 +220,9 @@ namespace GameBLL.BLL_Classess
                 default:
                     return TowerType.defaultType;
             }
-
-
         }
 
-        
-           
-
-
+                  
         /// <summary>
         /// פעולה לחישוב אם המשתמש צריך הקלות
         /// אם כן הפעולה "מקלה" על המשתמש 
