@@ -10,7 +10,7 @@
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="670" Margin="10,10,0,0" VerticalAlignment="Top" Width="950" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" Source="MapImg/sand.png" />
         </Canvas>
-        <StackPanel Name="sectionA" HorizontalAlignment="Left" Height="304" Margin="965,385,-5,0" VerticalAlignment="Top" Width="312">
+        <StackPanel Name="sectionA" HorizontalAlignment="Left" Height="389" Margin="965,300,-5,0" VerticalAlignment="Top" Width="312">
             <Label x:Name="LabelTowerInfo" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowercost" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
             <Label x:Name="LabelTowerDamage" Content="Label" Cursor="Hand" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
@@ -34,6 +34,17 @@
                 <Label Content="cost to upgrade range " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Margin="0,90,0,0"/>
                 <Button x:Name="RangeButton" Content="987 $" HorizontalAlignment="Left" Margin="185,94,0,0" VerticalAlignment="Top" Width="117" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF52C952" BorderBrush="#FFFBE6E6" Background="White" Click="RangeButton_Click"/>
                 <Label Content="In order to buy, just click the price!" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="225" Height="20" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="10" Foreground="#FF6083E0"/>
+            </Grid>
+
+            <Grid x:Name="GridWhatShould" Height="85">
+                <Button x:Name="ShouldBuiltButton" Margin="15,15,140,40" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Content="What should I build?" >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="3"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Label Margin="5,50,10,5" x:Name="LabelShouldBuit"  FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
             </Grid>
         </StackPanel>
         <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,200,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>

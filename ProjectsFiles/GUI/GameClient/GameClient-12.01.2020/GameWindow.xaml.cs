@@ -50,12 +50,10 @@ namespace GameClient_12._01._2020
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
             this.game = new GameBL(1);
-
             this.user = user;
 
-            gameEngine = new GameEngine(game, NextWaveButton);
 
-           
+            gameEngine = new GameEngine(game, NextWaveButton);
 
             this.InitialsTowers(gameCanvas);
         }
@@ -96,7 +94,7 @@ namespace GameClient_12._01._2020
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.gameEngine.Update(gameCanvas, this);
+            this.gameEngine.Update(gameCanvas, this,this.user);
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             LabelScore.Content = "Score: " + this.game.GetScore();
@@ -350,5 +348,10 @@ namespace GameClient_12._01._2020
             }
         }
         #endregion
+
+        private void ShouldBuiltButton_Click(object sender, RoutedEventArgs e)
+        {          
+            LabelShouldBuilt.Content = this.gameEngine.ShouldBuildTowers();
+        }
     }
 }

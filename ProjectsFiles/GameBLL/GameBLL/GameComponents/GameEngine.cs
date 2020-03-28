@@ -59,10 +59,7 @@ namespace GameBLL.GameComponents
         /// <param name="index">מיקום המגדל בשרשרת המגדלים</param>
         /// <returns>אובייקט המגדל המתאים לפי גודל</returns>
         public TowerBL GetTowerByIndex(int index)
-        {
-            //מה קורה אם שי מיקום שהוא לא קיים
-            //אולי אני צריך לתת לכפתורים את השמות עד פעם ?
-            // כן!
+        {           
             return this.gameBL.GetTowersList()[index];
         }
 
