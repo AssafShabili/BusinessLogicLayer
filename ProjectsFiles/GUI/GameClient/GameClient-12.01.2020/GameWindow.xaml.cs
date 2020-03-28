@@ -187,7 +187,15 @@ namespace GameClient_12._01._2020
 
             ComboBoxTypeTower.Name = "B" + index;
             
-
+            if(tower.GetAttackSpeedLevel() <= 9)
+            {
+                AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
+                AttackSpeedButton.Name = "B" + index.ToString();
+            }
+            else
+            {
+                AttackSpeedButton.IsEnabled = false;
+            }
             AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
             AttackSpeedButton.Name = "B" + index.ToString();
             DamageButton.Content = tower.GetCostToUpgradeDamage() + " $";
