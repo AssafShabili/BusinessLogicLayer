@@ -208,6 +208,10 @@ namespace GameDAL.DAL_Classess
             double wins = (int)(dt.Rows[0][0]);
             double lose = (int)(dt.Rows[0][1]);
 
+            if(lose == 0)
+            {
+                return 0.0;
+            }
             return (wins / lose) * 100;
         }
 

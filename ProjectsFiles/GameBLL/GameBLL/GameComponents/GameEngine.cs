@@ -44,6 +44,7 @@ namespace GameBLL.GameComponents
             this.attackPhase = true;//return to false
             this.userDied = false;
             this.gameTime = 0.0;
+         
             this.nextWaveButton = button;
             this.nextWaveButton.IsEnabled = true;
             this.random = new Random();
@@ -92,8 +93,16 @@ namespace GameBLL.GameComponents
                 this.projectilelist.ForEach(projectile => projectile.Move(gameCanvas));
                 this.currentEnemey.ForEach(enemy => enemy.Update(gameCanvas, this.gameBL));
 
+
+
+                if (this.gameBL.GetUserHealth() <= 0)
+                {
+                    MessageBox.Show("You have lost!");
+                    window.Close();
+                }
+
                 //תנאי הניצחון
-                if ((CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd())
+                if ((CheckIfAllAreDead() && CheckIfAllprojectile()) || CheckIfDeadOrEnd() || checkIfAllAtEnd())
                 {
                     this.currentEnemey = new List<Enemy>();
                     this.currentEnemeysDeploy = 0;
@@ -102,6 +111,16 @@ namespace GameBLL.GameComponents
 
                     this.wonWave = CheckIfAllAreDead();
                 }
+                //if(CheckIfAllprojectile() && CheckIfDeadOrEnd())
+                //{
+                //    this.currentEnemey = new List<Enemy>();
+                //    this.currentEnemeysDeploy = 0;
+                //    this.projectilelist.ForEach(projectile => projectile.Update(gameCanvas));
+                //    GoToBuildingPhase();
+
+                //    this.wonWave = CheckIfAllAreDead();
+                //}
+
             }
             else//building Phase!
             {
@@ -176,6 +195,17 @@ namespace GameBLL.GameComponents
             }
             return true;
         }
+        private bool checkIfAllAtEnd()
+        {
+            foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
+            {
+                if (!enemy.IsAtEnd())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
 
 
@@ -215,6 +245,7 @@ namespace GameBLL.GameComponents
             this.attackPhase = false;
             this.nextWaveButton.IsEnabled = true;
             this.gameBL.UpdateGameInfo();
+            this.gameBL.UpdateTowerInfo();
             
         }
 

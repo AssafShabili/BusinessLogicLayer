@@ -30,6 +30,8 @@ namespace GameBLL.GameComponents
         private int currentFrame = 0;
         private int frameCount = 3;
 
+
+        bool hitPlayer = false;
         
 
 
@@ -158,9 +160,10 @@ namespace GameBLL.GameComponents
                 this.EnemyImage.Visibility = Visibility.Hidden;
                 gameCanvas.Children.Remove(this.EnemyImage);
             }
-            else if(this.indexInRoad  == this.road.Count()-1)
+            else if(this.indexInRoad  == this.road.Count()-1 && hitPlayer == false)
             {
                 game.DamageTaken(1);
+                hitPlayer = true;
                 this.EnemyImage.Source = null;
                 this.EnemyImage.Visibility = Visibility.Hidden;
                 gameCanvas.Children.Remove(this.EnemyImage);
