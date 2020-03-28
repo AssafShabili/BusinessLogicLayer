@@ -363,23 +363,7 @@ namespace GameBLL.BLL_Classess
             return null;
         }
 
-        /// <summary>
-        /// לפי המידע שנאגר מכל המשתמשים, הפעולה תמליץ מה כדי לבנות
-        /// </summary>
-        /// <returns>סטריג שמייצג מהכדי למשתמש לבנות</returns>
-        public  string RecommendedToBuildByOtherUser()
-        {//אויל לא צריך את זה
-            
-            DataTable dataTableWaveArchives = WaveArchives.GetWaveArchivesWithWaveProperties(this.wave.GetWaveID(), this.map.GetMapID());
-            for (int i = 0; i < dataTableWaveArchives.Rows.Count; i++)
-            {
-
-
-            }
-            return null;
-
-        }
-
+       
        
 
         /// <summary>

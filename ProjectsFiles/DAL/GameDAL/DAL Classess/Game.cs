@@ -152,7 +152,8 @@ namespace GameDAL.DAL_Classess
         {
             DBHelper.UpdateQuery($" INSERT INTO UsersSavesGames (User_ID,Game_ID) " +
                 $" VALUES({userID},{gameID}) ");
-        }//checked
+        }
+
 
         /// <summary>
         ///  פעולה לקבלת המידע של המשחק 
@@ -245,24 +246,7 @@ namespace GameDAL.DAL_Classess
             return (dataTable.Rows.Count > 0);               
         }
 
-        /*add to busines logic*/
-        //public static DataTable GetGameNextWaveInfo(int gameID)
-        //{
-        //    DataTable dataTable = DBHelper.GetDataTable(0,
-        //      " SELECT Wave_id " +
-        //      " FROM Wave " +   //בודק אם ישלנו את הסיבוב הבא 
-        //      $" WHERE Wave_id = {gameID+1}");
-
-        //    //בודק אם יש את הסיבוב הבא
-        //    if (dataTable.Rows.Count == 0)
-        //    { return null; }
-
-        //    return DBHelper.GetDataTable(0,
-        //        " SELECT Wave.[Wave_Normal_Unit], Wave.[Wave_Normal_Range], Wave.[Wave_Adv_Unit], Wave.[Wave_Adv_Range], Wave.[Wave_Ultra_Unit], Wave.[Wave_Ultra_range], Wave.[Wave_Boss_id], Wave.[Wave_Complete_Score], Wave.[Wave_type], Wave.[Wave_Money_Give]" +
-        //        " FROM Wave " +
-        //       $"WHERE Wave_id = {gameID+1}");
-        //}
-
+       
         /// <summary>
         ///  הפעולה הזאת מחזירה את הנתונים של הסיבוב אם הבוס
         /// </summary>

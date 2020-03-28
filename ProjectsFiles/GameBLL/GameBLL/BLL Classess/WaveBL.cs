@@ -68,8 +68,15 @@ namespace GameBLL.BLL_Classess
             //Console.WriteLine(DataTablePrint.BuildTable(dataT, 20));
             if (dataT != null)
             {
+
                 this.waveID = waveID;
                 Enemylst = new List<Enemy>();
+
+                this.completeScore = (int)(dataT.Rows[0]["Wave_Complete_Score"]);
+                this.waveType = this.GetWaveTypeFromString((string)(dataT.Rows[0]["Wave_type"]));
+                this.moneyGive = (int)(dataT.Rows[0]["Wave_Money_Give"]);
+                this.bossID = (int)(dataT.Rows[0]["Wave_Boss_id"]);
+
                 this.mapRoad = road;
                 this.AddWaveUnit(dataT, "Wave_Normal_Unit");
                 this.AddWaveUnit(dataT, "Wave_Normal_Range");
@@ -77,11 +84,11 @@ namespace GameBLL.BLL_Classess
                 this.AddWaveUnit(dataT, "Wave_Adv_Range");
                 this.AddWaveUnit(dataT, "Wave_Ultra_Unit");
                 this.AddWaveUnit(dataT, "Wave_Ultra_range");
-
-                this.bossID = (int)(dataT.Rows[0]["Wave_Boss_id"]);
-                this.completeScore = (int)(dataT.Rows[0]["Wave_Complete_Score"]);
-                this.waveType = this.GetWaveTypeFromString((string)(dataT.Rows[0]["Wave_type"]));
-                this.moneyGive = (int)(dataT.Rows[0]["Wave_Money_Give"]);
+                if(bossID != 1)
+                {
+                    this.AddBossToWave(bossID);
+                }
+               
             }
             else
             {

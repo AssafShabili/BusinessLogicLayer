@@ -44,7 +44,7 @@ namespace GameBLL.GameComponents
         {
             this.gameBL = game;
             this.attackPhase = true;//return to false
-            this.userDied = false;
+          
             this.gameTime = 0.0;
          
             this.nextWaveButton = button;
@@ -127,7 +127,10 @@ namespace GameBLL.GameComponents
             }
         }
 
-
+        /// <summary>
+        /// פעולה לקידום הסיבוב הבא
+        /// </summary>
+        /// <returns>אמת - אם אפשר ואז היא תקדם את הסיבוב ואם שקר היא לא תקדם</returns>
         public bool NextWave()
         {
             int money = this.gameBL.GetWave().GetMoneyGive();
@@ -141,8 +144,9 @@ namespace GameBLL.GameComponents
                 this.gameBL.AddScore(score);
 
                 //הפעולה למורכבת שלי 
-                this.gameBL.GetWave().RecalculateEnemyWave(this.gameBL,
-                    this.gameBL.GetMap().GetMapID());
+
+                //this.gameBL.GetWave().RecalculateEnemyWave(this.gameBL,
+                //    this.gameBL.GetMap().GetMapID());
 
                 this.gameBL.UpdatePropertiesInfo(this.wonWave, preWaveID);
 
@@ -288,8 +292,8 @@ namespace GameBLL.GameComponents
         /// <param name="towerBL">המגדל שעליו יחול השידרוג</param>
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerAttackSpeed(TowerBL towerBL)
-        {
-            return gameBL.UpgradeTowerAttackSpeed(towerBL);
+        {          
+           return gameBL.UpgradeTowerAttackSpeed(towerBL);            
         }
         /// <summary>
         /// פעולה לשידרוג המגדל

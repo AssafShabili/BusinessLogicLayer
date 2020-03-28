@@ -37,9 +37,9 @@ namespace GameClient_12._01._2020
             this.game = gameBL;
             this.UserBL = userBL;
 
-            GameWindow gameWindow = new GameWindow(this.game,userBL);
-            this.Hide();
-            gameWindow.Show();
+            //GameWindow gameWindow = new GameWindow(this.game,userBL);
+            //this.Hide();
+            //gameWindow.Show();
 
             this.backgroundWorker = new BackgroundWorker();
             this.backgroundWorker.DoWork += bg_DoWork;

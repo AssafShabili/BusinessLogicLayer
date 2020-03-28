@@ -49,7 +49,7 @@ namespace GameClient_12._01._2020
 
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
-            this.game = new GameBL(1);
+            this.game = game;
             this.user = user;
 
 
@@ -67,7 +67,9 @@ namespace GameClient_12._01._2020
 
             gameTimer.Tick += timer_Tick;
             gameTimer.Start();
-            this.game = new GameBL(1);
+            this.game = new GameBL(7);
+            //this.user = new UserBL("assafShabili@gmail.com", "0524598498");
+
             gameEngine = new GameEngine(game, NextWaveButton);
 
             this.InitialsTowers(gameCanvas);
@@ -99,6 +101,7 @@ namespace GameClient_12._01._2020
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
             LabelScore.Content = "Score: " + this.game.GetScore();
             LabelHp.Content = this.game.GetUserHealth();
+            LabelHp.Content = this.game.GetWave().GetWaveType();
 
             //AttackSpeedButton.Content = this.gameEngine.
 

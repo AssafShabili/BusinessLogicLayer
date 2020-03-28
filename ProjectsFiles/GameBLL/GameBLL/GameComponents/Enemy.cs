@@ -76,7 +76,7 @@ namespace GameBLL.GameComponents
             }
             else
             {
-                bitMap.UriSource = new Uri($@"\UnitsImg\{this.type.ToString().ToLower()}\{this.type.ToString().ToLower()}_run_anim_f{this.currentFrame}.png", UriKind.Relative);
+                bitMap.UriSource = new Uri($@"\UnitsImg\{unitName}\{this.type.ToString().ToLower()}_run_anim_f{this.currentFrame}.png", UriKind.Relative);
             }
             bitMap.EndInit();
             return bitMap;

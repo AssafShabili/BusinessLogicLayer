@@ -115,7 +115,7 @@ namespace GameClient_12._01._2020
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            MakeNewSave makeNewSave = new MakeNewSave();
+            MakeNewSave makeNewSave = new MakeNewSave(this.user);
             this.Hide();
             makeNewSave.Show();
         }

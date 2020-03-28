@@ -177,7 +177,7 @@ namespace GameBLL.BLL_Classess
         {
             for (int i = 0; i < 3; i++)
             {
-                if(this.gameSaves[i].GetGameBLID() == -1)
+                if(this.gameSaves[i] == null)
                 {
                     return i;
                 }
