@@ -74,6 +74,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="BLClassDiagram.cd" />
+    <None Include="ClassDiagramBLL.cd" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MSXML2">
