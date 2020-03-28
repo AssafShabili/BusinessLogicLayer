@@ -292,8 +292,12 @@ namespace GameBLL.GameComponents
         /// <param name="towerBL">המגדל שעליו יחול השידרוג</param>
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerAttackSpeed(TowerBL towerBL)
-        {          
-           return gameBL.UpgradeTowerAttackSpeed(towerBL);            
+        {    
+            if(this.gameBL.GetMoney() - towerBL.GetCostToUpgradeAttackSpeed() >= 0)
+            {
+                 return gameBL.UpgradeTowerAttackSpeed(towerBL);            
+            }
+            return false;
         }
         /// <summary>
         /// פעולה לשידרוג המגדל
@@ -302,7 +306,11 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerDamage(TowerBL towerBL)
         {
-            return gameBL.UpgradeTowerDamage(towerBL);
+            if(this.gameBL.GetMoney() - towerBL.GetCostToUpgradeDamage() >= 0 )
+            {
+                return gameBL.UpgradeTowerDamage(towerBL);
+            }
+            return false;
         }
         /// <summary>
         /// פעולה לשידרוג המגדל
@@ -311,7 +319,11 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerRange(TowerBL towerBL)
         {
-            return gameBL.UpgradeTowerRange(towerBL);
+            if(this.gameBL.GetMoney() - towerBL.GetCostToUpgradeRange() >= 0 )
+            {
+                return gameBL.UpgradeTowerRange(towerBL);
+            }
+            return false;
         }
 
 

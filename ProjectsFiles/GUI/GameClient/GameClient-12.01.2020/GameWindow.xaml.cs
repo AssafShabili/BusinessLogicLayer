@@ -295,9 +295,15 @@ namespace GameClient_12._01._2020
         {
             if(int.TryParse(((Button)sender).Name.Trim('B'), out int index))
             {
-                if (!this.gameEngine.UpgradeTowerAttackSpeed(gameEngine.GetTowerByIndex(index)))
+                TowerBL tower = gameEngine.GetTowerByIndex(index);
+                if (!this.gameEngine.UpgradeTowerAttackSpeed(tower))
                 {
                     LabelError.Content = "You dont have the money \n for it!";
+                }
+                else
+                {
+                    AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
+                    LabelTowerAttackSpeed.Content = "Tower AttackSpeed: " + tower.GetAttackSpeed();
                 }
             }
 
@@ -307,9 +313,16 @@ namespace GameClient_12._01._2020
         {
             if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
             {
-                if (!this.gameEngine.UpgradeTowerDamage(gameEngine.GetTowerByIndex(index)))
+                TowerBL tower = gameEngine.GetTowerByIndex(index);
+                if (!this.gameEngine.UpgradeTowerDamage(tower))
                 {
                     LabelError.Content = "You dont have the money \n for it!";
+                }
+                else
+                {
+                    LabelTowerDamage.Content = "Tower Damage: " + tower.GetDamage();
+                    DamageButton.Content = tower.GetCostToUpgradeDamage() + " $";
+                   
                 }
             }
         }
@@ -317,9 +330,15 @@ namespace GameClient_12._01._2020
         {
             if (int.TryParse(((Button)sender).Name.Trim('B'), out int index))
             {
-                if (!this.gameEngine.UpgradeTowerRange(gameEngine.GetTowerByIndex(index)))
+                TowerBL tower = gameEngine.GetTowerByIndex(index);
+                if (!this.gameEngine.UpgradeTowerRange(tower))
                 {
                     LabelError.Content = "You dont have the money \n for it!";
+                }
+                else
+                {
+                    RangeButton.Content = tower.GetCostToUpgradeRange() + " $";
+                    LabelTowerRange.Content = "Tower Range: " + tower.GetRange();
                 }
             }
         }
