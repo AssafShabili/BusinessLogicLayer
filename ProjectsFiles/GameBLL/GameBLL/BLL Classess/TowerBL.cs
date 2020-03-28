@@ -98,17 +98,31 @@ namespace GameBLL.BLL_Classess
             
         }
 
+        /// <summary>
+        /// פעולה לעדכון התמונה של המגדל לפי סוג המגדל
+        /// </summary>
         public void UpdateImage()
         {
             this.TowerImgName = $"Tower_{this.towerType.ToString().ToLower()}.png";
             ((Image)(this.towerButton.Content)).Source = GetBitmapImage(this.TowerImgName);
         }
 
-
+        /// <summary>
+        /// פעולה ליצירת מגדל והכנסתו לבסיס הנתונים
+        /// </summary>
+        /// <returns></returns>
         public int MakeTower()
         {
             return Tower.CreateDefaultTower();
         }
+
+        /// <summary>
+        /// פעולה ליצירת המגדל להכנסתו לבסיס הנתונים
+        /// </summary>
+        /// <param name="type">סוג המגדל</param>
+        /// <param name="x">מיקומו בלוח X</param>
+        /// <param name="y">מיקומו הלוח Y</param>
+        /// <returns>הפעולה תחזיר את הID של אותו מגדל</returns>
         public int makeTower(string type,int x, int y)
         {
             return Tower.CreateDefaultTower(type,x,y);
@@ -118,7 +132,7 @@ namespace GameBLL.BLL_Classess
         /// פעולה לשינוי המחזירה סוג של מגדל לפי הסטריג שהיא קיבלה
         /// </summary>
         /// <param name="input">סריטג שמייצג את סוג במגדל</param>
-        /// <returns></returns>
+        /// <returns>מחזירה סוג של מגדל לפי הסטריג שהיא קיבלה</returns>
         private TowerType GetTowerTypeFromString(string input)
         {
             switch (input.ToLower())
@@ -134,11 +148,7 @@ namespace GameBLL.BLL_Classess
                 default:
                     return TowerType.defaultType;
             }
-
-
         }
-
-
 
         // =========== פעולות לעדכון המערכים של המגדל ==================
                   /*לכל אחת המפעולות יש צורת חישוב משלה*/
@@ -152,7 +162,7 @@ namespace GameBLL.BLL_Classess
         public void UpgradeAttackSpeed()
         {
             this.attackSpeedLevel++;
-            this.attackSpeed = this.attackSpeed + 5;
+            this.attackSpeed = this.attackSpeed - 5;
             Tower.UpgradeTowerAttackSpeed(this.towerID, this.attackSpeed);
             //need to update the database!
             //update attackSpeed
@@ -216,37 +226,7 @@ namespace GameBLL.BLL_Classess
         }
 
 
-        ///// <summary>
-        ///// פעולה לציור המגדל על מסך
-        ///// </summary>
-        ///// <param name="batch"> מחלקת עזר שעוזר לנו לצייר דברים על מסך</param>
-        //public void DrawTower()
-        //{
-            
-        //}
-
-        ///// <summary>
-        ///// פעולה ליצירת ה'תמונה' במשחק
-        ///// </summary>
-        ///// <param name="content">מנהל התוכן של monoGame </param>
-        //public void InitializeTextures()
-        //{
-        //    this.Tex = content.Load<Texture2D>(this.TowerImgName);
-        //    this.spriteHeight = this.Tex.Height;
-        //    this.spriteWidth = this.Tex.Width;
-        //}
-
-        ///// <summary>
-        ///// פעולה החזרה המלבן שמייצג את המגדל במסך
-        ///// </summary>
-        ///// <returns></returns>
-        //public Rectangle GetBoundingBoxTower()
-        //{
-        //    //Assumes the texture isn't scaled
-        //    return new Rectangle();
-        //}
-
-
+        
         /// <summary>
         /// פעולה לחישוב מרחק הפגיעה של המגדל הנתון
         /// </summary>

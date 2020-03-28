@@ -90,7 +90,7 @@ namespace GameDAL.DAL_Classess
         {
             DBHelper.UpdateQuery(
                 "INSERT INTO Towers (Tower_Type,Tower_range,Tower_damage,Tower_attackSpeed,Tower_X,Tower_Y,Tower_cost,Tower_Img,Tower_damage_lvl,Tower_range_lvl,Tower_attackSpeed_lvl) " +
-                " VALUES ('fire',120,10,10,0,0,40,'Tower_fire.png',1,1,1)");
+                " VALUES ('fire',120,10,45,0,0,40,'Tower_fire.png',1,1,1)");
 
             DataTable dataTable = DBHelper.GetDataTable(0,
                 " SELECT Tower_ID " +
@@ -110,7 +110,7 @@ namespace GameDAL.DAL_Classess
             type = type.ToLower();
             DBHelper.UpdateQuery(
                 "INSERT INTO Towers (Tower_Type,Tower_range,Tower_damage,Tower_attackSpeed,Tower_X,Tower_Y,Tower_cost,Tower_Img,Tower_damage_lvl,Tower_range_lvl,Tower_attackSpeed_lvl) " +
-               $" VALUES ('{type}',120,10,10,{x},{y},40,'Tower_{type}.png',1,1,1)");
+               $" VALUES ('{type}',120,10,45,{x},{y},40,'Tower_{type}.png',1,1,1)");
 
             DataTable dataTable = DBHelper.GetDataTable(0,
                 " SELECT Tower_ID " +
