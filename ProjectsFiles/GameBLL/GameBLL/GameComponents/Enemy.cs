@@ -9,7 +9,7 @@ using GameDAL.DAL_Classess;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-
+using System.Windows.Media;
 
 namespace GameBLL.GameComponents
 {
@@ -52,7 +52,10 @@ namespace GameBLL.GameComponents
 
         public void SetImage()
         {
-            EnemyImage.Source = GetBitmapImage("sand");
+            EnemyImage.Source = GetBitmapImage(this.name);
+            EnemyImage.Stretch = Stretch.None;
+            EnemyImage.Width = 75;
+            EnemyImage.Height = 75;
         }
 
         /// <summary>
@@ -61,11 +64,18 @@ namespace GameBLL.GameComponents
         /// </summary>
         /// <param name="mapName">שם של המפה של המשחק</param>
         /// <returns>הפעולה תחזיר את התמונה  שכדאי שנוכל להכניס אותה לתוך הפקד של התמונה</returns>
-        public BitmapImage GetBitmapImage(string mapName)
+        public BitmapImage GetBitmapImage(string unitName)
         {
             BitmapImage bitMap = new BitmapImage();
             bitMap.BeginInit();
-            bitMap.UriSource = new Uri($@"\MapImg\{mapName}.png", UriKind.Relative);
+            if(unitName.Contains("Boss"))
+            {
+                bitMap.UriSource = new Uri($@"\UnitsImg\Boss\{this.type.ToString().ToLower()}Boss_run_anim_f{this.currentFrame}.png", UriKind.Relative);
+            }
+            else
+            {
+                bitMap.UriSource = new Uri($@"\UnitsImg\{this.type.ToString().ToLower()}\{this.type.ToString().ToLower()}_run_anim_f{this.currentFrame}.png", UriKind.Relative);
+            }
             bitMap.EndInit();
             return bitMap;
         }
@@ -106,6 +116,17 @@ namespace GameBLL.GameComponents
                 }              
                 this.EnemyImage.Width = 50;
                 this.EnemyImage.Height = 50;
+                if(this.currentFrame == this.frameCount)
+                {
+                    this.EnemyImage.Source = GetBitmapImage(this.name);
+                    this.currentFrame = 0;
+                }
+                else
+                {
+                    this.EnemyImage.Source = GetBitmapImage(this.name);
+                    this.currentFrame++;
+                }
+
                 
                 Canvas.SetLeft(this.EnemyImage, this.location.X);
                 Canvas.SetTop(this.EnemyImage, this.location.Y);

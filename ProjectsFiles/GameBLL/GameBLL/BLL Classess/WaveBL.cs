@@ -366,7 +366,7 @@ namespace GameBLL.BLL_Classess
                 for (int i = 0; i < numberofUnits; i++)
                 {
                     Enemy enemy = new Enemy(
-                        (this.waveID * 10) / 2, $"{this.waveType}Unit", this.waveType, this.mapRoad);
+                        (this.waveID * 10) / 2, $"{this.waveType.ToString().ToLower()}", this.waveType, this.mapRoad);
                                    
                     this.Enemylst.Add(enemy);
                    

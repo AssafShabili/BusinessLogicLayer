@@ -56,6 +56,21 @@ namespace GameClient_12._01._2020
             this.InitialsTowers(gameCanvas);
         }
 
+        public GameWindow()
+        {
+            InitializeComponent();
+            gameTimer = new DispatcherTimer();
+
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+
+            gameTimer.Tick += timer_Tick;
+            gameTimer.Start();
+            this.game = new GameBL(1);
+            gameEngine = new GameEngine(game, NextWaveButton);
+
+            this.InitialsTowers(gameCanvas);
+        }
+
 
         private void InitialsTowers(Canvas gameCanvas)
         {
