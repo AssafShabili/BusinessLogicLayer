@@ -115,7 +115,7 @@
                                     <div class="card-body">
                                         <div class="chart-area">
 
-                                            <asp:GridView ID="GridViewPropertes" runat="server" AllowPaging="True" CssClass="table table-bordered table-fit" Width="100%" HeaderStyle-CssClass="table table-bordered" PagerSettings-PageButtonCount="1" PagerSettings-Position="Bottom" PageSize="6" OnPageIndexChanging="GridViewPropertes_PageIndexChanging">
+                                            <asp:GridView ID="GridViewPropertes" runat="server" AllowPaging="True" CssClass="table table-bordered table-fit" Width="100%" HeaderStyle-CssClass="table table-bordered" PagerSettings-PageButtonCount="1" PagerSettings-Position="Bottom" PageSize="4" OnPageIndexChanging="GridViewPropertes_PageIndexChanging" OnPageIndexChanged="GridViewPropertes_PageIndexChanged">
                                                 <PagerSettings Mode="NumericFirstLast" PageButtonCount="1" FirstPageText="First" LastPageText="Last" />
                                             </asp:GridView>
                                         </div>

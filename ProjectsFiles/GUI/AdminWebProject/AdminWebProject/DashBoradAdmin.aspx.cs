@@ -12,7 +12,7 @@ namespace AdminWebProject
 {
     public partial class DashBoradAdmin : System.Web.UI.Page
     {
-        AdminUserBL adminUser;
+        AdminUserBL adminUser = new AdminUserBL();
         AdminServiceClient AdminServiceClient;
         DataTable dataTable = null;
 
@@ -27,17 +27,7 @@ namespace AdminWebProject
             //GridViewPropertes.DataBind();
 
             if (!IsPostBack)
-            {
-                try
-                {
-                    adminUser = (AdminUserBL)Session["AdminUser"];
-
-                }
-                catch (Exception)
-                {
-                    // קרתה טעות 
-                    adminUser = new AdminUserBL();
-                }
+            {              
                 try
                 {
                     using (AdminServiceClient = new AdminServiceClient())
@@ -45,6 +35,7 @@ namespace AdminWebProject
                         LabelNumberOfUsers.Text = AdminServiceClient.GetNumberOfCurrentUsers().ToString();
                         LabelNumberOfTowers.Text = AdminServiceClient.GetNumberOfCurrentTowers().ToString();
                         dataTable = AdminServiceClient.GetAdminPercentageTable();
+                        
                        
                     }
                 }
@@ -52,8 +43,7 @@ namespace AdminWebProject
                 {
                     Response.Redirect("~/WebFormError.aspx");
                 }
-               
-
+                
                 GridViewPropertes.DataSource = adminUser.GetWaveProperties();
                 GridViewPropertes.DataBind();
                 InitializeTextBoxs(dataTable);
@@ -81,6 +71,7 @@ namespace AdminWebProject
         protected void GridViewPropertes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridViewPropertes.PageIndex = e.NewPageIndex;
+            GridViewPropertes.DataSource = this.adminUser.GetWaveProperties();
             GridViewPropertes.DataBind();
         }
 
@@ -98,6 +89,13 @@ namespace AdminWebProject
                 AdminServiceClient.SetUpdateAdminPercentageHighestWinrate(
                   double.Parse(TextBoxHighestWinrate.Text));
             }
+        }
+
+        protected void GridViewPropertes_PageIndexChanged(object sender, EventArgs e)
+        {
+            
+            //GridViewPropertes.PageIndex += 1;
+            //GridViewPropertes.DataBind();
         }
     }
 }

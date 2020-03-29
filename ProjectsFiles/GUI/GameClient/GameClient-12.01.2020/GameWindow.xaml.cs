@@ -98,11 +98,10 @@ namespace GameClient_12._01._2020
         {
             this.gameEngine.Update(gameCanvas, this,this.user);
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
-            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID();
+            LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID() + " Type: " + this.game.GetWave();
             LabelScore.Content = "Score: " + this.game.GetScore();
             LabelHp.Content = this.game.GetUserHealth();
-            LabelHp.Content = this.game.GetWave().GetWaveType();
-
+           
             //AttackSpeedButton.Content = this.gameEngine.
 
         }
