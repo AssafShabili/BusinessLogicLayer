@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetOtherUsersGameInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOtherUsersGameInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOtherUsersGameInfoResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPropertiesInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="waveID" type="xs:int" />
+        <xs:element minOccurs="0" name="won" type="xs:boolean" />
+        <xs:element minOccurs="0" name="numbersOfWaterTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfFireTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfAirTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfEarthTowers" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPropertiesInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPropertiesInfoByFullInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PropertiesID" type="xs:int" />
+        <xs:element minOccurs="0" name="waveID" type="xs:int" />
+        <xs:element minOccurs="0" name="numWin" type="xs:int" />
+        <xs:element minOccurs="0" name="numLost" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfWaterTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfFireTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfAirTowers" type="xs:int" />
+        <xs:element minOccurs="0" name="numbersOfEarthTowers" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPropertiesInfoByFullInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

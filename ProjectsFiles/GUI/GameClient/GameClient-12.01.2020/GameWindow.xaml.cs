@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using GameBLL.BLL_Classess;
 using GameBLL.GameComponents;
+using GameClient_12._01._2020.GameServiceReference;
+
 
 namespace GameClient_12._01._2020
 {
@@ -96,7 +99,7 @@ namespace GameClient_12._01._2020
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.gameEngine.Update(gameCanvas, this,this.user);
+            this.gameEngine.Update(gameCanvas, this);
             LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
             LabelWave.Content = "Wave ID: " + this.game.GetWave().GetWaveID() + " Type: " + this.game.GetWave();
             LabelScore.Content = "Score: " + this.game.GetScore();
@@ -383,6 +386,40 @@ namespace GameClient_12._01._2020
         private void ShouldBuiltButton_Click(object sender, RoutedEventArgs e)
         {          
             LabelShouldBuilt.Content = this.gameEngine.ShouldBuildTowers();
+        }
+
+        private void window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if(this.gameEngine.GetLost())
+            {//המשתמש הפסיד
+                user.RemoveGameSave(user.GetIndexOfGameBL(this.game));                
+            }
+            try
+            {
+                using (ServiceClient client = new ServiceClient())
+                {
+                    DataTable dataTableProperties = GameDAL.DAL_Classess.Properties.GeAllWaveProperties();
+                    for (int i = 0; i < dataTableProperties.Rows.Count; i++)
+                    {
+                        client.SendPropertiesInfoByFullInfo(
+                            (int)dataTableProperties.Rows[i]["Property_ID"],
+                             (int)dataTableProperties.Rows[i]["Wave_ID"],
+                             (int)dataTableProperties.Rows[i]["numbers_of_wins"],
+                             (int)dataTableProperties.Rows[i]["numbers_of_losess"],
+                            (int)dataTableProperties.Rows[i]["numbers_of_water_towers"],
+                            (int)dataTableProperties.Rows[i]["numbers_of_fire_towers"],
+                            (int)dataTableProperties.Rows[i]["numbers_of_earth_towers"],
+                            (int)dataTableProperties.Rows[i]["numbers_of_air_towers"]                         
+                            );
+                    }
+                }
+            }
+            catch
+            {
+                // לא צריך להראות למשתמש מה שקורא
+            }
+            
+           
         }
     }
 }

@@ -82,8 +82,13 @@ namespace GameBLL.BLL_Classess
         /// <param name="index">מיקום בבסיס הנתונים</param>
         public void RemoveGameSave(int index)
         {
-            GameDAL.DAL_Classess.Users.DeleteGameSaveFromUser(this.userID,
-                this.gameSaves[index].GetGameBLID());
+            if(index != -1)
+            {
+                GameDAL.DAL_Classess.Users.DeleteGameSaveFromUser(this.userID,
+                    this.gameSaves[index].GetGameBLID());
+                this.gameSaves[index] = new GameBL();
+            }
+
         }
 
         /// <summary>
@@ -278,6 +283,17 @@ namespace GameBLL.BLL_Classess
         {
             return this.userID;
         }
-        
+        /// <summary>
+        /// פעולה להחזרת המידע שבטבלת מאפיינים
+        /// </summary>
+        /// <returns>טבלת נתונים של טבלת מאפיינים</returns>
+        public DataTable GetAllPropertiesInfo()
+        {
+            return GameDAL.DAL_Classess.Properties.GeAllWaveProperties();
+        }
+
+
+
+
     }
 }

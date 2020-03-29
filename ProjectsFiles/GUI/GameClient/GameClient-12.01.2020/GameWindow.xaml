@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient_12._01._2020"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" Loaded="window_Loaded">
+        Title="MainWindow" Height="720" Width="1280" Loaded="window_Loaded" Closing="window_Closing">
     <Grid x:Name="gameGrid" Cursor="Hand">
         <Canvas x:Name="gameCanvas" HorizontalAlignment="Left" Height="670" Margin="10,10,0,0" VerticalAlignment="Top" Width="950" MouseLeftButtonDown="gameCanvas_MouseLeftButtonDown">
             <Image  Height="670" Width="950" Stretch="Fill" Source="MapImg/sand.png" />

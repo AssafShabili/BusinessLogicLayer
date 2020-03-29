@@ -15,6 +15,7 @@ using GameBLL.BLL_Classess;
 using GameBLL;
 using GameBLL.GameComponents;
 using GameClient_12._01._2020.AdminServiceReference;
+using GameClient_12._01._2020.GameServiceReference;
 using System.ComponentModel;
 using System.Data;
 
@@ -29,9 +30,12 @@ namespace GameClient_12._01._2020
         private GameBL game;
         private UserBL UserBL;
 
+        private DataTable dataTableProperties;
+
+
         private bool error = false;
-        
-        public LoadingWindow(GameBL gameBL,UserBL userBL)
+
+        public LoadingWindow(GameBL gameBL, UserBL userBL)
         {
             InitializeComponent();
             this.game = gameBL;
@@ -44,7 +48,7 @@ namespace GameClient_12._01._2020
             this.backgroundWorker = new BackgroundWorker();
             this.backgroundWorker.DoWork += bg_DoWork;
             this.backgroundWorker.RunWorkerCompleted += bg_RunWorkerCompleted;
-            
+
         }
 
         private void TopPanel_MouseDown(object sender, MouseButtonEventArgs e)
@@ -55,11 +59,11 @@ namespace GameClient_12._01._2020
 
         private void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(!this.error)
+            if (!this.error)
             {
                 labelLoading.Content = "finishing up ...";
                 System.Threading.Thread.Sleep(5000);// 5 sec of sleeping to delay the task opening
-                GameWindow gameWindow = new GameWindow(this.game,UserBL);
+                GameWindow gameWindow = new GameWindow(this.game, UserBL);
                 ProgressBarLoading.Value += 10;
                 gameWindow.Show();
                 this.Close();
@@ -91,9 +95,27 @@ namespace GameClient_12._01._2020
                     });
                     System.Threading.Thread.Sleep(5000);// 5 sec of sleeping to delay the task opening
                 }
-                
+
+                using (ServiceClient gameClient = new ServiceClient())
+                {
+                    DataTable dataTable = gameClient.GetOtherUsersGameInfo();
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        GameDAL.DAL_Classess.Properties.UpdateProperties(
+                             (int)dataTable.Rows[i]["Property_ID"],
+                             (int)dataTable.Rows[i]["Wave_ID"],
+                             (int)dataTable.Rows[i]["numbers_of_wins"],
+                             (int)dataTable.Rows[i]["numbers_of_losess"],
+                             (int)dataTable.Rows[i]["numbers_of_water_towers"],
+                             (int)dataTable.Rows[i]["numbers_of_fire_towers"],
+                             (int)dataTable.Rows[i]["numbers_of_air_towers"],
+                             (int)dataTable.Rows[i]["numbers_of_earth_towers"]);
+                    }
+
+                }
+
             }
-            catch(Exception)
+            catch (Exception)
             {
                 this.error = true;
                 MessageBox.Show("[ERROR] There was a unexpacted error with the web-service pleace try again later");

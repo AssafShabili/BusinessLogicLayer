@@ -24,6 +24,8 @@ namespace GameBLL.GameComponents
         private bool wonWave;
 
 
+        private bool lost = false;
+
         private List<TowerProjectile> projectilelist = new List<TowerProjectile>();
 
         private double gameTime;
@@ -63,7 +65,10 @@ namespace GameBLL.GameComponents
             return this.gameBL.GetTowersList()[index];
         }
 
-
+        public bool GetLost()
+        {
+            return this.lost;
+        }
 
         /// <summary>
         /// פעולה העדכון של המשחק 
@@ -71,7 +76,7 @@ namespace GameBLL.GameComponents
         /// <param name="gameCanvas">לוח המשחק</param>
         /// <param name="window">לוח של המשחק</param>
         /// <param name="user">משתמש</param>
-        public void Update(Canvas gameCanvas, Window window,UserBL user)
+        public void Update(Canvas gameCanvas, Window window)
         {
             this.gameTime++;
 
@@ -100,7 +105,7 @@ namespace GameBLL.GameComponents
                 if (this.gameBL.GetUserHealth() <= 0)
                 {
                     MessageBox.Show("You have lost! \n deleting your save ...");
-                    user.RemoveGameSave(user.GetIndexOfGameBL(this.gameBL));
+                    this.lost = true;
                     window.Close();
                 }
 
@@ -122,6 +127,7 @@ namespace GameBLL.GameComponents
                 if (this.gameBL.GetUserHealth() <= 0)
                 {
                     MessageBox.Show("You have lost!");
+                    this.lost = true;
                     window.Close();
                 }
             }
@@ -152,8 +158,11 @@ namespace GameBLL.GameComponents
 
                 this.gameBL.UpdateGameScore();
 
+                this.gameBL.UpdateTowerInfo();
+
                 return false;
             }
+            this.lost = false;
             return true;
         }
 

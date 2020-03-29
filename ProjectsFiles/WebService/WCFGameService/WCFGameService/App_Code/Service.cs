@@ -45,7 +45,17 @@ public class Service : IService
 		Properties.UpdateWaveProperties(waveID, won, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
 	}
 
-
+	/// <summary>
+	/// פעולה לעדכון שורה בטבלת מאפיינים שבבסיס הנתונים
+	/// </summary>
+	/// <param name="PropertiesID">מפתח של אותה טבלה</param>
+	/// <param name="waveID">מפתח של אותו סיבוב</param>
+	/// <param name="numWin">מספר הניצחונות</param>
+	/// <param name="numLost">מספר ההפסדים</param>
+	/// <param name="numbersOfWaterTowers">מספר מגדלי המים</param>
+	/// <param name="numbersOfFireTowers">מספר מגדלי האש</param>
+	/// <param name="numbersOfAirTowers">מספר מגדלי האוויר</param>
+	/// <param name="numbersOfEarthTowers">מספר מגדלי האדמה</param>
 	[WebMethod]
 	public void SendPropertiesInfoByFullInfo(int PropertiesID, int waveID, int numWin, int numLost, int numbersOfWaterTowers, int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
 	{
