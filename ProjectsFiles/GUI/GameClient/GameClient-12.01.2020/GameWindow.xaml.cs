@@ -141,6 +141,8 @@ namespace GameClient_12._01._2020
                 this.LabelError.Content = "can build here nor, \n you don't have money to buy it";
             }
 
+            sectionA.Visibility = Visibility.Hidden;
+
         }
 
         /// <summary>

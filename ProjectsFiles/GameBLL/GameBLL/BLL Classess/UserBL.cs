@@ -270,5 +270,14 @@ namespace GameBLL.BLL_Classess
             return this.email.Split('@')[0];
         }
 
+        /// <summary>
+        /// פעולה לקבלת הID של אותו משתמש
+        /// </summary>
+        /// <returns>הפעולה מחזירה את המפתח של אותו משתמש</returns>
+        public int GetID()
+        {
+            return this.userID;
+        }
+        
     }
 }
