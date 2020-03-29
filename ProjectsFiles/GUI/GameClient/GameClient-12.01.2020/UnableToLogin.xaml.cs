@@ -112,16 +112,23 @@ namespace GameClient_12._01._2020
                             if(this.option == true)
                             {                             
                                 ChangeUserEmail(user);
+                                InputErrorLabel.Content = "Email was changed!";
                             }
                             else if(this.option == false)
                             {
                                 ChangeUserPassword(user, service.GetMd5Hash(InputTextBox.Text));
+                                InputErrorLabel.Content = "Password was change!";
                             }
                             else if(this.option == null)
                             {
                                 InputErrorLabel.Content = "Please \n pick an\n option \n [Email/Password]";
                                 return;
                             }
+                        }
+                        else
+                        {
+                            InputErrorLabel.Content = "[Error] \n User not found ";
+                            return;
                         }
                         
                     }

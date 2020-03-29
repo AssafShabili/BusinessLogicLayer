@@ -129,7 +129,7 @@ namespace GameClient_12._01._2020
 
         private void ButtonGame2_Click(object sender, RoutedEventArgs e)
         {
-           this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
             this.Hide();
             loadingWindow.Show();
         }

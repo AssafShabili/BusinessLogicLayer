@@ -22,7 +22,7 @@
         <Label HorizontalAlignment="Left" Margin="270,98,-438,0" VerticalAlignment="Top" Width="217" Foreground="#FF938C8C" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="18"/>
         <TextBlock HorizontalAlignment="Left" Margin="280,189,-418,0" TextWrapping="Wrap" Text="if you want to change your Password." VerticalAlignment="Top" Width="187" Height="61" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
         <Label Content="password" HorizontalAlignment="Left" Margin="295,118,-388,0" VerticalAlignment="Top" Width="142" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="24" Foreground="#FFDC3B3B"/>
-        <Button x:Name="ChangeEmailButton" HorizontalAlignment="Left" Margin="50,85,-191,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20">
+        <Button x:Name="ChangeEmailButton" HorizontalAlignment="Left" Margin="50,85,-191,0" VerticalAlignment="Top" Width="190" Height="195" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" Click="ChangeEmailButton_Click">
             <!--Content="Change your Password"-->
             <!--Content="Change your Password"-->
             <Button.BitmapEffect>
@@ -37,7 +37,7 @@
          />
         <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Margin="50,348,-61,0" VerticalAlignment="Top" FontSize="12" MouseLeftButtonDown="Password_Label_MouseLeftButtonDown" FontFamily="Roboto"/>
         <Label x:Name="InputErrorLabel" Content="" HorizontalAlignment="Left" Margin="491,85,0,0" VerticalAlignment="Top" Height="195" Width="130" Background="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FFE24040" FontSize="14"/>
-        <Button Content="🡪" HorizontalAlignment="Left" Margin="75,396,0,0" VerticalAlignment="Top" Width="35" Height="36" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White">
+        <Button Content="🡪" HorizontalAlignment="Left" Margin="75,396,0,0" VerticalAlignment="Top" Width="35" Height="36" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" Click="Button_Click_2">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

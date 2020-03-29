@@ -58,6 +58,7 @@ namespace GameClient_12._01._2020
             if(!this.error)
             {
                 labelLoading.Content = "finishing up ...";
+                System.Threading.Thread.Sleep(5000);// 5 sec of sleeping to delay the task opening
                 GameWindow gameWindow = new GameWindow(this.game,UserBL);
                 ProgressBarLoading.Value += 10;
                 gameWindow.Show();
@@ -81,13 +82,16 @@ namespace GameClient_12._01._2020
                         ProgressBarLoading.Value += 60;
                         labelLoading.Content = "Fetching the info ..";
                     });
+                    System.Threading.Thread.Sleep(5000);// 5 sec of sleeping to delay the task opening
                     GameConstants.InitializeVariables(dataTable);
                     this.Dispatcher.Invoke(() =>
                     {
                         ProgressBarLoading.Value += 30;
                         labelLoading.Content = "Initializing the info ...";
                     });
+                    System.Threading.Thread.Sleep(5000);// 5 sec of sleeping to delay the task opening
                 }
+                
             }
             catch(Exception)
             {

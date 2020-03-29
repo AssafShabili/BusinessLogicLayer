@@ -145,8 +145,8 @@ namespace GameBLL.GameComponents
 
                 //הפעולה למורכבת שלי 
 
-                //this.gameBL.GetWave().RecalculateEnemyWave(this.gameBL,
-                //    this.gameBL.GetMap().GetMapID());
+                this.gameBL.GetWave().RecalculateEnemyWave(this.gameBL,
+                    this.gameBL.GetMap().GetMapID());
 
                 this.gameBL.UpdatePropertiesInfo(this.wonWave, preWaveID);
 
