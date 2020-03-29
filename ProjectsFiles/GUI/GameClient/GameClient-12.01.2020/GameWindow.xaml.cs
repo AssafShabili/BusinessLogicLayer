@@ -408,9 +408,8 @@ namespace GameClient_12._01._2020
                              (int)dataTableProperties.Rows[i]["numbers_of_losess"],
                             (int)dataTableProperties.Rows[i]["numbers_of_water_towers"],
                             (int)dataTableProperties.Rows[i]["numbers_of_fire_towers"],
-                            (int)dataTableProperties.Rows[i]["numbers_of_earth_towers"],
-                            (int)dataTableProperties.Rows[i]["numbers_of_air_towers"]                         
-                            );
+                            (int)dataTableProperties.Rows[i]["numbers_of_air_towers"],                        
+                            (int)dataTableProperties.Rows[i]["numbers_of_earth_towers"]);
                     }
                 }
             }
