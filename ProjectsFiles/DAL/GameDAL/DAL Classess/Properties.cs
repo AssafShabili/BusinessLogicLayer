@@ -182,7 +182,7 @@ namespace GameDAL.DAL_Classess
             DBHelper.UpdateQuery("" +
                    " UPDATE Properties " +
                   $" SET numbers_of_losess = {numLost}, " +
-                  $" numbers_of_wins = {numWin}" +
+                  $" numbers_of_wins = {numWin}, " +
                   $" numbers_of_water_towers = {numbersWater}," +
                   $" numbers_of_fire_towers = {numbersFire}, " +
                   $" numbers_of_earth_towers =  {numbersEarth}, " +

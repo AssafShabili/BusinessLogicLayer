@@ -300,14 +300,21 @@ namespace GameClient_12._01._2020
             if(int.TryParse(((Button)sender).Name.Trim('B'), out int index))
             {
                 TowerBL tower = gameEngine.GetTowerByIndex(index);
-                if (!this.gameEngine.UpgradeTowerAttackSpeed(tower))
+                if(tower.GetAttackSpeedLevel() <= 9)
                 {
-                    LabelError.Content = "You dont have the money \n for it!";
+                    if (!this.gameEngine.UpgradeTowerAttackSpeed(tower))
+                    {
+                        LabelError.Content = "You dont have the money \n for it!";
+                    }
+                    else
+                    {
+                        AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
+                        LabelTowerAttackSpeed.Content = "Tower AttackSpeed: " + tower.GetAttackSpeed();
+                    }
                 }
                 else
                 {
-                    AttackSpeedButton.Content = tower.GetCostToUpgradeAttackSpeed() + " $";
-                    LabelTowerAttackSpeed.Content = "Tower AttackSpeed: " + tower.GetAttackSpeed();
+                    AttackSpeedButton.IsEnabled = false;
                 }
             }
 

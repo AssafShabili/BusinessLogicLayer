@@ -115,8 +115,9 @@ namespace GameClient_12._01._2020
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 this.error = true;
                 MessageBox.Show("[ERROR] There was a unexpacted error with the web-service pleace try again later");
                 return;
