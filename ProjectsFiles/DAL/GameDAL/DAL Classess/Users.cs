@@ -100,15 +100,15 @@ namespace GameDAL.DAL_Classess
         /// <param name="newPassword">סיסמא החדשה של המשתמש</param>
         public static void UpdatePassword(string email, string oldPassword, string newPassword)
         {
-            DBHelper.UpdateQuery($" UPDATE Users SET Users.[User_password] = {newPassword} " +
+            DBHelper.UpdateQuery($" UPDATE Users SET Users.[User_password] = '{newPassword}' " +
            $" WHERE(([Users].[User_email] = '{email}')) AND (([Users].[User_password] = '{oldPassword}')); ");
         }
 
         public static void UpdateEmail(string oldEmail, string newEmail, string password)
         {
             DBHelper.UpdateQuery(
-                $" UPDATE Users SET Users.[User_email] = {oldEmail} " +
-                $" WHERE(([Users].[User_email] = '{oldEmail}')) AND (([Users].[User_password] = '{password}')); ");
+                $" UPDATE Users SET Users.[User_email] = '{newEmail}' " +
+                $" WHERE (([Users].[User_email] = '{oldEmail}')) AND (([Users].[User_password] = '{password}')); ");
         }
 
 

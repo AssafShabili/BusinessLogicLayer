@@ -112,12 +112,12 @@ namespace GameClient_12._01._2020
                             if(this.option == true)
                             {                             
                                 ChangeUserEmail(user);
-                                InputErrorLabel.Content = "Email was changed!";
+                                InputErrorLabel.Content = "Email was \n changed!";
                             }
                             else if(this.option == false)
                             {
                                 ChangeUserPassword(user, service.GetMd5Hash(InputTextBox.Text));
-                                InputErrorLabel.Content = "Password was change!";
+                                InputErrorLabel.Content = "Password was \n change!";
                             }
                             else if(this.option == null)
                             {
@@ -127,14 +127,15 @@ namespace GameClient_12._01._2020
                         }
                         else
                         {
-                            InputErrorLabel.Content = "[Error] \n User not found ";
+                            InputErrorLabel.Content = "[Error] \n User not\n found ";
                             return;
                         }
                         
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        InputErrorLabel.Content = "[Error]\n no connection\n to the WS. \n try again later...";
+                        //MessageBox.Show(ex.Message);
+                        InputErrorLabel.Content = "[Error]\n no \n connection\n to the WS. \n try again\n later...";
                         return;
                     }
                 }
@@ -143,7 +144,7 @@ namespace GameClient_12._01._2020
             }
             else
             {
-                InputErrorLabel.Content = "[Error] Email or \n Password \n aren't valid";
+                InputErrorLabel.Content = "[Error]\n Email or \n Password \n aren't valid";
             }
         }
 
