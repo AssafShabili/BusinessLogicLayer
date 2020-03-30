@@ -1,4 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameBLL.BLL_Classess.AdminUserBL">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAgAAIgAARAAAAAAAAAQAAAAAQACAkEAAEQ=</HashCode>
+      <FileName>BLL Classess\AdminUserBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.GameBL">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AFgCkBJwCoAQAgAAAAAIcAIBAAAQBAmZAAkAgAJAGgg=</HashCode>
+      <FileName>BLL Classess\GameBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.MapBL">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAUEEAAAgAIAAAAEQCAAAAAAEAAAAAA=</HashCode>
+      <FileName>BLL Classess\MapBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.TowerBL">
+    <Position X="5.75" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CBASA2wKAEmAiAEBmAAYEIhCIAIQQBgACAwAkBARQAQ=</HashCode>
+      <FileName>BLL Classess\TowerBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.UserBL">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAACIAAAAgAkCICAgAAAAARCABBAIIAAAgAggAA=</HashCode>
+      <FileName>BLL Classess\UserBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.BLL_Classess.WaveBL">
+    <Position X="3.25" Y="10.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAABAAACAYAAEAAQABAAIAAAEAACgAQAAAABABCQA=</HashCode>
+      <FileName>BLL Classess\WaveBL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.GameComponents.Enemy">
+    <Position X="8.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAgCgIAAAgAAAAMAECECYAAFAAAIAAAABAAAABQ=</HashCode>
+      <FileName>GameComponents\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.GameComponents.GameEngine">
+    <Position X="0.5" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>KAQCABAgGCgAgggAIACAIIAAAAgBBAgQAAQAIAIIFKI=</HashCode>
+      <FileName>GameComponents\GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameBLL.GameComponents.TowerProjectile">
+    <Position X="11.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAIIAggIAIAAAIAAAAAEAAQAAAABAAAAAEAA=</HashCode>
+      <FileName>GameComponents\TowerProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GameBLL.BLL_Classess.Circle">
+    <Position X="8.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYJA=</HashCode>
+      <FileName>GameComponents\Circle.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="GameBLL.BLL_Classess.TowerType">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAQAAAAAAAAAkAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>BLL Classess\TowerBL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
