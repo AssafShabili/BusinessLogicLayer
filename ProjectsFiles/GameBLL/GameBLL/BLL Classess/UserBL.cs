@@ -180,12 +180,10 @@ namespace GameBLL.BLL_Classess
         /// <returns>את המיקום הראשון הפנוי הראשון</returns>
         private int GetAvailableSaveIndex()
         {
-            for (int i = 0; i < 3; i++)
+           
+            if(this.gameSaves.Count < 3)
             {
-                if(this.gameSaves[i] == null)
-                {
-                    return i;
-                }
+                return this.gameSaves.Count;
             }
             return -1;
         }
@@ -203,9 +201,9 @@ namespace GameBLL.BLL_Classess
             if (index != -1)//failed-key
             {
                 //מוחקים את השמירה מהבסיס נתונים שלי
-                Users.DeleteGameSaveFromUser(this.userID, this.gameSaves[index].GetGameBLID());
+                //Users.DeleteGameSaveFromUser(this.userID, this.gameSaves[index].GetGameBLID());
                 // מכניס את משחק לשרשרת של המשתמש 
-                this.gameSaves[index] = gameSave;
+                this.gameSaves.Add(gameSave);
                 // מכניס לבסיס נתונים שלי את השמירה החדשה
                 Game.UserAddSave(this.userID, gameSave.GetGameBLID());               
             }

@@ -118,6 +118,7 @@ namespace GameClient_12._01._2020
             MakeNewSave makeNewSave = new MakeNewSave(this.user);
             this.Hide();
             makeNewSave.Show();
+            this.Show();
         }
 
         private void ButtonGame3_Click(object sender, RoutedEventArgs e)
@@ -125,6 +126,7 @@ namespace GameClient_12._01._2020
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(2),this.user);
             this.Hide();
             this.loadingWindow.Show();
+            this.Show();
         }
 
         private void ButtonGame2_Click(object sender, RoutedEventArgs e)
@@ -132,6 +134,7 @@ namespace GameClient_12._01._2020
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
             this.Hide();
             loadingWindow.Show();
+            this.Show();
         }
 
         private void ButtonGame1_Click(object sender, RoutedEventArgs e)
@@ -139,6 +142,7 @@ namespace GameClient_12._01._2020
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(0), this.user);
             this.Hide();
             this.loadingWindow.Show();
+            this.Show();
         }
     }
 }

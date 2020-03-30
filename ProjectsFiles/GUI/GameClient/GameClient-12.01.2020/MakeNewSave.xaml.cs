@@ -128,6 +128,8 @@ namespace GameClient_12._01._2020
         {
             int gameID = game.MakeANewGame(MapsList[currentIndex].GetMapID());
             UserBL.AddGameSave(new GameBL(gameID));
+            MessageBox.Show("Save added...\n return to the Game Lobby");
+            this.Close();
         }
     }
 }
