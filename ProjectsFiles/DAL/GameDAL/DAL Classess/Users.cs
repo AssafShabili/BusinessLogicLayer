@@ -104,6 +104,13 @@ namespace GameDAL.DAL_Classess
            $" WHERE(([Users].[User_email] = '{email}')) AND (([Users].[User_password] = '{oldPassword}')); ");
         }
 
+
+        /// <summary>
+        /// פעולה לעדכון של האיימיל
+        /// </summary>
+        /// <param name="oldEmail">איימיל הישן של המשתמש</param>
+        /// <param name="newEmail">איימיל החדש של המשתמש</param>
+        /// <param name="password">סיסמתא המשתמש</param>
         public static void UpdateEmail(string oldEmail, string newEmail, string password)
         {
             DBHelper.UpdateQuery(
@@ -219,7 +226,6 @@ namespace GameDAL.DAL_Classess
             DBHelper.UpdateQuery(
                $"UPDATE AdminPercentage SET AdminPercentage.AdminPercentage_Highest_Current_Winrate = {highestCurrentWinrate};");
         }
-
         /// <summary>
         /// פעולה המחזירה את כמות המשתמשים שיש
         /// </summary>
@@ -229,7 +235,6 @@ namespace GameDAL.DAL_Classess
             return DBHelper.GetDataTable(
                 0, " SELECT Users.[User_ID] FROM Users;").Rows.Count;
         }
-
         /// <summary>
         /// פעולה לקבלת מספר המגדלים שעד עתה נבנו
         /// </summary>
@@ -239,7 +244,6 @@ namespace GameDAL.DAL_Classess
             return DBHelper.GetDataTable(
                 0, " SELECT Towers.[Tower_ID] FROM Towers;").Rows.Count;
         }
-
         #endregion
 
         /// <summary>
@@ -264,11 +268,6 @@ namespace GameDAL.DAL_Classess
             return DBHelper.GetDataTable(0,
                 " SELECT * " +
                 " FROM Properties");
-        }
-
-        //TODO תוספת 
-        //נתונים extra לפי הטופס של מנהל המערכת
-
-
+        }       
     }
 }

@@ -34,7 +34,13 @@ namespace GameBLL.GameComponents
         bool hitPlayer = false;
         
 
-
+        /// <summary>
+        /// פעולה בונה של מחלקת אויב
+        /// </summary>
+        /// <param name="HP"></param>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
+        /// <param name="road"></param>
         public Enemy(int HP,string name, TowerType type, List<Point> road)
         {
             this.name = name;
@@ -46,12 +52,18 @@ namespace GameBLL.GameComponents
             SetImage();
         }
 
+        /// <summary>
+        /// פעולה להשמת נקודות לאותו אויב
+        /// </summary>
+        /// <param name="road"></param>
         public void SetRoadMap(List<Point> road)
         {
             this.road = road;
         }
 
-
+        /// <summary>
+        /// פעולה להשמת התמונה של אותו אויב
+        /// </summary>
         public void SetImage()
         {
             EnemyImage.Source = GetBitmapImage(this.name);
@@ -85,7 +97,9 @@ namespace GameBLL.GameComponents
 
 
 
-
+        /// <summary>
+        /// פעולה לציור האויב
+        /// </summary>
         public void Draw()
         {
             if(currentFrame < frameCount)
@@ -140,6 +154,10 @@ namespace GameBLL.GameComponents
             return false;
         }
 
+        /// <summary>
+        /// פעולה לקבלת המיקום הבא של הדרך של האויב
+        /// </summary>
+        /// <returns>נקודה המייצגת את המיקום האחרון</returns>
         public Point GetNextLocation()
         {
             if ((this.indexInRoad + 1) < this.road.Count())
@@ -152,6 +170,11 @@ namespace GameBLL.GameComponents
             }
         }
 
+        /// <summary>
+        /// פעולה לעדכון ההאויב
+        /// </summary>
+        /// <param name="gameCanvas">הלוח של האויב</param>
+        /// <param name="game">המשחק</param>
         public void Update(Canvas gameCanvas,GameBL game)
         {
             if (this.HP <= 0)
@@ -180,6 +203,10 @@ namespace GameBLL.GameComponents
             return (this.indexInRoad == this.road.Count() - 1);
         }
 
+        /// <summary>
+        /// פעולה של הפגיעה של האויב
+        /// </summary>
+        /// <param name="dmg">כמות הנזק שמקבל האויב</param>
         public void Hit(int dmg)
         {
             this.HP -= dmg;
@@ -219,7 +246,10 @@ namespace GameBLL.GameComponents
                 }
             }
         }
-
+        /// <summary>
+        /// פעולה לקבלת כמות החיים
+        /// </summary>
+        /// <returns></returns>
         public int GetHp()
         {
             return this.HP;

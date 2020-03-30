@@ -16,6 +16,9 @@ namespace GameBLL.BLL_Classess
         private string userName = "ADMIN-GAME";//שם המשתמש של מנהל המערכת
         private string password = "ADMINPASSWORD-GAME";// סיסמא של מנהל המערכת
 
+        /// <summary>
+        /// פעולה בונה
+        /// </summary>
         public AdminUserBL()
         {
 

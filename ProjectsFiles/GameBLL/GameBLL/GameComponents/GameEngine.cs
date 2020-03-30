@@ -41,7 +41,11 @@ namespace GameBLL.GameComponents
         private int currentEnemeysDeploy = 0;
         private List<Enemy> currentEnemey = new List<Enemy>();
 
-
+        /// <summary>
+        /// פעולה בונה של המחלקה
+        /// </summary>
+        /// <param name="game">משחק</param>
+        /// <param name="button">כפתור של הסיבוב הבא</param>
         public GameEngine(GameBL game, Button button)
         {
             this.gameBL = game;
@@ -169,7 +173,10 @@ namespace GameBLL.GameComponents
 
 
 
-
+        /// <summary>
+        /// פעולה לבדיקה אם כל האויב מתים
+        /// </summary>
+        /// <returns>הפעולה מחזירה אמת אם כול מתים ושקא אחרת</returns>
         private bool CheckIfAllAreDead()
         {
             foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
@@ -181,6 +188,10 @@ namespace GameBLL.GameComponents
             }
             return true;
         }
+        /// <summary>
+        /// פעולה לבדיקה אם כל הקליעים פגעו
+        /// </summary>
+        /// <returns></returns>
         private bool CheckIfAllprojectile()
         {
             foreach (TowerProjectile projectile in this.projectilelist)
@@ -192,6 +203,10 @@ namespace GameBLL.GameComponents
             }
             return true;
         }
+        /// <summary>
+        /// בדיקה אם כולם מתים או שהם נמצאים בסוף
+        /// </summary>
+        /// <returns>אמת אם התנאי שכולם מתים או שהם  נמצאים בסוף של המסלול</returns>
         private bool CheckIfDeadOrEnd()
         {
             foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
@@ -203,6 +218,10 @@ namespace GameBLL.GameComponents
             }
             return true;
         }
+        /// <summary>
+        /// פעולה לבדיקה אם כל האויבים מתים 
+        /// </summary>
+        /// <returns>אמת אם כולם מתים ושקר  אחרת</returns>
         private bool checkIfAllAtEnd()
         {
             foreach (Enemy enemy in this.gameBL.GetWave().GetEnemies())
@@ -380,11 +399,6 @@ namespace GameBLL.GameComponents
         {
             return this.gameBL.ShouldBuilt();
         }
-
-
-
-
-
 
 
 

@@ -61,7 +61,11 @@ namespace GameBLL.BLL_Classess
         }
 
 
-
+        /// <summary>
+        /// פעולה בונה למחלקת הסיבוב
+        /// </summary>
+        /// <param name="waveID">מפתח של הסיבוב</param>
+        /// <param name="road">שרשרת הנקודות של המפה שלבא הולך להיות הסיבוב</param>
         public WaveBL(int waveID, List<Point> road)
         {
             DataTable dataT = GameDAL.DAL_Classess.Game.GetGameWaveInfo(waveID);
@@ -107,31 +111,7 @@ namespace GameBLL.BLL_Classess
         }
 
 
-        //TOdo delete it
-        ///// <summary>
-        ///// פעולה לקבלת טֶקְסְטוּרָה מתוך שם של הסוג של האויב
-        ///// או בוס
-        ///// </summary>
-        ///// <param name="type">שם </param>
-        ///// <returns>מחזיר את טֶקְסְטוּרָה לפי הסטריג שנקלט </returns>
-        //private Image GetBossTexture2D(string type)
-        //{
-        //    Image image = new Image();
-        //    switch (type.ToLower())
-        //    {
-        //        case "fire":                
-        //           image.Source = 
-        //        //case "water":
-        //        //    return GameConstants.waterBoss;
-        //        //case "air":
-        //        //    return GameConstants.airBoss;
-        //        //case "earth":
-        //        //    return GameConstants.earthBoss;
-               
-        //    }
-        //    return image;
-
-        //} //TODO delete it!!!
+     
 
         /// <summary>
         /// פעולה שמקבלת מפתח של בוס 
@@ -324,9 +304,6 @@ namespace GameBLL.BLL_Classess
         }
 
         
-
-
-
         /// <summary>
         /// פעולה שמקבלת סוג של מגדל (או של אויבים זה לא משנה לפי התכנון שלי) ומחזירה את הסוג שמנוגד אליו
         /// ראה את התרשים שבתוך הפעולה הנ"ל
@@ -382,38 +359,7 @@ namespace GameBLL.BLL_Classess
 
         }
 
-        #region oldCodeShouldBeRemoveOrReWorked
-        ///// <summary>
-        ///// פעולת עזר לשינוי משם השדה לאילך שהוא אמור להראות
-        ///// </summary>
-        ///// <param name="field">שם של השדה</param>
-        ///// <returns>איך שאותו אויב אמור להיראות</returns>
-        //private Texture2D GetEnemyTextureFromString(string field)
-        //{
-        //    switch (field)
-        //    {
-        //        case "Wave_Normal_Unit":
-        //            return GameConstants.Wave_Normal_Unit;
-        //        case "Wave_Normal_Range":
-        //            return GameConstants.Wave_Normal_Range;
-        //        case "Wave_Adv_Unit":
-        //            return GameConstants.Wave_Adv_Unit;
-        //        case "Wave_Adv_Range":
-        //            return GameConstants.Wave_Adv_Range;
-        //        case "Wave_Ultra_Unit":
-        //            return GameConstants.Wave_Adv_Unit;
-        //        case "Wave_Ultra_Range":
-        //            return GameConstants.Wave_Adv_Range;
-        //        default:
-        //            return null;
-        //    }
-        //}
-        #endregion
-
-
-
-
-
+     
         // ================= פעולות איחזור של הנתונים של הסיבוב ========
         public int GetCompleteScore()
         {

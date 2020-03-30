@@ -49,6 +49,10 @@ namespace GameBLL.BLL_Classess
 
         private double coolDown = 0;
 
+        /// <summary>
+        /// פעולה בונה של מחלקת מגדל
+        /// </summary>
+        /// <param name="towerID">מפתח של מגדל</param>
         public TowerBL(int towerID)
         {
             DataTable dtTower = Tower.GetTowerInfo(towerID);
@@ -93,6 +97,9 @@ namespace GameBLL.BLL_Classess
             }
         }
 
+        /// <summary>
+        /// פעולה בונה ריקה של המגדל
+        /// </summary>
         public TowerBL()
         {
             
@@ -164,18 +171,14 @@ namespace GameBLL.BLL_Classess
             this.attackSpeedLevel++;
             this.attackSpeed = this.attackSpeed - 5;
             Tower.UpgradeTowerAttackSpeed(this.towerID, this.attackSpeed);
-            //need to update the database!
-            //update attackSpeed
-            //update attackSpeedLevel
+          
         }
         public void UpgradeRange()
         {
             this.rangeLevel++;
             this.range = this.range + (10*this.rangeLevel);
             Tower.UpgradeTowerRange(this.towerID, this.range);
-            //need to update the database!
-            //update attackSpeed
-            //update attackSpeedLevel
+           
         }
         // =========== פעולות לעדכון המערכים של המגדל סיום =============
 
@@ -335,7 +338,10 @@ namespace GameBLL.BLL_Classess
         {
             return this.cost;
         }
-
+        /// <summary>
+        /// פעולה לקבלת הכפתור של המגדל
+        /// </summary>
+        /// <returns>את הכפתור של המגדל</returns>
         public Button GetTowerButton()
         {
             return this.towerButton;

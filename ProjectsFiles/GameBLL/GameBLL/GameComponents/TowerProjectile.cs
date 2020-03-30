@@ -54,15 +54,6 @@ namespace GameBLL.GameComponents
 
 
 
-
-        public void InitializePoints()
-        {
-           
-           
-           
-        }
-
-
         /// <summary>
         /// פעולה לעדכון התמונות של המשחק
         /// </summary>
@@ -168,7 +159,10 @@ namespace GameBLL.GameComponents
             target.Hit(damage);
         }
 
-
+        /// <summary>
+        /// פעולה להחזרה אם הקליע פגע במטרה או לא
+        /// </summary>
+        /// <returns>אמת אם פגע במטרה ושקר אחרת</returns>
         public bool projectileHit()
         {
             return this.hit;
