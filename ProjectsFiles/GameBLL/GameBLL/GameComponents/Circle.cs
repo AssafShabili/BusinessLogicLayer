@@ -39,46 +39,7 @@ namespace GameBLL.BLL_Classess
             this.Y = y;
             this.Radius = radius;
         }
-
-
-        ///// <summary>
-        ///// פעולה לבדיקה עם המעגל נפגש עם מלבן נתון
-        ///// </summary>
-        ///// <param name="rectangle">מלבן </param>
-        ///// <returns>אם המלבן הנתון מתלכד עם המעגל או לא</returns>
-        //public bool Intersects(Rectangle rectangle)
-        //{
-
-           
-
-        //    // דבר ראשון בודקים אם פינות המלבן נפגשות עם המעגל
-        //    Point[] corners = new Point[]
-        //    {
-        //        new Point(rectangle., rectangle.Left),
-        //        new Point(rectangle.Top, rectangle.Right),
-        //        new Point(rectangle.Bottom, rectangle.Right),
-        //        new Point(rectangle.Bottom, rectangle.Left)
-        //    };
-
-        //    foreach (var corner in corners)
-        //    {
-        //        if (ContainsPoint(corner))
-        //        {
-        //            return true;
-        //        }
-        //    }
-
-
-        //    //בודקים אם קצוות המלבן חופפים למעגל
-        //    if (X - Radius > rectangle.Right || X + Radius < rectangle.Left)
-        //        return false;
-        //    //בודקים אם קצוות המלבן חופפים למעגל
-        //    if (Y - Radius > rectangle.Bottom || Y + Radius < rectangle.Top)
-        //        return false;
-
-        //    // אם לא הם נפגשים
-        //    return true;
-        //}
+     
 
         /// <summary>
         /// פעולה לבדיקה עם המעגל נפגש או מתלקד עם מעגל אחר

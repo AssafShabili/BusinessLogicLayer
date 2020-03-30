@@ -75,31 +75,7 @@ namespace GameBLL.BLL_Classess
 
 
 
-        ///// <summary>
-        ///// פעולה ליצירת שרשרת הנקודות של הדרך
-        ///// </summary>
-        //public void InitializePointsArray()
-        //{
-        //    int actualY = 0;/*MapSizeHeight*/
-        //    int actualX = 0;/*MapSizeWidth*/
-
-        //    for (int i = 0; i < /*MapSizeWidth16*/GameConstants.MapWidth; i++)
-        //    {
-        //        for (int j = 0; j < /*MapSizeHeight*21*/GameConstants.MapHeight; j++)
-        //        {
-        //            if (this.mapRoad.Exists(p => p.X == i && p.Y == j))
-        //            {
-        //                this.tileArray[i, j] = new MapTile(GameConstants.TileWidth,
-        //                    GameConstants.TileHeight, new Point(actualX, actualY), new Point(i, j), true);
-        //            }
-        //            else
-        //            {
-        //                this.tileArray[i, j] = new MapTile(50, 50, new Point(actualX, actualY), new Point(i, j), false);
-        //            }
-
-        //        }
-        //    }
-        //}
+     
 
 
         /// <summary>
@@ -141,16 +117,7 @@ namespace GameBLL.BLL_Classess
         public List<Point> GetMapRoad()
         {
             return this.mapRoad;
-        }
-
-        ///// <summary>
-        ///// פעולה לאיחזור המערך של הנקודות של המפה כולה
-        ///// </summary>
-        ///// <returns></returns>
-        //public MapTile[,] GetMapPointsArray()
-        //{
-        //    return this.tileArray;
-        //}
+        }    
 
         /// <summary>
         /// פעולה להחזרת מפתח של המפה
@@ -159,48 +126,7 @@ namespace GameBLL.BLL_Classess
         public int GetMapID()
         {
             return this.mapID;
-        }
-
-        
-
-        ///// <summary>
-        ///// פעולה לקבלת המשבצת לפי מיקום בלוח של משחק 
-        ///// </summary>
-        ///// <param name="postion">מיקום בלוח של המשחק</param>
-        ///// <returns>אם נמצא משבצת שהיא מכילה את המיקום הנ"ל אז הפעולה תחזיר את המשבצת ,אחרת תחזיר null</returns>
-        //public MapTile GetTileInMap(Point position)
-        //{
-        //    foreach(MapTile mapTile in this.tileArray)
-        //    {
-        //        if(mapTile.ContainsPoint(position))
-        //        {
-        //            return mapTile;
-        //        }
-        //    }
-        //    return null;
-        //}
-
-
-        ///// <summary>
-        /////  פעולה לקבלת המיקום במערך לפי מיקום בלוח
-        ///// </summary>
-        ///// <param name="position">מיקום בלוח</param>
-        ///// <returns>נקודה מייצגת את המיקום במערך</returns>
-        //public Point GetPositionInArray(Point position)
-        //{
-        //    for (int i = 0; i < this.tileArray.GetLength(0); i++)
-        //    {
-        //        for (int j = 0; j < this.tileArray.GetLength(1); j++)
-        //        {
-        //            if(this.tileArray[i,j].ContainsPoint(position))
-        //            {
-        //                return new Point(i,j);
-        //            }
-        //        }
-        //    }
-        //    return Point.Zero;
-        //}
-
+        }    
 
         /// <summary>
         /// פעולה להחזרת השם של המפה
