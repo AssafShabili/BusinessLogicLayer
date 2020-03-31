@@ -21,7 +21,6 @@ public class AdminService : IAdminService
     [WebMethod]
     public DataTable GetAdminPercentageTable()
     {
-
         return this.AdminUserBL.GetAdminPercentageTable();
     }
 
