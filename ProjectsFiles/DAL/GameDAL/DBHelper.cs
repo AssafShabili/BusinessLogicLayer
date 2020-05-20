@@ -39,12 +39,16 @@ namespace GameDAL
             return connection;
         }
 
+
+        /// <summary>
+        /// פעולה לקבלת המחרוזת של חיבור לבסיס הנתונים שלנו
+        /// </summary>
+        /// <returns>הפעולה תחזיר את מחרוזת של חיבור בסיסם נתונים</returns>
         private static string MakeConnectionString()
         {
             return String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source ={0};Persist Security Info = False;",
                 @"C:\Users\assaf\OneDrive\מסמכים\GitHub\BusinessLogicLayer\ProjectsFiles\DAL\GameDAL\DataBase\DataBaseGameAssafShabili.accdb");
-            //F:\ProjectsFiles\GameBLL\GameBLL\bin\Debug\DataBaseGameAssafShabili.accdb
-            //@"~\DataBase\DataBaseGameAssafShabili.accdb"
+           
         }
 
 

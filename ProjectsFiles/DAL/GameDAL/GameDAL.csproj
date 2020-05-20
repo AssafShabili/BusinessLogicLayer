@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,7 +53,6 @@
     <Compile Include="DAL Classess\Properties.cs" />
     <Compile Include="DAL Classess\Tower.cs" />
     <Compile Include="DAL Classess\Users.cs" />
-    <Compile Include="DAL Classess\WaveArchives.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
