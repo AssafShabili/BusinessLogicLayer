@@ -321,7 +321,8 @@ namespace GameBLL.GameComponents
         /// <returns>אמת אם אפשר לעשות את השידרוג(בנוסף לכך אם כן יהיה אפשר לשדרג את המגדל הפעולה תשדרג את המגדל) ושקר אחרת
         public bool UpgradeTowerAttackSpeed(TowerBL towerBL)
         {    
-            if(this.gameBL.GetMoney() - towerBL.GetCostToUpgradeAttackSpeed() >= 0)
+            if(this.gameBL.GetMoney() - towerBL.GetCostToUpgradeAttackSpeed() >= 0
+                && towerBL.GetAttackSpeedLevel() < 9)
             {
                  return gameBL.UpgradeTowerAttackSpeed(towerBL);            
             }

@@ -132,7 +132,7 @@ namespace GameBLL.GameComponents
 
                 return false;
             }
-            //(position - target.GetLocation());           
+                      
         }
 
 

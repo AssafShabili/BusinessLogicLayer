@@ -300,7 +300,7 @@ namespace GameClient_12._01._2020
             if(int.TryParse(((Button)sender).Name.Trim('B'), out int index))
             {
                 TowerBL tower = gameEngine.GetTowerByIndex(index);
-                if(tower.GetAttackSpeedLevel() <= 9)
+                if(tower.GetAttackSpeedLevel() < 9)
                 {
                     if (!this.gameEngine.UpgradeTowerAttackSpeed(tower))
                     {

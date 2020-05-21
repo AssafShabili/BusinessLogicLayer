@@ -96,7 +96,7 @@
                 </DataTemplate>
             </Button.ContentTemplate>
         </Button>
-        <Label x:Name="LabelError" Content="" HorizontalAlignment="Left" Margin="1013,250,0,0" VerticalAlignment="Top" Width="232" Height="45" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
+        <Label x:Name="LabelError" Content="" HorizontalAlignment="Left" Margin="975,250,0,0" VerticalAlignment="Top" Width="287" Height="50" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="12"/>
         <Button x:Name="NextWaveButton" Content="NEXT WAVE " HorizontalAlignment="Left" Margin="975,110,0,0" VerticalAlignment="Top" Width="175" Height="30" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" Click="NextWaveButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
