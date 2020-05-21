@@ -24,9 +24,11 @@
             <Image x:Name="ImgGame2" Height="100" Width="145" Stretch="Fill"/>
         </Button>
         <Button Name="ButtonGame1" HorizontalAlignment="Left" Margin="185,180,0,0" VerticalAlignment="Top" Width="150" Height="150" Background="White" BorderBrush="White" Foreground="White" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto" FontSize="20" Click="ButtonGame1_Click">
+            
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF3C3838" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.4" />
             </Button.BitmapEffect>
+           
             <Image x:Name="ImgGame1" Height="100" Width="145" Stretch="Fill"/>
         </Button>
         <Label x:Name="NameLbl" Content="Hi,User name place holder" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="225" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
@@ -46,6 +48,9 @@
         <Button Content="-" HorizontalAlignment="Left" Margin="665,10,0,0" VerticalAlignment="Top" Width="34" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="32" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
         <Label x:Name="LabelNoGame" Content="" HorizontalAlignment="Left" Margin="550,387,0,0" VerticalAlignment="Top" Width="232" Height="73" Foreground="#FFD13639" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="16"/>
         <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="Game1InfoLabel" Content="" HorizontalAlignment="Left" Margin="185,189,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
+        <Label x:Name="Game2InfoLabel" Content="" HorizontalAlignment="Left" Margin="380,189,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
+        <Label x:Name="Game3InfoLabel" Content="" HorizontalAlignment="Left" Margin="570,194,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
 
     </Grid>
 </Window>

@@ -69,20 +69,26 @@ namespace GameClient_12._01._2020
                 case 3:
                    
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(0), Game1InfoLabel);
                     ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(1), Game2InfoLabel);
                     ImgGame3.Source = GetBitmapImage(userMaps[2].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(2), Game3InfoLabel);
 
                     NewGameButton.Visibility = Visibility.Hidden;
                     break;
                 case 2:
                     ButtonGame3.IsEnabled = false;
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(0), Game1InfoLabel);
                     ImgGame2.Source = GetBitmapImage(userMaps[1].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(1), Game2InfoLabel);
                     break;
                 case 1:
                     ButtonGame3.IsEnabled = false;
                     ButtonGame2.IsEnabled = false;
                     ImgGame1.Source = GetBitmapImage(userMaps[0].GetMapName());
+                    SetGameInfo(this.user.GetGameSave(0), Game1InfoLabel);
                     break;
                 default:
                     ButtonGame3.IsEnabled = false;
@@ -96,6 +102,17 @@ namespace GameClient_12._01._2020
 
            
         }
+
+        /// <summary>
+        /// פעולה להשמת הנתונים של המשחק
+        /// </summary>
+        /// <param name="game">משחק</param>
+        /// <param name="label">ליבל שאמורה להציג את הנתונים של משחק</param>
+        public void SetGameInfo(GameBL game, Label label)
+        {
+            label.Content = $"Wave:{game.GetWave().GetWaveID()} Hp:{game.GetUserHealth()}";
+        }
+
 
         /// <summary>
         /// פעולה שמקבלת את השם של המפה  
