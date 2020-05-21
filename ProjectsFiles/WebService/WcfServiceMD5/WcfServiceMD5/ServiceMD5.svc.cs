@@ -12,7 +12,19 @@ namespace WcfServiceMD5
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IServiceMD5
-    {      
+    {
+
+        /// <summary>
+        /// הפעולה מפענחת את הסיסמא לסטרינג רגיל
+        /// </summary>
+        /// <param name="base64EncodedData">המידע שהוא כבר עבר את הצפנה</param>
+        /// <returns>את הסטרינג הוא לא מוצפן</returns>
+        private static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
         /// <summary>
         /// פעולה לקבלת הסיסמא בהצפנה
         /// </summary>      
@@ -23,7 +35,7 @@ namespace WcfServiceMD5
         {
             using (MD5 md5Hash = MD5.Create())
             {
-                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(Base64Decode(password)));
 
                 // Create a new Stringbuilder to collect the bytes
                 // and create a string.
@@ -52,7 +64,7 @@ namespace WcfServiceMD5
         public  string GetMd5HashWithMD5Hash(MD5 md5Hash, string password)
         {
 
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(Base64Decode(password)));
 
             // Create a new Stringbuilder to collect the bytes
             // and create a string.
@@ -82,7 +94,7 @@ namespace WcfServiceMD5
             using (MD5 md5Hash = MD5.Create())
             {
                 // Hash the input.
-                string hashOfInput = GetMd5HashWithMD5Hash(md5Hash,password);
+                string hashOfInput = GetMd5HashWithMD5Hash(md5Hash, Base64Decode(password));
 
                 // Create a StringComparer an compare the hashes.
                 StringComparer comparer = StringComparer.OrdinalIgnoreCase;
