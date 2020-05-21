@@ -399,7 +399,9 @@ namespace GameClient_12._01._2020
         {
             if(this.gameEngine.GetLost())
             {//המשתמש הפסיד
-                user.RemoveGameSave(user.GetIndexOfGameBL(this.game));                
+
+                this.game.GetTowersList().ForEach(tower => tower.DeleteTower(this.game.GetGameBLID()));// אנחנו מוחקים את המגדלים הקשורים לאותה שמירה
+                user.RemoveGameSave(user.GetIndexOfGameBL(this.game));                           
             }
             try
             {
