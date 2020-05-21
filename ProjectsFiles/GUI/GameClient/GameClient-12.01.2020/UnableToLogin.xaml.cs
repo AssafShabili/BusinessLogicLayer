@@ -95,6 +95,18 @@ namespace GameClient_12._01._2020
             InputTextBox.Text = "email";
             this.option = true;
         }
+        /// <summary>
+        /// פעולה להצפנת הסיסמא ל
+        /// base64
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        public static string Base64Encode(string plainText)
+        {
+            byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -106,7 +118,7 @@ namespace GameClient_12._01._2020
                 {
                     try
                     {
-                        UserBL user = new UserBL(Email_TextBox.Text, service.GetMd5Hash(Password_TextBox.Password));
+                        UserBL user = new UserBL(Email_TextBox.Text, service.GetMd5Hash(Base64Encode(Password_TextBox.Password)));
                         if(user.GetID() != -1)
                         {
                             if(this.option == true)

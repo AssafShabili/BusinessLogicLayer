@@ -88,6 +88,20 @@ namespace GameClient_12._01._2020
 
         }
 
+        /// <summary>
+        /// פעולה להצפנת הסיסמא ל
+        /// base64
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        public static string Base64Encode(string plainText)
+        {
+            byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+
+
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -96,7 +110,7 @@ namespace GameClient_12._01._2020
             {
                 using (ServiceMD5Client service = new ServiceMD5Client())
                 {
-                    Hashedpassword = service.GetMd5Hash(Password_TextBox.Password);
+                    Hashedpassword = service.GetMd5Hash(Base64Encode(Password_TextBox.Password));
                 }
 
                 if (Regex.Match(Email_TextBox.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$").Success)
