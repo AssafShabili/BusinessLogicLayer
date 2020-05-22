@@ -29,6 +29,6 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="commentLabel" Content="Label" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top" Width="195" Height="90" FontSize="14" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
+        <Label x:Name="commentLabel" Content="" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top" Width="195" Height="90" FontSize="14" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
     </Grid>
 </Window>
