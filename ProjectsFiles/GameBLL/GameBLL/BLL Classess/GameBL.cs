@@ -114,7 +114,7 @@ namespace GameBLL.BLL_Classess
         public bool CanBuildTowerHere(Point postion)
         {           
             return !this.map.GetMapRoad().Exists(point =>
-            (distanceBetween2Points(point, postion) < 100));
+            (distanceBetween2Points(point, postion) < 25));
         }
 
         /// <summary>

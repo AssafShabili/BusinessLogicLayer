@@ -134,7 +134,7 @@ namespace GameClient_12._01._2020
         {
             MakeNewSave makeNewSave = new MakeNewSave(this.user);
             this.Hide();
-            makeNewSave.Show();
+            makeNewSave.ShowDialog();
             this.Show();
         }
 
@@ -142,7 +142,7 @@ namespace GameClient_12._01._2020
         {
             this.Hide();
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(2),this.user);
-            this.loadingWindow.Show();
+            this.loadingWindow.ShowDialog();
             this.Show();
         }
 
@@ -150,7 +150,7 @@ namespace GameClient_12._01._2020
         {
             this.Hide();
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
-            loadingWindow.Show();
+            loadingWindow.ShowDialog();
             this.Show();
         }
 
@@ -158,7 +158,15 @@ namespace GameClient_12._01._2020
         {
             this.Hide();
             this.loadingWindow = new LoadingWindow(this.user.GetGameSave(0), this.user);
-            this.loadingWindow.Show();
+            this.loadingWindow.ShowDialog();
+            this.Show();
+        }
+
+        private void ButtonTutorial_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            GameExplaining gameExplainingWindow = new GameExplaining();
+            gameExplainingWindow.ShowDialog();
             this.Show();
         }
     }

@@ -51,6 +51,14 @@
         <Label x:Name="Game1InfoLabel" Content="" HorizontalAlignment="Left" Margin="185,189,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
         <Label x:Name="Game2InfoLabel" Content="" HorizontalAlignment="Left" Margin="380,189,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
         <Label x:Name="Game3InfoLabel" Content="" HorizontalAlignment="Left" Margin="570,194,0,0" VerticalAlignment="Top" Width="150" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Foreground="#FFD13639"/>
+        <Button x:Name="ButtonTutorial" Content="game tutorial" HorizontalAlignment="Left" Margin="260,430,0,0" VerticalAlignment="Top" Width="170" Height="30" BorderThickness="0" BorderBrush="#FFEEEE35" Background="#FFEEEE35" Foreground="#FF1B1B1B" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" Click="NewGameButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="you should do it..." HorizontalAlignment="Left" Margin="260,460,0,0" VerticalAlignment="Top" Width="210" Height="32" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Foreground="#FF6083E0" FontSize="14"/>
 
     </Grid>
 </Window>
