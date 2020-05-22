@@ -435,5 +435,21 @@ namespace GameClient_12._01._2020
             
            
         }
+
+        private void ButtonTutorial_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.game.GetMoney() - 50 > 0)
+            {
+                this.Hide();
+                GameExplaining gameExplainingWindow = new GameExplaining();
+                gameExplainingWindow.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                LabelError.Content = "Not enough money for the tutorial...\n need 50$ for it ";
+            }
+            
+        }
     }
 }

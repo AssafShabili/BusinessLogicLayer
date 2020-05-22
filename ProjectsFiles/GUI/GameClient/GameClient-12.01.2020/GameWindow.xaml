@@ -45,6 +45,13 @@
                     </Button.Resources>
                 </Button>
                 <Label Margin="5,50,10,5" x:Name="LabelShouldBuilt"  FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
+                <Button x:Name="ButtonTutorial" Content="game tutorial"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="102" Height="30" BorderThickness="0" BorderBrush="#FFEEEE35" Background="#FFEEEE35" Foreground="#FF1B1B1B" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="14" Click="ButtonTutorial_Click" Margin="190,-35,0,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </Grid>
         </StackPanel>
         <Label x:Name="LabelMoney" Content="Label" HorizontalAlignment="Left" Margin="965,200,0,0" VerticalAlignment="Top" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" Width="235"/>
