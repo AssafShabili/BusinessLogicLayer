@@ -49,9 +49,6 @@ public class AdminService : IAdminService
         this.AdminUserBL.SetUpdateAdminPercentageHighestWinrate(percentage);
     }
 
-
-
-
     /*
      * בחלק הזה אני מעדכן את האחוזים ש"מחליטים " אם המשתמש צריך לקבלת את ההקלות
      *   לפי אותו אחוז הניצחון שלו אותו משתמש במשחק מבלי קשר לסיבוב שהוא נמצא
@@ -104,9 +101,4 @@ public class AdminService : IAdminService
     {
         return this.AdminUserBL.GetNumberOfTowers();
     }
-
-
-
-
-
 }

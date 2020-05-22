@@ -140,24 +140,24 @@ namespace GameClient_12._01._2020
 
         private void ButtonGame3_Click(object sender, RoutedEventArgs e)
         {
-            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(2),this.user);
             this.Hide();
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(2),this.user);
             this.loadingWindow.Show();
             this.Show();
         }
 
         private void ButtonGame2_Click(object sender, RoutedEventArgs e)
         {
-            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
             this.Hide();
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(1), this.user);
             loadingWindow.Show();
             this.Show();
         }
 
         private void ButtonGame1_Click(object sender, RoutedEventArgs e)
         {
-            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(0), this.user);
             this.Hide();
+            this.loadingWindow = new LoadingWindow(this.user.GetGameSave(0), this.user);
             this.loadingWindow.Show();
             this.Show();
         }

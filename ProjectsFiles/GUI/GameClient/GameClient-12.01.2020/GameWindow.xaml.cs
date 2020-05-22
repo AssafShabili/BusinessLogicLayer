@@ -76,6 +76,9 @@ namespace GameClient_12._01._2020
             gameEngine = new GameEngine(game, NextWaveButton);
 
             this.InitialsTowers(gameCanvas);
+
+               
+
         }
 
 
@@ -138,13 +141,16 @@ namespace GameClient_12._01._2020
                 LabelMoney.Content = "Money: " + this.game.GetMoney() + " $";
 
                 selection = TowerSelection.None;
+                sectionA.Visibility = Visibility.Hidden;
+
             }
             else if (!this.gameEngine.CanUserBuyTower() || !this.gameEngine.CanBuildTower(point))
             {
                 this.LabelError.Content = "can build here nor, \n you don't have money to buy it";
             }
+           
 
-            sectionA.Visibility = Visibility.Hidden;
+           
 
         }
 

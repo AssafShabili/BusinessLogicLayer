@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebFormLoginAdmin.aspx.cs" Inherits="AdminWebProject.WebFormLoginAdmin" %>
+﻿q<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebFormLoginAdmin.aspx.cs" Inherits="AdminWebProject.WebFormLoginAdmin" %>
 
 <!DOCTYPE html>
 
@@ -52,7 +52,7 @@
                           <asp:Label ID="LabelError" runat="server" ></asp:Label>
                       </div>
                     </div>
-                     <asp:Button ID="ButtonLogin" CssClass="btn btn-primary btn-user btn-block" runat="server" Text="Button" OnClick="Button1_Click" />                 
+                     <asp:Button ID="ButtonLogin" CssClass="btn btn-primary btn-user btn-block" runat="server" Text="Sign In" OnClick="Button1_Click" />                 
                   </form >          
                 </div>
               </div>

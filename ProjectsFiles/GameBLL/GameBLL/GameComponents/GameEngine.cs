@@ -49,7 +49,7 @@ namespace GameBLL.GameComponents
         public GameEngine(GameBL game, Button button)
         {
             this.gameBL = game;
-            this.attackPhase = true;//return to false
+            this.attackPhase = false;//return to false
           
             this.gameTime = 0.0;
          

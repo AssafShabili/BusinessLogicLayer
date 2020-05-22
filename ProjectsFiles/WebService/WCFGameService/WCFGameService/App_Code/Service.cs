@@ -57,7 +57,8 @@ public class Service : IService
 	/// <param name="numbersOfAirTowers">מספר מגדלי האוויר</param>
 	/// <param name="numbersOfEarthTowers">מספר מגדלי האדמה</param>
 	[WebMethod]
-	public void SendPropertiesInfoByFullInfo(int PropertiesID, int waveID, int numWin, int numLost, int numbersOfWaterTowers, int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
+	public void SendPropertiesInfoByFullInfo(int PropertiesID, int waveID, int numWin, int numLost, int numbersOfWaterTowers, 
+		int numbersOfFireTowers, int numbersOfAirTowers, int numbersOfEarthTowers)
 	{
 		Properties.UpdateProperties(PropertiesID, waveID, numWin, numLost, numbersOfWaterTowers, numbersOfFireTowers, numbersOfAirTowers, numbersOfEarthTowers);
 	}
