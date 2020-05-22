@@ -11,7 +11,7 @@
         <Button Content="X" HorizontalAlignment="Left" Margin="660,10,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click"/>
         <Button Content="?" HorizontalAlignment="Left" Margin="625,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="585,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
-        <Image HorizontalAlignment="Left" Margin="0,0,0,44" Width="690" Height="305" VerticalAlignment="Bottom"/>
+        <Image x:Name="ImageExplaning" HorizontalAlignment="Left" Margin="0,0,0,44" Width="690" Height="305" VerticalAlignment="Bottom" Source="Img/ImageExplaning/0.png" Stretch="Fill"/>
 
         <Button x:Name="ButtonNext" Content="NEXT" HorizontalAlignment="Left" Margin="565,368,0,0" VerticalAlignment="Top" Width="90" Height="26" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" >
             <Button.Resources>
@@ -29,6 +29,6 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="commentLabel" Content="" HorizontalAlignment="Left" Margin="30,230,0,0" VerticalAlignment="Top" Width="195" Height="90" FontSize="14" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
+        <Label x:Name="commentLabel" Content=" " HorizontalAlignment="Left" Margin="5,230,0,0" VerticalAlignment="Top" Width="230" Height="100" FontSize="14" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing"/>
     </Grid>
 </Window>
