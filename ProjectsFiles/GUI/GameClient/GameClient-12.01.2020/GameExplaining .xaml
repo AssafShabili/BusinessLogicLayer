@@ -1,0 +1,33 @@
+﻿<Window x:Class="GameClient_12._01._2020.GameExplaining"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameClient_12._01._2020"
+        mc:Ignorable="d"
+        Title="GameExplaining" Height="412" Width="704" WindowStyle="None">
+    <Grid>
+        <Rectangle x:Name="TopPanel" Fill="White" HorizontalAlignment="Left" Height="50" Stroke="White" VerticalAlignment="Top" Width="696" MouseDown="TopPanel_MouseDown"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="660,10,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" Click="Button_Click"/>
+        <Button Content="?" HorizontalAlignment="Left" Margin="625,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="585,8,0,0" VerticalAlignment="Top" Width="30" FontFamily="/GameClient-12.01.2020;component/Fonts/#Roboto Black" FontSize="20" Foreground="#FF5B5A5A" Height="30" BorderBrush="White" Background="White" RenderTransformOrigin="-0.7,0.5" Click="Button_Click_1"/>
+        <Image HorizontalAlignment="Left" Margin="0,0,0,44" Width="690" Height="305" VerticalAlignment="Bottom"/>
+
+        <Button x:Name="ButtonNext" Content="NEXT" HorizontalAlignment="Left" Margin="565,368,0,0" VerticalAlignment="Top" Width="90" Height="26" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" Click="">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+            
+        </Button>
+        
+        <Button x:Name="ButtonPre" Margin="30,368,0,0" Content="PREVIOUS" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="26" FontFamily="/GameClient-12.01.2020;component/Fonts/#Caesar Dressing" FontSize="20" BorderThickness="0" BorderBrush="#FFD13639" Background="#FFD13639" Foreground="White" Click="">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
