@@ -334,6 +334,11 @@
                     document.getElementById("p-danger").textContent = "you must insert a Positive number!";
                     return false;
                 }
+                else if  (Number(textBoxList[i]) > 100) {
+                    changeToWarning();
+                    document.getElementById("p-danger").textContent = "you must insert a number between 100-0!";
+                    return false;
+                }
             }
             document.getElementById("p-danger").className = "text-info";
             document.getElementById("p-danger").textContent = "Updating ...";
