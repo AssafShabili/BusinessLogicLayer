@@ -43,8 +43,7 @@ namespace GameBLL.BLL_Classess
 
         private Button towerButton;//ה'תמונה' המגדל
 
-        private int spriteHeight;//גובה של המגדל
-        private int spriteWidth;//אורך של מגדל
+  
 
 
         private double coolDown = 0;
@@ -313,23 +312,7 @@ namespace GameBLL.BLL_Classess
         {
             return this.towerID;
         }  
-        /// <summary>
-        /// פעולה לקבלת גובה הספריט של המגדל
-        /// </summary>
-        /// <returns></returns>
-        public int GetTowerSpriteHeight()
-        {
-            return this.spriteHeight;
-        }
-        /// <summary>
-        /// פעולה לקבלת אורך של הספריט של המגדל
-        /// </summary>
-        /// <returns></returns>
-        public int GetTowerSpriteWidth()
-        {
-            return this.spriteWidth;
-        }
-
+       
         /// <summary>
         /// פעולה להחזרת עלות המגדל
         /// </summary>

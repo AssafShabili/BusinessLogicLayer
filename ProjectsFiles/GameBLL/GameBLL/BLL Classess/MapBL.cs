@@ -36,9 +36,7 @@ namespace GameBLL.BLL_Classess
         // mapRoad - מייצג את כל הנקודות שהם הדרך שבה ילכו האויבים
         private List<Point> mapRoad;
 
-        // needs to be added to the dataBase propblay!
-        private int mapWidth;
-        private int mapHeight;
+       
 
 
         /// <summary>

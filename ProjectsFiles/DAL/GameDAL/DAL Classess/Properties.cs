@@ -212,7 +212,7 @@ namespace GameDAL.DAL_Classess
             {
                 return 0.0;
             }
-            return (wins / lose) * 100;
+            return (wins / (wins + lose)) * 100;
         }
 
 

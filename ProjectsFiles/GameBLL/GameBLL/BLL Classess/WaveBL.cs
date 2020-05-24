@@ -215,9 +215,8 @@ namespace GameBLL.BLL_Classess
         /// אם כן הפעולה "מקלה" על המשתמש 
         ///  באותה דרך הפעולה גם מקשה על המשתמש
         /// </summary>
-        /// <param name="game">משחק של המשתמש</param>
-        /// <param name="mapID">המפה של אותו משתמש</param>
-        public void RecalculateEnemyWave(GameBL game, int mapID)
+        /// <param name="game">משחק של המשתמש</param>     
+        public void RecalculateEnemyWave(GameBL game)
         {
             double currentWaveWinRate = Properties.GetWinRateOfWaveByID(this.waveID);
 
