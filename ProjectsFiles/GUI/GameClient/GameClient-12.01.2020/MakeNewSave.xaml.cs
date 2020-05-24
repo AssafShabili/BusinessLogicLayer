@@ -47,7 +47,14 @@ namespace GameClient_12._01._2020
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Minimized;
+            }
 
         }
 
